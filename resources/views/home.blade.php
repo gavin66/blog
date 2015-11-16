@@ -15,7 +15,9 @@
                     </header>
                     <div class="bulletin-body">
                         <p class="description" itemprop="description">
-                            周五微软带领一些IT记者去北京望京的微软大厦，去体验了一下即将正式对外开售的SurfacePro4。这款机器是微软10月6日新品发布会之后，最早能够向中国用户发出的产品。虽然说中国用户没有美国那样幸运，Surface Pro4带有指纹的键盘盖和Surface book都没有办法在中国大陆首发，但是相对世界其他地方来说，中国已经是足够幸运的地方。应该说中国是第一批参与Surface Pro4首发的国家和地区之一。
+                            周五微软带领一些IT记者去北京望京的微软大厦，去体验了一下即将正式对外开售的SurfacePro4。这款机器是微软10月6日新品发布会之后，最早能够向中国用户发出的产品。
+                            虽然说中国用户没有美国那样幸运，Surface Pro4带有指纹的键盘盖和Surface book都没有办法在中国大陆首发，但是相对世界其他地方来说，中国已经是足够幸运的地方。
+                            应该说中国是第一批参与Surface Pro4首发的国家和地区之一。
                         </p>
                         <div class="bulletin-link-full">
                             <a class="" href="" rel="contents">阅读全文 »</a>

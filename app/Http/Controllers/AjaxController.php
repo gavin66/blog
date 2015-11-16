@@ -1,5 +1,5 @@
 <?php namespace
-App\Http\Controllers\Ajax;
+App\Http\Controllers;
 
 use App\blog_content;
 use App\Http\Controllers\Controller;
