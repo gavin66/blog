@@ -13,16 +13,14 @@
 
 Route::get('phpinfo',function(){phpinfo();});
 
-//Route::get('/','EntryController@index');
-//Route::get('article',function(){return view('article');});
-
+Route::get('/',function(){return view('home');});
+Route::get('article',function(){return view('article');});
 
 //master
 Route::controllers([
     'master'=>'MasterController',
     'ajax' => 'AjaxController'
 ]);
-
 
 Route::get('gavin',function(){return view('gavin');});
 Route::controllers([
