@@ -75,4 +75,8 @@ class AjaxController extends Controller {
 		return view('test');
 	}
 
+	public function postTest(){
+		echo 'im gavin';
+	}
+
 }

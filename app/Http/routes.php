@@ -19,8 +19,9 @@ Route::get('article',function(){return view('article');});
 //master
 Route::controllers([
     'master'=>'MasterController',
-    'ajax' => 'AjaxController'
+    'ajax' => 'AjaxController',
 ]);
+Route::get('backstage',function(){return view('backstage');});
 
 Route::get('gavin',function(){return view('gavin');});
 Route::controllers([

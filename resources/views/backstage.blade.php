@@ -18,10 +18,11 @@
 {{--    <title>@yield('title','Gavin\'s Blog')</title>--}}
     <title>@yield('title','理发师')</title>
 
-
     <!-- Bootstrap css-->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+    {{--<link href="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.css" rel="stylesheet">--}}
     <link href="{{ asset('/css/site.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">
 
@@ -31,61 +32,33 @@
 
 </head>
 <body>
-    <header class="navbar navbar-inverse navbar-fixed-top" id="top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Gavin's Blog</a>
-            </div>
-            <nav class="collapse navbar-collapse" id="bs-navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">归档</a></li>
-                    <li><a href="#">关于我</a></li>
-                    <li>
-                        <form class="navbar-form navbar-left" role="search" id="">
-                            <div class="input-group ">
-                                <span class="glyphicon glyphicon-search" id="navbar-searchicon"></span>
-                                <input type="text" class="form-control" placeholder="关键字搜索" id="navbar-search">
-                            </div>
-                        </form>
-                    </li>
-                    {{--<li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></li>--}}
-                </ul>
-            </nav>
-        </div>
-    </header>
+    {{--<div id="pjax-c">--}}
 
-    @section('content')
+    {{--</div>--}}
+    {{--<a href="/master/pjax" target="_blank" id="pjax-a">Pjax</a><br>--}}
+    {{--<a href="/master/pjax" target="_blank">重定向</a>--}}
+    {{--<button id="animation">动画</button>--}}
+    {{--<button id="ajax">异步请求</button>--}}
 
-    @show
+    <ul class="metismenu" id="menu">
+        <li class="active">
+            <a href="#" aria-expanded="true">Menu 1</a>
+            <ul aria-expanded="true">
+                <li>我去1</li>
+                <li>我去2</li>
+                <li>我去3</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" aria-expanded="false">Menu 2</a>
+            <ul aria-expanded="false">
+                <li>我靠1</li>
+                <li>我靠2</li>
+                <li>我靠3</li>
+            </ul>
+        </li>
+    </ul>
 
-    <footer id="footer">
-        <div class="container">
-            <div class="copyright" itemscope>
-                ©  2014 -
-                {{--©2015 isgavin.me 备案号:津ICP备15004268号--}}
-                <span itemprop="copyrightYear">2015</span>
-                <a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
-            </div>
-            <div class="record">
-                <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备15004268号</a>
-            </div>
-        </div>
-    </footer>
-
-
-    <div class="sidebar-toggle">
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
-    </div>
-    <div class="back-to-top" style="display: none;">
-        <span class="glyphicon glyphicon-triangle-top"></span>
-    </div>
 
     <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
     <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
@@ -94,7 +67,9 @@
     <!-- velocity 动画切换的jQuery插件-->
     <script src="//cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
     {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
-
+    <script src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+    <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
+    <script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>
     <script src="{{ asset('/js/base/config.js') }}"></script>
     <script src="{{ asset('/js/base/tools.js') }}"></script>
     <script src="{{ asset('/js/base/app.js') }}"></script>
@@ -104,5 +79,27 @@
     @section('js')
 
     @show
+    <script>
+        $(function(){
+            $("#menu").metisMenu({
+                toggle: true,
+                activeClass: 'active1'
+            });
+        });
+//        $(document).pjax('#pjax-a', '#pjax-c');
+//        $('#animation').click(function(){
+//            $('#pjax-a').addClass('animated bounce');
+//        });
+//        $('#ajax').on('click',function(){
+//            $.ajax({
+//                url:'/ajax/test',
+//                method:'post',
+//                dataType:'text',
+//                success:function(data){
+//                    alert(data);
+//                }
+//            });
+//        });
+    </script>
 </body>
 </html>

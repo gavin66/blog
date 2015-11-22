@@ -11,4 +11,17 @@ class MasterController extends Controller {
 		return view('home');
 	}
 
+
+
+	public function getPjax(Request $request){
+		$request->input();
+		if(array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
+			return view('pjax');
+		}else{
+			echo '这个不是Pjax返回的';
+		}
+	}
+
+
+
 }
