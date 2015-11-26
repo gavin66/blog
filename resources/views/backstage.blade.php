@@ -117,7 +117,7 @@
         <button type="button" class="btn btn-danger" >这不是真的</button>
     </div>
 
-    <div class="sb-slidebar sb-right">
+    <div class="sb-slidebar sb-right sb-style-overlay">
         <button type="button" class="btn btn-danger" >这不是真的</button>
     </div>
 
@@ -133,7 +133,7 @@
     <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
     {{--<script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>--}}
     <script src="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.js"></script>
-    <script src="{{ asset('/js/base/config.js') }}"></script>
+    <script src="{{ asset('/js/base/config  .js') }}"></script>
     <script src="{{ asset('/js/base/tools.js') }}"></script>
     <script src="{{ asset('/js/base/app.js') }}"></script>
     <script src="{{ asset('/js/base/sidebar.js') }}"></script>
