@@ -21,7 +21,7 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.css" rel="stylesheet">
+    {{--<link href="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.css" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/site.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">--}}
 
@@ -58,7 +58,7 @@
         {{--</li>--}}
     {{--</ul>--}}
 
-    <div id="sb-site">
+    <div id="jq-sb-container">
         {{--<button type="button" class="btn btn-info sb-toggle-left" >左开关</button>--}}
         {{--<button type="button" class="btn btn-info sb-toggle-right" >右开关</button>--}}
         <header>
@@ -113,11 +113,11 @@
         <footer></footer>
     </div>
 
-    <div class="sb-slidebar sb-left" >
+    <div class="jq-sb-slidebar jq-sb-left" >
         <button type="button" class="btn btn-danger" >这不是真的</button>
     </div>
 
-    <div class="sb-slidebar sb-right sb-style-overlay">
+    <div class="jq-sb-slidebar jq-sb-right sb-style-overlay">
         <button type="button" class="btn btn-danger" >这不是真的</button>
     </div>
 
@@ -132,7 +132,7 @@
     <script src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
     <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
     {{--<script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>--}}
-    <script src="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.js"></script>
+    {{--<script src="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.js"></script>--}}
     <script src="{{ asset('/js/base/config  .js') }}"></script>
     <script src="{{ asset('/js/base/tools.js') }}"></script>
     <script src="{{ asset('/js/base/app.js') }}"></script>
