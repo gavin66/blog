@@ -24,6 +24,7 @@
     {{--<link href="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.css" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/site.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="{{ asset('/css/jQuery-Sidebar.css') }}">
 
     @section('css')
 
@@ -58,7 +59,7 @@
         {{--</li>--}}
     {{--</ul>--}}
 
-    <div id="jq-sb-container">
+    <div class="jqsb-container">
         {{--<button type="button" class="btn btn-info sb-toggle-left" >左开关</button>--}}
         {{--<button type="button" class="btn btn-info sb-toggle-right" >右开关</button>--}}
         <header>
@@ -71,7 +72,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand sb-toggle-left" href="">
+                        <a class="navbar-brand jqsb-toggle-left" href="#">
                             <span class="glyphicon glyphicon-menu-hamburger"></span>
                         </a>
                     </div>
@@ -113,13 +114,14 @@
         <footer></footer>
     </div>
 
-    <div class="jq-sb-slidebar jq-sb-left" >
-        <button type="button" class="btn btn-danger" >这不是真的</button>
+    <div class="jqsb-sidebar jqsb-left">
+        <div class="jqsb-left-sm"><button type="button" class="btn btn-danger">默认的</button></div>
+        <div class="jqsb-left-bg"><button type="button" class="btn btn-danger">扩大或缩小的样式</button></div>
     </div>
 
-    <div class="jq-sb-slidebar jq-sb-right sb-style-overlay">
-        <button type="button" class="btn btn-danger" >这不是真的</button>
-    </div>
+    {{--<div class="jqsb-sidebar jqsb-right">--}}
+        {{--<button type="button" class="btn btn-danger">测试元素</button>--}}
+    {{--</div>--}}
 
 
     <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
@@ -133,24 +135,25 @@
     <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
     {{--<script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>--}}
     {{--<script src="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.js"></script>--}}
-    <script src="{{ asset('/js/base/config  .js') }}"></script>
-    <script src="{{ asset('/js/base/tools.js') }}"></script>
-    <script src="{{ asset('/js/base/app.js') }}"></script>
-    <script src="{{ asset('/js/base/sidebar.js') }}"></script>
+    {{--<script src="{{ asset('/js/base/config  .js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/base/tools.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/base/app.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/base/sidebar.js') }}"></script>--}}
+    <script src="{{ asset('/js/jQuery-Sidebar.js') }}"></script>
     <!-- angular的主要js-->
     <!--<script src="//apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"></script> -->
     @section('js')
 
     @show
     <script>
-        $(function(){
-            $(document).ready(function() {
-                $.slidebars({
+//        $(function(){
+//            $(document).ready(function() {
+//                $.slidebars({
 //                    siteClose:false,
 //                    scrollLock:true
-                });
-            });
-        });
+//                });
+//            });
+//        });
 //        $(function(){
 //            $("#menu").metisMenu({
 //                toggle: true,
