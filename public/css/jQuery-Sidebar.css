@@ -25,6 +25,13 @@
     right: 0;
 }
 
+.jqsb-left-sm{
+
+}
 .jqsb-left-bg{
     display: none;
+}
+
+.jqsb-container,.jqsb-sidebar{
+
 }
