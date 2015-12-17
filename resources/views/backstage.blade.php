@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--移动设备优先,为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maxmum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
     这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
@@ -21,10 +21,10 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css" rel="stylesheet">
-    {{--<link href="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.css" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/site.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">--}}
-    <link rel="stylesheet" href="{{ asset('/css/jQuery-Sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/backstage.main.css') }}" >
 
     @section('css')
 
@@ -40,24 +40,6 @@
     {{--<button id="animation">动画</button>--}}
     {{--<button id="ajax">异步请求</button>--}}
 
-    {{--<ul class="metismenu" id="menu">--}}
-        {{--<li class="active">--}}
-            {{--<a href="#" aria-expanded="true">Menu 1</a>--}}
-            {{--<ul aria-expanded="true">--}}
-                {{--<li>我去1</li>--}}
-                {{--<li>我去2</li>--}}
-                {{--<li>我去3</li>--}}
-            {{--</ul>--}}
-        {{--</li>--}}
-        {{--<li>--}}
-            {{--<a href="#" aria-expanded="false">Menu 2</a>--}}
-            {{--<ul aria-expanded="false">--}}
-                {{--<li>我靠1</li>--}}
-                {{--<li>我靠2</li>--}}
-                {{--<li>我靠3</li>--}}
-            {{--</ul>--}}
-        {{--</li>--}}
-    {{--</ul>--}}
 
     <div class="jqsb-container">
         {{--<button type="button" class="btn btn-info sb-toggle-left" >左开关</button>--}}
@@ -110,15 +92,95 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </header>
-        <div class="main"></div>
+        <div class="main">
+
+        </div>
         <footer></footer>
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
-        <div class="jqsb-left-sm"><button type="button" class="btn btn-danger">默认的</button></div>
-        <div class="jqsb-left-bg"><button type="button" class="btn btn-danger">扩大或缩小的样式</button></div>
+        <div class="jqsb-left-sm">小图标</div>
+        <div class="jqsb-left-bg">
+            <ul class="nav metismenu" id="metisMenu">
+                <li class="header">
+                    <div>
+                        <img class="img-rounded" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像">
+                        <a class="dropdown-toggle cancelDefault" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="block ">Gavin</span>
+                            <span class="block">超级管理员<span class="caret"></span></span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInLeft-byGavin">
+                            <li><a href="#">修改头像</a></li>
+                            <li><a href="#">个人资料</a></li>
+                            <li><a href="#">信箱</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="#" aria-expanded="true">
+                        <span class=""></span>
+                        <span class="">文章</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul aria-expanded="true" class="nav">
+                        <li><a href="#"><span class=""></span>文章1</a></li>
+                        <li><a href="#"><span class=""></span>文章1</a></li>
+                        <li><a href="#"><span class=""></span>文章2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">多媒体<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav ">
+                        <li><a href="#">多媒体1</a></li>
+                        <li><a href="#">多媒体2</a></li>
+                        <li><a href="#">多媒体3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">评论<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav">
+                        <li><a href="#">评论1</a></li>
+                        <li><a href="#">评论2</a></li>
+                        <li><a href="#">评论3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">外观<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav">
+                        <li><a href="#">外观1</a></li>
+                        <li><a href="#">外观2</a></li>
+                        <li><a href="#">外观3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">用户<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav">
+                        <li><a href="#">用户1</a></li>
+                        <li><a href="#">用户2</a></li>
+                        <li><a href="#">用户3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">工具<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav">
+                        <li><a href="#">工具1</a></li>
+                        <li><a href="#">工具2</a></li>
+                        <li><a href="#">工具3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" aria-expanded="false">设置<span class="fa arrow"></span></a>
+                    <ul aria-expanded="false" class="nav">
+                        <li><a href="#">设置1</a></li>
+                        <li><a href="#">设置2</a></li>
+                        <li><a href="#">设置3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-
     {{--<div class="jqsb-sidebar jqsb-right">--}}
         {{--<button type="button" class="btn btn-danger">测试元素</button>--}}
     {{--</div>--}}
@@ -133,27 +195,27 @@
     {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
     <script src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
     <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
-    {{--<script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>--}}
-    {{--<script src="//cdn.bootcss.com/slidebars/0.10.2/slidebars.min.js"></script>--}}
     {{--<script src="{{ asset('/js/base/config  .js') }}"></script>--}}
     {{--<script src="{{ asset('/js/base/tools.js') }}"></script>--}}
     {{--<script src="{{ asset('/js/base/app.js') }}"></script>--}}
     {{--<script src="{{ asset('/js/base/sidebar.js') }}"></script>--}}
-    <script src="{{ asset('/js/jQuery-Sidebar.js') }}"></script>
+    <script src="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.js') }}"></script>
+    <script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>
     <!-- angular的主要js-->
     <!--<script src="//apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"></script> -->
     @section('js')
 
     @show
     <script>
-//        $(function(){
-//            $(document).ready(function() {
-//                $.slidebars({
-//                    siteClose:false,
-//                    scrollLock:true
-//                });
-//            });
-//        });
+        $(function(){
+            var jqSidebar = new $.jqSidebar({
+                leftMode:'sidebar-turn',
+                autoClose:false
+            });
+
+            $('#metisMenu').metisMenu();
+
+
 //        $(function(){
 //            $("#menu").metisMenu({
 //                toggle: true,
@@ -175,7 +237,7 @@
 //                    alert(data);
 //                }
 //            });
-//        });
+        });
     </script>
 </body>
 </html>

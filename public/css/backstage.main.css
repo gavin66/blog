@@ -1,0 +1,149 @@
+/*
+ * metisMenu插件所需样式
+ */
+.metismenu .arrow {
+    float: right;
+    line-height: 1.42857;
+}
+*[dir="rtl"] .metismenu .arrow {
+    float: left;
+}
+.metismenu .glyphicon.arrow:before {
+    content: "\e079";
+}
+.metismenu .active > a > .glyphicon.arrow:before {
+    content: "\e114";
+}
+.metismenu .fa.arrow:before {
+    content: "\f104";
+}
+.metismenu .active > a > .fa.arrow:before {
+    content: "\f107";
+}
+.metismenu .ion.arrow:before {
+    content: "\f3d2"
+}
+.metismenu .active > a > .ion.arrow:before {
+    content: "\f3d0";
+}
+.metismenu .plus-times {
+    float: right;
+}
+*[dir="rtl"] .metismenu .plus-times {
+    float: left;
+}
+.metismenu .fa.plus-times:before {
+    content: "\f067";
+}
+.metismenu .active > a > .fa.plus-times {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.metismenu .plus-minus {
+    float: right;
+}
+*[dir="rtl"] .metismenu .plus-minus {
+    float: left;
+}
+.metismenu .fa.plus-minus:before {
+    content: "\f067";
+}
+.metismenu .active > a > .fa.plus-minus:before {
+    content: "\f068";
+}
+.metismenu .collapse {
+    display: none;
+}
+.metismenu .collapse.in {
+    display: block;
+}
+.metismenu .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+    -o-transition-duration: .35s;
+    transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+    -o-transition-property: height, visibility;
+    transition-property: height, visibility;
+}
+
+
+
+
+
+
+.block{
+    display: block;
+}
+.inline{
+    display: inline;
+}
+a.cancelDefault:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+
+.jqsb-left-bg{
+    width: 220px;
+}
+.jqsb-left{
+    background-color: #2f4050;
+}
+.metismenu a{
+    color: #a7b1c2;
+    font-size: 13px;
+    font-weight: 600;
+}
+.nav>li>a:focus,.nav>li>a:hover{
+    background-color: #293846;
+}
+.metismenu li.header,.metismenu>li:not(:first-child) a{
+    padding: 10px 25px;
+}
+.metismenu li.header img{
+    display: block;
+    max-width: 70px;
+    height: auto;
+}
+.metismenu li.header>div:first-child{
+    position: relative;
+}
+
+
+@-webkit-keyframes fadeInLeft-byGavin {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-20%, 0, 0);
+        transform: translate3d(-20%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes fadeInLeft-byGavin {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-20%, 0, 0);
+        transform: translate3d(-20%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+.fadeInLeft-byGavin {
+    -webkit-animation-name: fadeInLeft-byGavin;
+    animation-name: fadeInLeft-byGavin;
+}
