@@ -42,8 +42,6 @@
 
 
     <div class="jqsb-container">
-        {{--<button type="button" class="btn btn-info sb-toggle-left" >左开关</button>--}}
-        {{--<button type="button" class="btn btn-info sb-toggle-right" >右开关</button>--}}
         <header>
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -102,14 +100,14 @@
         <div class="jqsb-left-sm">小图标</div>
         <div class="jqsb-left-bg">
             <ul class="nav metismenu" id="metisMenu">
-                <li class="header">
-                    <div>
-                        <img class="img-rounded" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像">
+                <li class="user-info">
+                    <img class="user-portrait img-rounded" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像">
+                    <div class="user-info-dropdown">
                         <a class="dropdown-toggle cancelDefault" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="block ">Gavin</span>
-                            <span class="block">超级管理员<span class="caret"></span></span>
+                            <span class="user-name block">Gavin</span>
+                            <span class="user-role block">超级管理员<span class="caret"></span></span>
                         </a>
-                        <ul class="dropdown-menu animated fadeInLeft-byGavin">
+                        <ul class="dropdown-menu animated fadeInLeft20">
                             <li><a href="#">修改头像</a></li>
                             <li><a href="#">个人资料</a></li>
                             <li><a href="#">信箱</a></li>
@@ -120,7 +118,7 @@
                 </li>
                 <li class="active">
                     <a href="#" aria-expanded="true">
-                        <span class=""></span>
+                        <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
                         <span class="">文章</span>
                         <span class="fa arrow"></span>
                     </a>
@@ -131,7 +129,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">多媒体<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-film" aria-hidden="true"></i>
+                        <span>多媒体</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav ">
                         <li><a href="#">多媒体1</a></li>
                         <li><a href="#">多媒体2</a></li>
@@ -139,7 +141,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">评论<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
+                        <span>评论</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav">
                         <li><a href="#">评论1</a></li>
                         <li><a href="#">评论2</a></li>
@@ -147,7 +153,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">外观<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+                        <span>外观</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav">
                         <li><a href="#">外观1</a></li>
                         <li><a href="#">外观2</a></li>
@@ -155,7 +165,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">用户<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                        <span>用户</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav">
                         <li><a href="#">用户1</a></li>
                         <li><a href="#">用户2</a></li>
@@ -163,7 +177,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">工具<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-th-list" aria-hidden="true"></i>
+                        <span>工具</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav">
                         <li><a href="#">工具1</a></li>
                         <li><a href="#">工具2</a></li>
@@ -171,7 +189,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">设置<span class="fa arrow"></span></a>
+                    <a href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
+                        <span>设置</span>
+                        <span class="fa arrow"></span>
+                    </a>
                     <ul aria-expanded="false" class="nav">
                         <li><a href="#">设置1</a></li>
                         <li><a href="#">设置2</a></li>

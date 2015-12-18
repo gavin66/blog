@@ -1,149 +1,156 @@
-/*
- * metisMenu插件所需样式
- */
+@charset "UTF-8";
+/*---------------------------*\
+  metisMenu插件所需样式
+\*---------------------------*/
 .metismenu .arrow {
-    float: right;
-    line-height: 1.42857;
-}
+  float: right;
+  line-height: 1.42857; }
+
 *[dir="rtl"] .metismenu .arrow {
-    float: left;
-}
+  float: left; }
+
 .metismenu .glyphicon.arrow:before {
-    content: "\e079";
-}
+  content: "\e079"; }
+
 .metismenu .active > a > .glyphicon.arrow:before {
-    content: "\e114";
-}
+  content: "\e114"; }
+
 .metismenu .fa.arrow:before {
-    content: "\f104";
-}
+  content: "\f104"; }
+
 .metismenu .active > a > .fa.arrow:before {
-    content: "\f107";
-}
+  content: "\f107"; }
+
 .metismenu .ion.arrow:before {
-    content: "\f3d2"
-}
+  content: ""; }
+
 .metismenu .active > a > .ion.arrow:before {
-    content: "\f3d0";
-}
+  content: "\f3d0"; }
+
 .metismenu .plus-times {
-    float: right;
-}
+  float: right; }
+
 *[dir="rtl"] .metismenu .plus-times {
-    float: left;
-}
+  float: left; }
+
 .metismenu .fa.plus-times:before {
-    content: "\f067";
-}
+  content: "\f067"; }
+
 .metismenu .active > a > .fa.plus-times {
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
 .metismenu .plus-minus {
-    float: right;
-}
+  float: right; }
+
 *[dir="rtl"] .metismenu .plus-minus {
-    float: left;
-}
+  float: left; }
+
 .metismenu .fa.plus-minus:before {
-    content: "\f067";
-}
+  content: "\f067"; }
+
 .metismenu .active > a > .fa.plus-minus:before {
-    content: "\f068";
-}
+  content: "\f068"; }
+
 .metismenu .collapse {
-    display: none;
-}
+  display: none; }
+
 .metismenu .collapse.in {
-    display: block;
-}
+  display: block; }
+
 .metismenu .collapsing {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    -webkit-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: .35s;
-    -o-transition-duration: .35s;
-    transition-duration: .35s;
-    -webkit-transition-property: height, visibility;
-    -o-transition-property: height, visibility;
-    transition-property: height, visibility;
-}
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-duration: .35s;
+  -o-transition-duration: .35s;
+  transition-duration: .35s;
+  -webkit-transition-property: height, visibility;
+  -o-transition-property: height, visibility;
+  transition-property: height, visibility; }
 
+/*------------------------------------*\
+    公用样式 &public
+\*------------------------------------*/
+.block {
+  display: block; }
 
+.inline {
+  display: inline; }
 
+a.cancelDefault:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit; }
 
+/*------------------------------------*\
+    侧边栏样式 &sidebar
+\*------------------------------------*/
+.jqsb-left-bg {
+  width: 220px; }
 
+.jqsb-left {
+  background-color: #2f4050; }
 
-.block{
-    display: block;
-}
-.inline{
-    display: inline;
-}
-a.cancelDefault:hover{
-    text-decoration: none;
-    cursor: pointer;
-    color: inherit;
-}
+.metismenu a {
+  color: #a7b1c2;
+  font-size: 13px;
+  font-weight: 600; }
 
+.nav > li > a:focus {
+  background-color: #293846; }
+.nav > li > a:hover {
+  background-color: #293846; }
 
-.jqsb-left-bg{
-    width: 220px;
-}
-.jqsb-left{
-    background-color: #2f4050;
-}
-.metismenu a{
-    color: #a7b1c2;
-    font-size: 13px;
-    font-weight: 600;
-}
-.nav>li>a:focus,.nav>li>a:hover{
-    background-color: #293846;
-}
-.metismenu li.header,.metismenu>li:not(:first-child) a{
-    padding: 10px 25px;
-}
-.metismenu li.header img{
-    display: block;
-    max-width: 70px;
-    height: auto;
-}
-.metismenu li.header>div:first-child{
-    position: relative;
-}
+.metismenu > li:not(.user-info) a {
+  padding: 10px 25px; }
 
+.user-info-dropdown {
+  margin-left: 25px; }
 
-@-webkit-keyframes fadeInLeft-byGavin {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(-20%, 0, 0);
-        transform: translate3d(-20%, 0, 0);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-@keyframes fadeInLeft-byGavin {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(-20%, 0, 0);
-        transform: translate3d(-20%, 0, 0);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-.fadeInLeft-byGavin {
-    -webkit-animation-name: fadeInLeft-byGavin;
-    animation-name: fadeInLeft-byGavin;
-}
+.user-portrait {
+  display: block;
+  max-width: 70px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 25px; }
+
+.user-info-dropdown {
+  position: relative; }
+
+.user-name {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+.user-role {
+  margin-bottom: 10px; }
+
+/*从左侧淡入 参数是百分比*/
+@keyframes fadeInLeft20 {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+@keyframes fadeInLeft20 {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+.fadeInLeft20 {
+  -webkit-animation-name: fadeInLeft20;
+  animation-name: fadeInLeft20; }
+
+/*# sourceMappingURL=backstage.main.css.map */
