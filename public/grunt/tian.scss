@@ -1,0 +1,37 @@
+@mixin fadeInleft($percent){
+  $name : $percent;
+  $percent : -$percent / 100;
+  @keyframes fadeInLeft#{$name} {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(percentage($percent), 0, 0);
+      transform: translate3d(percentage($percent), 0, 0);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  @keyframes fadeInLeft#{$name} {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(percentage($percent), 0, 0);
+      transform: translate3d(percentage($percent), 0, 0);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  .fadeInLeft#{$name} {
+    -webkit-animation-name: fadeInLeft#{$name};
+    animation-name: fadeInLeft#{$name};
+  }
+}
+
+@include fadeInleft(20);
+@include fadeInleft(30);
+
+
