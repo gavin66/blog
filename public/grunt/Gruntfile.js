@@ -105,7 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
 
-  // 这是默认配置
+  // 这是默认配置 2
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
 
