@@ -105,7 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
 
-
+  // wode
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
 
