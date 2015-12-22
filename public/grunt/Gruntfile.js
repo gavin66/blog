@@ -107,6 +107,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
-  grunt.registerTask('sass1', ['sass']);
+  
 
 };
