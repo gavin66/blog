@@ -105,7 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
 
-  // www
+  // wwwss
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
 
