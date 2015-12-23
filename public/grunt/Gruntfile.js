@@ -10,28 +10,35 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
 
     clean: {
-      //all:['dist'],
-      //html:['html'],
-      //css:['css'],
-      //js:['js'],
-      //img:['img'],
-      files: ['dist']
+      all:['dist'],
+      html:['html/*.html'],
+      css:['css/*.html'],
+      js:['js/*.js'],
+      img:['img/']
+    },
+
+    copy: {
+      src:{
+        files:[
+          {expand: true, cwd: 'src', src: ['images/*.{png,jpg,jpeg,gif}'], dest: 'dist/html'}
+        ]
+      }
     },
 
     concat: {
       options: {
-        //separator:';',
+        separator:';',
         banner: '<%= banner %>',
         stripBanners: true
       },
-      //js: {
-      //  src:['js/*.js'],
-      //  dest: 'dist/<%= pkg.name %>.js'
-      //},
-      //css: {
-      //  src:['css/*.css'],
-      //  dest: 'dist/<%= pkg.name %>.css'
-      //},
+      js: {
+        src:['js/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      },
+      css: {
+        src:['css/*.css'],
+        dest: 'dist/<%= pkg.name %>.css'
+      },
       dist: {
         src: ['js/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
@@ -63,11 +70,20 @@ module.exports = function(grunt) {
 
     sass: {
       dist: {
-        //options: {
-          //style: 'expanded'
-        //},
+        options: {
+          style: 'nested' // nested, compact, compressed, expanded.
+        },
         files: {
           'tian.css': 'tian.scss'
+        }
+      },
+      dev: {
+        options:{
+          noCache:true,
+          style:'expanded'
+        },
+        files:{
+          '../css/backstage.main.css': 'css/backstage.main.scss'
         }
       }
     },
@@ -92,11 +108,14 @@ module.exports = function(grunt) {
       src: {
         files: '<%= jshint.src.src %>',
         tasks: ['jshint:src']
+      },
+      dev_sass: {
+        files: 'css/backstage.main.scss',
+        tasks: ['sass:dev'],
       }
     }
   });
 
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -104,9 +123,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  // 这是默认配置 2
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
+
+  //grunt.registerTask('dev_sass',['sass:dev']);
 
 
 };
