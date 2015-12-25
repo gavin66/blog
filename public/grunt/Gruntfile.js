@@ -111,7 +111,7 @@ module.exports = function(grunt) {
       },
       dev_sass: {
         files: 'css/backstage.main.scss',
-        tasks: ['sass:dev'],
+        tasks: ['sass:dev']
       }
     }
   });
@@ -126,8 +126,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
-
-  //grunt.registerTask('dev_sass',['sass:dev']);
-
 
 };

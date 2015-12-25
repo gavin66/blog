@@ -117,84 +117,84 @@
                     </div>
                 </li>
                 <li class="active">
-                    <a href="#" aria-expanded="true">
+                    <a class="item-link" href="#" aria-expanded="true">
                         <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
                         <span class="">文章</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="true" class="nav">
-                        <li><a href="#"><span class=""></span>文章1</a></li>
-                        <li><a href="#"><span class=""></span>文章1</a></li>
-                        <li><a href="#"><span class=""></span>文章2</a></li>
+                    <ul class="item-list" aria-expanded="true">
+                        <li><a href="#">文章1</a></li>
+                        <li><a href="#">文章1</a></li>
+                        <li><a href="#">文章2</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-film" aria-hidden="true"></i>
                         <span>多媒体</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav ">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">多媒体1</a></li>
                         <li><a href="#">多媒体2</a></li>
                         <li><a href="#">多媒体3</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
                         <span>评论</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">评论1</a></li>
                         <li><a href="#">评论2</a></li>
                         <li><a href="#">评论3</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
                         <span>外观</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">外观1</a></li>
                         <li><a href="#">外观2</a></li>
                         <li><a href="#">外观3</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                         <span>用户</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">用户1</a></li>
                         <li><a href="#">用户2</a></li>
                         <li><a href="#">用户3</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-th-list" aria-hidden="true"></i>
                         <span>工具</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">工具1</a></li>
                         <li><a href="#">工具2</a></li>
                         <li><a href="#">工具3</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" aria-expanded="false">
+                    <a class="item-link" href="#" aria-expanded="false">
                         <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
                         <span>设置</span>
                         <span class="fa arrow"></span>
                     </a>
-                    <ul aria-expanded="false" class="nav">
+                    <ul class="item-list" aria-expanded="false">
                         <li><a href="#">设置1</a></li>
                         <li><a href="#">设置2</a></li>
                         <li><a href="#">设置3</a></li>

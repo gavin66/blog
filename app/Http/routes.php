@@ -24,6 +24,6 @@ Route::controllers([
 Route::get('backstage',function(){return view('backstage');});
 
 Route::get('gavin',function(){return view('gavin');});
-Route::controllers([
-    'test'=>'TestController',
-]);
+
+
+Route::get('test',function(){return view('test');});

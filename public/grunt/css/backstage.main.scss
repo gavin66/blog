@@ -110,16 +110,31 @@ $fontSize : 13px; // 侧边栏字体大小
   font-size: $fontSize;
   font-weight: 600;
 }
-.nav>li{
-  >a:focus{background-color: $aHoverColor}
-  >a:hover{background-color: $aHoverColor}
+.item-list{
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  >li{
+    >a{
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+    }
+    >a:focus{background-color: $aHoverColor}
+    >a:hover{background-color: $aHoverColor;text-decoration: none;}
+  }
 }
-.metismenu>li:not(.user-info) a{
+
+.item-link{
   padding: 10px 25px;
 }
-.user-info-dropdown{
-  margin-left: 25px;
+a.item-link:focus{
+  background-color: $aHoverColor
 }
+a.item-link:hover{
+  background-color: $aHoverColor;
+}
+
 .user-portrait{
   display: block;
   max-width: 70px;
@@ -127,9 +142,12 @@ $fontSize : 13px; // 侧边栏字体大小
   margin-top: 20px;
   margin-left: 25px;
 }
+
 .user-info-dropdown{
+  margin-left: 25px;
   position: relative;
 }
+
 .user-name{
   margin-top: 10px;
   margin-bottom: 5px;

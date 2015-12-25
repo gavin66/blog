@@ -127,19 +127,34 @@ a.cancelDefault:hover {
   font-weight: 600;
 }
 
-.nav > li > a:focus {
+.item-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.item-list > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.item-list > li > a:focus {
   background-color: #293846;
 }
-.nav > li > a:hover {
+.item-list > li > a:hover {
   background-color: #293846;
+  text-decoration: none;
 }
 
-.metismenu > li:not(.user-info) a {
+.item-link {
   padding: 10px 25px;
 }
 
-.user-info-dropdown {
-  margin-left: 25px;
+a.item-link:focus {
+  background-color: #293846;
+}
+
+a.item-link:hover {
+  background-color: #293846;
 }
 
 .user-portrait {
@@ -151,6 +166,7 @@ a.cancelDefault:hover {
 }
 
 .user-info-dropdown {
+  margin-left: 25px;
   position: relative;
 }
 
