@@ -118,7 +118,7 @@ $fontSize : 13px; // 侧边栏字体大小
     >a{
       position: relative;
       display: block;
-      padding: 10px 15px;
+      //padding: 10px 15px;
     }
     >a:focus{background-color: $aHoverColor}
     >a:hover{background-color: $aHoverColor;text-decoration: none;}

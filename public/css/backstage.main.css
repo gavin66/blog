@@ -135,7 +135,6 @@ a.cancelDefault:hover {
 .item-list > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
 }
 .item-list > li > a:focus {
   background-color: #293846;
