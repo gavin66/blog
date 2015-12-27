@@ -94,91 +94,8 @@
 }
 
 /*------------------------------------*\
-    公用样式 &public
+    动画样式 &animate
 \*------------------------------------*/
-.block {
-  display: block;
-}
-
-.inline {
-  display: inline;
-}
-
-a.cancelDefault:hover {
-  text-decoration: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-/*------------------------------------*\
-    侧边栏样式 &sidebar
-\*------------------------------------*/
-.jqsb-left-bg {
-  width: 220px;
-}
-
-.jqsb-left {
-  background-color: #2f4050;
-}
-
-.metismenu a {
-  color: #a7b1c2;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.item-list {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.item-list > li > a {
-  position: relative;
-  display: block;
-}
-.item-list > li > a:focus {
-  background-color: #293846;
-}
-.item-list > li > a:hover {
-  background-color: #293846;
-  text-decoration: none;
-}
-
-.item-link {
-  padding: 10px 25px;
-}
-
-a.item-link:focus {
-  background-color: #293846;
-}
-
-a.item-link:hover {
-  background-color: #293846;
-}
-
-.user-portrait {
-  display: block;
-  max-width: 70px;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 25px;
-}
-
-.user-info-dropdown {
-  margin-left: 25px;
-  position: relative;
-}
-
-.user-name {
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.user-role {
-  margin-bottom: 10px;
-}
-
-/*从左侧淡入 参数是百分比*/
 @keyframes fadeInLeft20 {
   from {
     opacity: 0;
@@ -211,6 +128,87 @@ a.item-link:hover {
 .fadeInLeft30 {
   -webkit-animation-name: fadeInLeft30;
   animation-name: fadeInLeft30;
+}
+
+/*------------------------------------*\
+    公用样式 &public
+\*------------------------------------*/
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+a.cancelDefault:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/*------------------------------------*\
+    侧边栏样式 &sidebar
+\*------------------------------------*/
+.jqsb-left {
+  background-color: #2f4050;
+}
+.jqsb-left-bg {
+  width: 220px;
+}
+.metismenu a {
+  color: #a7b1c2;
+  font-size: 13px;
+  font-weight: 600;
+}
+.item-list, .metismenu {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.item-list > li > a, .metismenu > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.item-list > li > a:focus, .metismenu > li > a:focus {
+  background-color: #293846;
+  text-decoration: none;
+}
+.item-list > li > a:hover, .metismenu > li > a:hover {
+  background-color: #293846;
+  text-decoration: none;
+}
+.item-link {
+  padding: 10px 25px;
+}
+.item-link:focus {
+  background-color: #293846;
+}
+.item-link:hover {
+  background-color: #293846;
+}
+.item-link > i {
+  font-size: 10px;
+  margin-right: 5px;
+}
+.user-portrait {
+  display: block;
+  max-width: 70px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+.user-info-dropdown {
+  margin-left: 25px;
+  position: relative;
+}
+.user-name {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.user-role {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=backstage.main.css.map */

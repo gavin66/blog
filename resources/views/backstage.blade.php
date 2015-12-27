@@ -99,7 +99,7 @@
     <div class="jqsb-sidebar jqsb-left">
         <div class="jqsb-left-sm">小图标</div>
         <div class="jqsb-left-bg">
-            <ul class="nav metismenu" id="metisMenu">
+            <ul class="metismenu" id="metisMenu">
                 <li class="user-info">
                     <img class="user-portrait img-rounded" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像">
                     <div class="user-info-dropdown">

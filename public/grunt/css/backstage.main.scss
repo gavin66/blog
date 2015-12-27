@@ -76,87 +76,10 @@
 
 
 /*------------------------------------*\
-    公用样式 &public
+    动画样式 &animate
 \*------------------------------------*/
-.block{
-  display: block;
-}
-.inline{
-  display: inline;
-}
-a.cancelDefault:hover{
-  text-decoration: none;
-  cursor: pointer;
-  color: inherit;
-}
 
-
-/*------------------------------------*\
-    侧边栏样式 &sidebar
-\*------------------------------------*/
-$backgroundColor : #2f4050; // 侧边栏背景色
-$fontColor : #a7b1c2; // 侧边栏字体颜色
-$aHoverColor : #293846; // 侧边栏a标签悬停颜色
-$fontSize : 13px; // 侧边栏字体大小
-
-.jqsb-left-bg{
-  width: 220px;
-}
-.jqsb-left{
-  background-color: $backgroundColor;
-}
-.metismenu a{
-  color: $fontColor;
-  font-size: $fontSize;
-  font-weight: 600;
-}
-.item-list{
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-  >li{
-    >a{
-      position: relative;
-      display: block;
-      //padding: 10px 15px;
-    }
-    >a:focus{background-color: $aHoverColor}
-    >a:hover{background-color: $aHoverColor;text-decoration: none;}
-  }
-}
-
-.item-link{
-  padding: 10px 25px;
-}
-a.item-link:focus{
-  background-color: $aHoverColor
-}
-a.item-link:hover{
-  background-color: $aHoverColor;
-}
-
-.user-portrait{
-  display: block;
-  max-width: 70px;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 25px;
-}
-
-.user-info-dropdown{
-  margin-left: 25px;
-  position: relative;
-}
-
-.user-name{
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-.user-role{
-  margin-bottom: 10px;
-}
-
-/*从左侧淡入 参数是百分比*/
+// 从左侧淡入 参数是百分比
 @mixin fadeInleft($percent){
   $name : $percent;
   $percent : -$percent / 100;
@@ -180,6 +103,127 @@ a.item-link:hover{
 
 @include fadeInleft(20);
 @include fadeInleft(30);
+
+
+/*------------------------------------*\
+    公用样式 &public
+\*------------------------------------*/
+.block{
+  display: block;
+}
+.inline{
+  display: inline;
+}
+a.cancelDefault:hover{
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/*------------------------------------*\
+    侧边栏样式 &sidebar
+\*------------------------------------*/
+
+// 侧边栏基础设置
+$sidebarSetting: (
+        backgroundColor: #2f4050, // 侧边栏背景色
+        width: 220px // 侧边栏宽度
+);
+// 侧边栏字体 size:字体尺寸;color:字体颜色
+$sidebarFont: (
+        size: (10px,12px,13px,14px,16px,18px), // 字体尺寸
+        color: #a7b1c2 // 字体颜色
+);
+// 侧边栏a标签
+$sidebar-a: (
+        hoverBackgroundColor:#293846, // 悬停时的背景色
+        focusBackgroundColor:#293846 // 获得焦点时的背景色
+);
+
+// 左侧侧边栏样式
+.jqsb-left{
+  background-color: map_get($sidebarSetting,backgroundColor);
+
+  // jqsb-left-bg样式
+  @at-root .jqsb-left-bg{
+    width: map_get($sidebarSetting,width);
+
+    @at-root .metismenu {
+      @extend .item-list;
+      a{
+        color: map_get($sidebarFont,color);
+        font-size: nth(map_get($sidebarFont,size),3);
+        font-weight: 600;
+      }
+
+    }
+
+    @at-root .item-list{
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+      >li{
+        >a{
+          position: relative;
+          display: block;
+          padding: 10px 15px;
+        }
+        >a:focus{
+          background-color: map_get($sidebar-a,focusBackgroundColor);
+          text-decoration: none;
+        }
+        >a:hover{
+          background-color: map_get($sidebar-a,hoverBackgroundColor);
+          text-decoration: none;
+        }
+      }
+    }
+
+    @at-root .item-link{
+      padding: 10px 25px;
+      &:focus{
+        background-color: map_get($sidebar-a,focusBackgroundColor);
+      }
+      &:hover{
+        background-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      >i{
+        font-size: nth(map_get($sidebarFont,size),1);
+        margin-right: nth(map_get($sidebarFont,size),1) * 0.5;
+      }
+    }
+
+    @at-root .user-portrait{
+      display: block;
+      max-width: 70px;
+      height: auto;
+      margin-top: 20px;
+      margin-left: 25px;
+    }
+
+    @at-root .user-info-dropdown{
+      margin-left: 25px;
+      position: relative;
+    }
+
+    @at-root .user-name{
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    @at-root .user-role{
+      margin-bottom: 10px;
+    }
+  }
+
+  // jqsb-left-sm样式
+  @at-root .jqsb-left-sm{
+
+  }
+
+}
+
+
 
 
 
