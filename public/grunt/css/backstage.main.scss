@@ -106,7 +106,7 @@
 
 
 /*------------------------------------*\
-    公用样式 &public
+    公用样式() &public
 \*------------------------------------*/
 .block{
   display: block;
@@ -121,24 +121,51 @@ a.cancelDefault:hover{
 }
 
 /*------------------------------------*\
+    基本样式(此网站基调) &website
+\*------------------------------------*/
+
+
+/*------------------------------------*\
     侧边栏样式 &sidebar
 \*------------------------------------*/
 
 // 侧边栏基础设置
 $sidebarSetting: (
         backgroundColor: #2f4050, // 侧边栏背景色
-        width: 220px // 侧边栏宽度
-);
-// 侧边栏字体 size:字体尺寸;color:字体颜色
-$sidebarFont: (
+        width: 220px, // 侧边栏宽度
         size: (10px,12px,13px,14px,16px,18px), // 字体尺寸
         color: #a7b1c2 // 字体颜色
 );
 // 侧边栏a标签
 $sidebar-a: (
+        hoverColor:#fff,// 悬停时的字体颜色
+        focusColor:#fff,// 获得焦点时的字体颜色
         hoverBackgroundColor:#293846, // 悬停时的背景色
         focusBackgroundColor:#293846 // 获得焦点时的背景色
 );
+
+%base-ul{
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  >li{
+    >a{
+      position: relative;
+      display: block;
+      padding: 15px 15px;
+    }
+    >a:focus{
+      color:map_get($sidebar-a,focusColor);
+      background-color: map_get($sidebar-a,focusBackgroundColor);
+      text-decoration: none;
+    }
+    >a:hover{
+      color:map_get($sidebar-a,hoverColor);
+      background-color: map_get($sidebar-a,hoverBackgroundColor);
+      text-decoration: none;
+    }
+  }
+}
 
 // 左侧侧边栏样式
 .jqsb-left{
@@ -149,34 +176,16 @@ $sidebar-a: (
     width: map_get($sidebarSetting,width);
 
     @at-root .metismenu {
-      @extend .item-list;
+      @extend %base-ul;
       a{
-        color: map_get($sidebarFont,color);
-        font-size: nth(map_get($sidebarFont,size),3);
-        font-weight: 600;
+        color: map_get($sidebarSetting,color);
+        font-size: nth(map_get($sidebarSetting,size),3);
+        font-weight: 700;
       }
-
     }
 
     @at-root .item-list{
-      padding-left: 0;
-      margin-bottom: 0;
-      list-style: none;
-      >li{
-        >a{
-          position: relative;
-          display: block;
-          padding: 10px 15px;
-        }
-        >a:focus{
-          background-color: map_get($sidebar-a,focusBackgroundColor);
-          text-decoration: none;
-        }
-        >a:hover{
-          background-color: map_get($sidebar-a,hoverBackgroundColor);
-          text-decoration: none;
-        }
-      }
+      @extend %base-ul;
     }
 
     @at-root .item-link{
@@ -188,8 +197,8 @@ $sidebar-a: (
         background-color: map_get($sidebar-a,hoverBackgroundColor);
       }
       >i{
-        font-size: nth(map_get($sidebarFont,size),1);
-        margin-right: nth(map_get($sidebarFont,size),1) * 0.5;
+        font-size: nth(map_get($sidebarSetting,size),1);
+        margin-right: nth(map_get($sidebarSetting,size),1) * 0.5;
       }
     }
 

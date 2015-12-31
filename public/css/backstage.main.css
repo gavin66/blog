@@ -131,7 +131,7 @@
 }
 
 /*------------------------------------*\
-    公用样式 &public
+    公用样式() &public
 \*------------------------------------*/
 .block {
   display: block;
@@ -148,8 +148,32 @@ a.cancelDefault:hover {
 }
 
 /*------------------------------------*\
+    基本样式(此网站基调) &website
+\*------------------------------------*/
+/*------------------------------------*\
     侧边栏样式 &sidebar
 \*------------------------------------*/
+.metismenu, .item-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.metismenu > li > a, .item-list > li > a {
+  position: relative;
+  display: block;
+  padding: 15px 15px;
+}
+.metismenu > li > a:focus, .item-list > li > a:focus {
+  color: #fff;
+  background-color: #293846;
+  text-decoration: none;
+}
+.metismenu > li > a:hover, .item-list > li > a:hover {
+  color: #fff;
+  background-color: #293846;
+  text-decoration: none;
+}
+
 .jqsb-left {
   background-color: #2f4050;
 }
@@ -159,25 +183,7 @@ a.cancelDefault:hover {
 .metismenu a {
   color: #a7b1c2;
   font-size: 13px;
-  font-weight: 600;
-}
-.item-list, .metismenu {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.item-list > li > a, .metismenu > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-.item-list > li > a:focus, .metismenu > li > a:focus {
-  background-color: #293846;
-  text-decoration: none;
-}
-.item-list > li > a:hover, .metismenu > li > a:hover {
-  background-color: #293846;
-  text-decoration: none;
+  font-weight: 700;
 }
 .item-link {
   padding: 10px 25px;
