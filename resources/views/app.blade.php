@@ -95,10 +95,10 @@
     <script src="//cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
     {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
 
-    <script src="{{ asset('/js/base/config.js') }}"></script>
-    <script src="{{ asset('/js/base/tools.js') }}"></script>
-    <script src="{{ asset('/js/base/app.js') }}"></script>
-    <script src="{{ asset('/js/base/sidebar.js') }}"></script>
+    <script src="{{ asset('/js/config.js') }}"></script>
+    <script src="{{ asset('/js/tools.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/sidebar.js') }}"></script>
     <!-- angular的主要js-->
     <!--<script src="//apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"></script> -->
     @section('js')
