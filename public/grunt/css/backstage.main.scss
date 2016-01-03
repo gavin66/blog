@@ -124,7 +124,7 @@ a.cancelDefault:hover{
     基本样式(此网站基调) &website
 \*------------------------------------*/
 $base-setting: (
-
+    navbar-width: 50px
 );
 
 
@@ -134,19 +134,19 @@ $base-setting: (
 // 侧边栏基础设置
 $sidebarSetting: (
         backgroundColor: #2f4050, // 侧边栏背景色
-        width: 220px, // 侧边栏宽度
-        size: (10px,12px,13px,14px,16px,18px), // 字体尺寸
-        color: #a7b1c2 // 字体颜色
+        width: 180px, // 侧边栏宽度
+        fontSize: (10px,12px,13px,14px,16px,18px), // 字体尺寸
+        fontColor: #a7b1c2 // 字体颜色
 );
 // 侧边栏a标签
 $sidebar-a: (
         hoverColor:#fff,// 悬停时的字体颜色
         focusColor:#fff,// 获得焦点时的字体颜色
-        hoverBackgroundColor:#293846, // 悬停时的背景色
-        focusBackgroundColor:#293846 // 获得焦点时的背景色
+        hoverBackgroundColor:darken(map_get($sidebarSetting,backgroundColor),3%), // 悬停时的背景色
+        focusBackgroundColor:darken(map_get($sidebarSetting,backgroundColor),3%) // 获得焦点时的背景色
 );
 
-%base-ul{
+%sidebar-ul{
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -154,7 +154,7 @@ $sidebar-a: (
     >a{
       position: relative;
       display: block;
-      padding: 15px 15px;
+      padding: 15px
     }
     >a:focus{
       color:map_get($sidebar-a,focusColor);
@@ -178,16 +178,17 @@ $sidebar-a: (
     width: map_get($sidebarSetting,width);
 
     @at-root .metismenu {
-      @extend %base-ul;
+      @extend %sidebar-ul;
       a{
-        color: map_get($sidebarSetting,color);
-        font-size: nth(map_get($sidebarSetting,size),3);
-        font-weight: 700;
+        color: map_get($sidebarSetting,fontColor);
+        font-size: nth(map_get($sidebarSetting,fontSize),3);
+        font-weight: 600;
       }
     }
 
     @at-root .item-list{
-      @extend %base-ul;
+      @extend %sidebar-ul;
+      text-indent: nth(map_get($sidebarSetting,fontSize),1) * 3;
     }
 
     @at-root .item-link{
@@ -199,42 +200,102 @@ $sidebar-a: (
         background-color: map_get($sidebar-a,hoverBackgroundColor);
       }
       >i{
-        font-size: nth(map_get($sidebarSetting,size),1);
-        margin-right: nth(map_get($sidebarSetting,size),1) * 0.5;
+        font-size: nth(map_get($sidebarSetting,fontSize),1);
+        margin-right: nth(map_get($sidebarSetting,fontSize),1);
       }
     }
 
-    @at-root .user-portrait{
-      display: block;
-      max-width: 70px;
-      height: auto;
-      margin-top: 20px;
-      margin-left: 25px;
+    @at-root .user-info{
+      background: url("http://www.isgavin.me/img/header-bg-img.png") no-repeat;
+      padding-left: 15px;
+      padding-top: 25px;
+      padding-bottom: 15px;
+      @at-root .user-portrait{
+        display: block;
+        max-width: 40%;
+        height: auto;
+        margin-bottom: 8px;
+      }
+
+      @at-root .user-info-dropdown{
+        position: relative;
+      }
+
     }
 
-    @at-root .user-info-dropdown{
-      margin-left: 25px;
-      position: relative;
-    }
-
-    @at-root .user-name{
-      margin-top: 10px;
-      margin-bottom: 5px;
-    }
-
-    @at-root .user-role{
-      margin-bottom: 10px;
-    }
   }
 
   // jqsb-left-sm样式
   @at-root .jqsb-left-sm{
+    width: 70px;
+
+    @at-root .sm-item-list{
+      @extend %sidebar-ul;
+      >li>a{
+        color: map_get($sidebarSetting,fontColor);
+        font-size: nth(map_get($sidebarSetting,fontSize),5);
+        padding: 12px 18px;
+        text-align: center;
+      }
+
+      .personal-icon{
+        >a{
+          background-color: darken(map_get($sidebar-a,focusBackgroundColor),3%);
+          line-height: map_get($base-setting,navbar-width);
+          padding: 0;
+          vertical-align: middle;
+          >img{
+            width: 30px;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  //工具提示样式修改
+  @at-root {
+    .sidebar-tooltip{
+      .tooltip-inner {
+        max-width: 200px;
+        padding: 0 10px;
+        color: #fff;
+        text-align: center;
+        background-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-radius:0;
+        line-height: 46px;
+        font-weight: 600;
+      }
+      .tooltip.top .tooltip-arrow {
+        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.top-left .tooltip-arrow {
+        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.top-right .tooltip-arrow {
+        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.right .tooltip-arrow {
+        border-right-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.left .tooltip-arrow {
+        border-left-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.bottom .tooltip-arrow {
+        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.bottom-left .tooltip-arrow {
+        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+      .tooltip.bottom-right .tooltip-arrow {
+        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+      }
+    }
 
   }
 
 }
-
-
 
 
 

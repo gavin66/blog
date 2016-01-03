@@ -97,7 +97,18 @@
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
-        <div class="jqsb-left-sm">小图标</div>
+        <div class="jqsb-left-sm">
+            <ul class="sm-item-list">
+                <li class="personal-icon"><a href="#"><img src="/img/test/iconfont-pic.png" alt="图标"></a></li>
+                <li><a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="文章" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-book"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="多媒体" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-film"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="评论" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-comment"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="外观" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="用户" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-user"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="工具" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-th-list"></i></a></li>
+                <li><a href="#" data-toggle="tooltip" data-placement="right" title="设置" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-cog"></i></a></li>
+            </ul>
+        </div>
         <div class="jqsb-left-bg">
             <ul class="metismenu" id="metisMenu">
                 <li class="user-info">
@@ -207,6 +218,8 @@
         {{--<button type="button" class="btn btn-danger">测试元素</button>--}}
     {{--</div>--}}
 
+    {{--侧边栏的工具提示层--}}
+    <div class="sidebar-tooltip"></div>
 
     <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
     <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
@@ -231,12 +244,15 @@
     <script>
         $(function(){
             var jqSidebar = new $.jqSidebar({
-                leftMode:'sidebar-turn',
-                autoClose:false
+                leftMode: 'sidebar-turn',
+                leftTurnShow: 'jqsb-left-sm',
+                autoClose: false
             });
 
             $('#metisMenu').metisMenu();
 
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
 
 //        $(function(){
 //            $("#menu").metisMenu({
