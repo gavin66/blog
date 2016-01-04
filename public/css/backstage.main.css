@@ -151,6 +151,19 @@ a.cancelDefault:hover {
     基本样式(此网站基调) &website
 \*------------------------------------*/
 /*------------------------------------*\
+    导航栏样式 &navbar
+\*------------------------------------*/
+.navbar-inverse {
+  background-color: #2f4050;
+  border-color: #2f4050;
+}
+
+.navbar {
+  border-radius: 0;
+  border: 0;
+}
+
+/*------------------------------------*\
     侧边栏样式 &sidebar
 \*------------------------------------*/
 .metismenu, .item-list, .sm-item-list {
@@ -176,6 +189,19 @@ a.cancelDefault:hover {
 
 .jqsb-left {
   background-color: #2f4050;
+  overflow-x: hidden;
+}
+.jqsb-left::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+.jqsb-left::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.jqsb-left::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #FF5722;
 }
 .jqsb-left-bg {
   width: 180px;

@@ -43,7 +43,7 @@
 
     <div class="jqsb-container">
         <header>
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blog-navbar" aria-expanded="false">
@@ -59,14 +59,14 @@
                     <div class="collapse navbar-collapse" id="blog-navbar">
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control" placeholder="站内搜索">
                             </div>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">消息通知</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Something else here</a></li>
                                     <li role="separator" class="divider"></li>
@@ -91,7 +91,12 @@
             </nav>
         </header>
         <div class="main">
-
+            123123131231231231<br>
+            123123131231231231<br>
+            123123131231231231<br>
+            123123131231231231<br>
+            123123131231231231<br>
+            #0099cc
         </div>
         <footer></footer>
     </div>
@@ -245,7 +250,7 @@
         $(function(){
             var jqSidebar = new $.jqSidebar({
                 leftMode: 'sidebar-turn',
-                leftTurnShow: 'jqsb-left-sm',
+//                leftTurnShow: 'jqsb-left-sm',
                 autoClose: false
             });
 
