@@ -52,7 +52,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand jqsb-toggle-left " href="#">
-                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                            <span class="glyphicon glyphicon-arrow-left"></span>
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="blog-navbar">
@@ -90,11 +90,7 @@
             </nav>
         </header>
         <div class="main">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">Profile</a></li>
-                <li role="presentation"><a href="#">Messages</a></li>
-            </ul>
+
         </div>
         <footer></footer>
     </div>

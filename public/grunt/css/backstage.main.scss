@@ -143,33 +143,50 @@ $baseSetting: (
 $navbarSetting: (
         navbar-height: 50px
 );
-.navbar-site {
+
+.navbar-site{
   border-radius: 0;
   border: 0;
   border-bottom: 1px solid darken(map_get($baseSetting,navBackgroundColor),10%);
   background-color: map_get($baseSetting,navBackgroundColor);
-}
-.navbar-site a,
-.navbar-site .navbar-nav>li>a {
-  font-weight: 600;
-  color: map_get($baseSetting,fontColor);
-}
-.navbar-site .navbar-nav>.open>a,
-.navbar-site .navbar-nav>.open>a:focus,
-.navbar-site .navbar-nav>.open>a:hover {
-  color: darken(map_get($baseSetting,navBackgroundColor),60%);
-  background-color: darken(map_get($baseSetting,navBackgroundColor),5%);
-}
-.navbar-brand{
-  padding:10px;
-  span{
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    border: 1px red solid;
+
+  a,.navbar-nav>li>a{
+    font-weight: 600;
+    color: map_get($baseSetting,fontColor);
   }
+
+  .navbar-nav>.open>a,
+  .navbar-nav>.open>a:focus,
+  .navbar-nav>.open>a:hover {
+    color: darken(map_get($baseSetting,navBackgroundColor),45%);
+    background-color: darken(map_get($baseSetting,navBackgroundColor),5%);
+  }
+
+  .navbar-toggle {
+    border-color: darken(map_get($baseSetting,navBackgroundColor),10%);
+    &:hover{
+      background-color: darken(map_get($baseSetting,navBackgroundColor),10%);
+    }
+    .icon-bar{
+      background-color: darken(map_get($baseSetting,navBackgroundColor),35%);
+    }
+  }
+
+  @at-root .navbar-brand{
+    //padding:10px;
+    span{
+      //line-height: 30px;
+      //height: 30px;
+      //width: 30px;
+      //text-align: center;
+      //border: 1px red solid;
+      color: map_get($baseSetting,backgroundColor);
+    }
+  }
+
 }
+
+
 
 
 /*------------------------------------*\

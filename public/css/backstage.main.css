@@ -153,29 +153,27 @@ a.cancelDefault:hover {
   border-bottom: 1px solid #dcdce0;
   background-color: #f7f7f8;
 }
-
-.navbar-site a,
-.navbar-site .navbar-nav > li > a {
+.navbar-site a, .navbar-site .navbar-nav > li > a {
   font-weight: 600;
   color: #a7b1c2;
 }
-
 .navbar-site .navbar-nav > .open > a,
 .navbar-site .navbar-nav > .open > a:focus,
 .navbar-site .navbar-nav > .open > a:hover {
-  color: #585865;
+  color: #7d7d8d;
   background-color: #e9e9ec;
 }
-
-.navbar-brand {
-  padding: 10px;
+.navbar-site .navbar-toggle {
+  border-color: #dcdce0;
+}
+.navbar-site .navbar-toggle:hover {
+  background-color: #dcdce0;
+}
+.navbar-site .navbar-toggle .icon-bar {
+  background-color: #9898a5;
 }
 .navbar-brand span {
-  line-height: 30px;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-  border: 1px red solid;
+  color: #293038;
 }
 
 /*------------------------------------*\
