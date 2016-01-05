@@ -15,7 +15,7 @@
     <meta name="csrf-token" content="{{ csrf_token()}}" />
 
 {{--    <title>@yield('title','Gavin\'s Blog')</title>--}}
-    <title>@yield('title','理发师')</title>
+    <title>@yield('title','Gavin\'blog')</title>
 
     <!-- Bootstrap css-->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -40,10 +40,9 @@
     {{--<button id="animation">动画</button>--}}
     {{--<button id="ajax">异步请求</button>--}}
 
-
     <div class="jqsb-container">
         <header>
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-site">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blog-navbar" aria-expanded="false">
@@ -52,7 +51,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand jqsb-toggle-left" href="#">
+                        <a class="navbar-brand jqsb-toggle-left " href="#">
                             <span class="glyphicon glyphicon-menu-hamburger"></span>
                         </a>
                     </div>
@@ -91,12 +90,11 @@
             </nav>
         </header>
         <div class="main">
-            123123131231231231<br>
-            123123131231231231<br>
-            123123131231231231<br>
-            123123131231231231<br>
-            123123131231231231<br>
-            #0099cc
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+            </ul>
         </div>
         <footer></footer>
     </div>

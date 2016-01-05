@@ -92,7 +92,6 @@
   -o-transition-property: height, visibility;
   transition-property: height, visibility;
 }
-
 /*------------------------------------*\
     动画样式 &animate
 \*------------------------------------*/
@@ -129,9 +128,8 @@
   -webkit-animation-name: fadeInLeft30;
   animation-name: fadeInLeft30;
 }
-
 /*------------------------------------*\
-    公用样式() &public
+    基础样式样式 &website
 \*------------------------------------*/
 .block {
   display: block;
@@ -146,49 +144,66 @@ a.cancelDefault:hover {
   cursor: pointer;
   color: inherit;
 }
-
-/*------------------------------------*\
-    基本样式(此网站基调) &website
-\*------------------------------------*/
 /*------------------------------------*\
     导航栏样式 &navbar
 \*------------------------------------*/
-.navbar-inverse {
-  background-color: #2f4050;
-  border-color: #2f4050;
-}
-
-.navbar {
+.navbar-site {
   border-radius: 0;
   border: 0;
+  border-bottom: 1px solid #dcdce0;
+  background-color: #f7f7f8;
+}
+
+.navbar-site a,
+.navbar-site .navbar-nav > li > a {
+  font-weight: 600;
+  color: #a7b1c2;
+}
+
+.navbar-site .navbar-nav > .open > a,
+.navbar-site .navbar-nav > .open > a:focus,
+.navbar-site .navbar-nav > .open > a:hover {
+  color: #585865;
+  background-color: #e9e9ec;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+.navbar-brand span {
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  border: 1px red solid;
 }
 
 /*------------------------------------*\
     侧边栏样式 &sidebar
 \*------------------------------------*/
-.metismenu, .item-list, .sm-item-list {
+.item-list, .sm-item-list {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.metismenu > li > a, .item-list > li > a, .sm-item-list > li > a {
+.item-list > li > a, .sm-item-list > li > a {
   position: relative;
   display: block;
   padding: 15px;
 }
-.metismenu > li > a:focus, .item-list > li > a:focus, .sm-item-list > li > a:focus {
+.item-list > li > a:focus, .sm-item-list > li > a:focus {
   color: #fff;
-  background-color: #293846;
+  background-color: #343d47;
   text-decoration: none;
 }
-.metismenu > li > a:hover, .item-list > li > a:hover, .sm-item-list > li > a:hover {
+.item-list > li > a:hover, .sm-item-list > li > a:hover {
   color: #fff;
-  background-color: #293846;
+  background-color: #343d47;
   text-decoration: none;
 }
 
 .jqsb-left {
-  background-color: #2f4050;
+  background-color: #293038;
   overflow-x: hidden;
 }
 .jqsb-left::-webkit-scrollbar {
@@ -206,6 +221,11 @@ a.cancelDefault:hover {
 .jqsb-left-bg {
   width: 180px;
 }
+.metismenu {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
 .metismenu a {
   color: #a7b1c2;
   font-size: 13px;
@@ -215,13 +235,20 @@ a.cancelDefault:hover {
   text-indent: 30px;
 }
 .item-link {
-  padding: 10px 25px;
+  position: relative;
+  display: block;
+  padding: 15px;
+  background-color: #252b32;
 }
 .item-link:focus {
-  background-color: #293846;
+  color: #fff;
+  background-color: #252b32;
+  text-decoration: none;
 }
 .item-link:hover {
-  background-color: #293846;
+  color: #fff;
+  background-color: #252b32;
+  text-decoration: none;
 }
 .item-link > i {
   font-size: 10px;
@@ -252,7 +279,7 @@ a.cancelDefault:hover {
   text-align: center;
 }
 .sm-item-list .personal-icon > a {
-  background-color: #24313d;
+  background-color: #3a4450;
   line-height: 50px;
   padding: 0;
   vertical-align: middle;
@@ -265,34 +292,34 @@ a.cancelDefault:hover {
   padding: 0 10px;
   color: #fff;
   text-align: center;
-  background-color: #293846;
+  background-color: rgba(52, 61, 71, 0.95);
   border-radius: 0;
   line-height: 46px;
   font-weight: 600;
 }
 .sidebar-tooltip .tooltip.top .tooltip-arrow {
-  border-top-color: #293846;
+  border-top-color: #343d47;
 }
 .sidebar-tooltip .tooltip.top-left .tooltip-arrow {
-  border-top-color: #293846;
+  border-top-color: #343d47;
 }
 .sidebar-tooltip .tooltip.top-right .tooltip-arrow {
-  border-top-color: #293846;
+  border-top-color: #343d47;
 }
 .sidebar-tooltip .tooltip.right .tooltip-arrow {
-  border-right-color: #293846;
+  border-right-color: #343d47;
 }
 .sidebar-tooltip .tooltip.left .tooltip-arrow {
-  border-left-color: #293846;
+  border-left-color: #343d47;
 }
 .sidebar-tooltip .tooltip.bottom .tooltip-arrow {
-  border-bottom-color: #293846;
+  border-bottom-color: #343d47;
 }
 .sidebar-tooltip .tooltip.bottom-left .tooltip-arrow {
-  border-bottom-color: #293846;
+  border-bottom-color: #343d47;
 }
 .sidebar-tooltip .tooltip.bottom-right .tooltip-arrow {
-  border-bottom-color: #293846;
+  border-bottom-color: #343d47;
 }
 
 /*# sourceMappingURL=backstage.main.css.map */

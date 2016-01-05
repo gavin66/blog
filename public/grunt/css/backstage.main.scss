@@ -2,150 +2,175 @@
   metisMenu插件所需样式
 \*---------------------------*/
 
-.metismenu .arrow {
-  float: right;
-  line-height: 1.42857;
+@at-root {
+  .metismenu .arrow {
+    float: right;
+    line-height: 1.42857;
+  }
+  *[dir="rtl"] .metismenu .arrow {
+    float: left;
+  }
+  .metismenu .glyphicon.arrow:before {
+    content: "\e079";
+  }
+  .metismenu .active > a > .glyphicon.arrow:before {
+    content: "\e114";
+  }
+  .metismenu .fa.arrow:before {
+    content: "\f104";
+  }
+  .metismenu .active > a > .fa.arrow:before {
+    content: "\f107";
+  }
+  .metismenu .ion.arrow:before {
+    content: "\f3d2"
+  }
+  .metismenu .active > a > .ion.arrow:before {
+    content: "\f3d0";
+  }
+  .metismenu .plus-times {
+    float: right;
+  }
+  *[dir="rtl"] .metismenu .plus-times {
+    float: left;
+  }
+  .metismenu .fa.plus-times:before {
+    content: "\f067";
+  }
+  .metismenu .active > a > .fa.plus-times {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .metismenu .plus-minus {
+    float: right;
+  }
+  *[dir="rtl"] .metismenu .plus-minus {
+    float: left;
+  }
+  .metismenu .fa.plus-minus:before {
+    content: "\f067";
+  }
+  .metismenu .active > a > .fa.plus-minus:before {
+    content: "\f068";
+  }
+  .metismenu .collapse {
+    display: none;
+  }
+  .metismenu .collapse.in {
+    display: block;
+  }
+  .metismenu .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+    -o-transition-duration: .35s;
+    transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+    -o-transition-property: height, visibility;
+    transition-property: height, visibility;
+  }
 }
-*[dir="rtl"] .metismenu .arrow {
-  float: left;
-}
-.metismenu .glyphicon.arrow:before {
-  content: "\e079";
-}
-.metismenu .active > a > .glyphicon.arrow:before {
-  content: "\e114";
-}
-.metismenu .fa.arrow:before {
-  content: "\f104";
-}
-.metismenu .active > a > .fa.arrow:before {
-  content: "\f107";
-}
-.metismenu .ion.arrow:before {
-  content: "\f3d2"
-}
-.metismenu .active > a > .ion.arrow:before {
-  content: "\f3d0";
-}
-.metismenu .plus-times {
-  float: right;
-}
-*[dir="rtl"] .metismenu .plus-times {
-  float: left;
-}
-.metismenu .fa.plus-times:before {
-  content: "\f067";
-}
-.metismenu .active > a > .fa.plus-times {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.metismenu .plus-minus {
-  float: right;
-}
-*[dir="rtl"] .metismenu .plus-minus {
-  float: left;
-}
-.metismenu .fa.plus-minus:before {
-  content: "\f067";
-}
-.metismenu .active > a > .fa.plus-minus:before {
-  content: "\f068";
-}
-.metismenu .collapse {
-  display: none;
-}
-.metismenu .collapse.in {
-  display: block;
-}
-.metismenu .collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  -webkit-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-duration: .35s;
-  -o-transition-duration: .35s;
-  transition-duration: .35s;
-  -webkit-transition-property: height, visibility;
-  -o-transition-property: height, visibility;
-  transition-property: height, visibility;
-}
+
 
 /*------------------------------------*\
     动画样式 &animate
 \*------------------------------------*/
 
 // 从左侧淡入 参数是百分比
-@mixin fadeInleft($percent){
-  $name : $percent;
-  $percent : -$percent / 100;
-  @keyframes fadeInLeft#{$name} {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(percentage($percent), 0, 0);
-      transform: translate3d(percentage($percent), 0, 0);
+@at-root {
+  @mixin fadeInleft($percent){
+    $name : $percent;
+    $percent : -$percent / 100;
+    @keyframes fadeInLeft#{$name} {
+      from {
+        opacity: 0;
+        -webkit-transform: translate3d(percentage($percent), 0, 0);
+        transform: translate3d(percentage($percent), 0, 0);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
     }
-    to {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
+    .fadeInLeft#{$name} {
+      -webkit-animation-name: fadeInLeft#{$name};
+      animation-name: fadeInLeft#{$name};
     }
   }
-  .fadeInLeft#{$name} {
-    -webkit-animation-name: fadeInLeft#{$name};
-    animation-name: fadeInLeft#{$name};
-  }
-}
 
-@include fadeInleft(20);
-@include fadeInleft(30);
+  @include fadeInleft(20);
+  @include fadeInleft(30);
+}
 
 
 /*------------------------------------*\
-    公用样式() &public
-\*------------------------------------*/
-
-.block{
-  display: block;
-}
-.inline{
-  display: inline;
-}
-a.cancelDefault:hover{
-  text-decoration: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-/*------------------------------------*\
-    基本样式(此网站基调) &website
+    基础样式样式 &website
 \*------------------------------------*/
 
 $baseSetting: (
-        backgroundColor: #2f4050, // 背景色
+        backgroundColor: #293038, // 背景色 #2f4050 #293038
+        navBackgroundColor: #f7f7f8, // 导航栏背景色
         fontSize: (10px,12px,13px,14px,16px,18px), // 字体尺寸
-        fontColor: #a7b1c2 // 字体颜色
+        fontColor: #a7b1c2, // 字体颜色
+        hoverColor: #fff, // 悬停时的字体颜色
+        focusColor: #fff, // 获得焦点时的字体颜色
 );
 
+@at-root {
+  .block{
+    display: block;
+  }
+  .inline{
+    display: inline;
+  }
+  a.cancelDefault:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+  }
+}
 /*------------------------------------*\
     导航栏样式 &navbar
 \*------------------------------------*/
 
 $navbarSetting: (
-        navbar-width: 50px
+        navbar-height: 50px
 );
-.navbar-inverse {
-  background-color: #2f4050;
-  border-color: #2f4050;
-}
-.navbar {
+.navbar-site {
   border-radius: 0;
   border: 0;
+  border-bottom: 1px solid darken(map_get($baseSetting,navBackgroundColor),10%);
+  background-color: map_get($baseSetting,navBackgroundColor);
 }
+.navbar-site a,
+.navbar-site .navbar-nav>li>a {
+  font-weight: 600;
+  color: map_get($baseSetting,fontColor);
+}
+.navbar-site .navbar-nav>.open>a,
+.navbar-site .navbar-nav>.open>a:focus,
+.navbar-site .navbar-nav>.open>a:hover {
+  color: darken(map_get($baseSetting,navBackgroundColor),60%);
+  background-color: darken(map_get($baseSetting,navBackgroundColor),5%);
+}
+.navbar-brand{
+  padding:10px;
+  span{
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border: 1px red solid;
+  }
+}
+
 
 /*------------------------------------*\
     侧边栏样式 &sidebar
@@ -154,15 +179,9 @@ $navbarSetting: (
 // 侧边栏基础设置
 $sidebarSetting: (
         scrollbarThumbColor: #FF5722, // 滚动条滑块颜色
-        width: 180px, // 侧边栏宽度
-        fontColor: #a7b1c2 // 字体颜色
-);
-// 侧边栏a标签
-$sidebar-a: (
-        hoverColor:#fff,// 悬停时的字体颜色
-        focusColor:#fff,// 获得焦点时的字体颜色
-        hoverBackgroundColor:darken(map_get($baseSetting,backgroundColor),3%), // 悬停时的背景色
-        focusBackgroundColor:darken(map_get($baseSetting,backgroundColor),3%) // 获得焦点时的背景色
+        fontColor: #a7b1c2, // 字体颜色
+        lg-width: 180px, // 侧边栏宽度
+        sm-width: 70px // 小块宽度
 );
 
 %sidebar-ul{
@@ -176,13 +195,13 @@ $sidebar-a: (
       padding: 15px
     }
     >a:focus{
-      color:map_get($sidebar-a,focusColor);
-      background-color: map_get($sidebar-a,focusBackgroundColor);
+      color:map_get($baseSetting,focusColor);
+      background-color: lighten(map_get($baseSetting,backgroundColor),5%);
       text-decoration: none;
     }
     >a:hover{
-      color:map_get($sidebar-a,hoverColor);
-      background-color: map_get($sidebar-a,hoverBackgroundColor);
+      color:map_get($baseSetting,hoverColor);
+      background-color: lighten(map_get($baseSetting,backgroundColor),5%);
       text-decoration: none;
     }
   }
@@ -208,10 +227,13 @@ $sidebar-a: (
 
   // jqsb-left-bg样式
   @at-root .jqsb-left-bg{
-    width: map_get($sidebarSetting,width);
+    width: map_get($sidebarSetting,lg-width);
 
     @at-root .metismenu {
-      @extend %sidebar-ul;
+      //@extend %sidebar-ul;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
       a{
         color: map_get($sidebarSetting,fontColor);
         font-size: nth(map_get($baseSetting,fontSize),3);
@@ -225,12 +247,19 @@ $sidebar-a: (
     }
 
     @at-root .item-link{
-      padding: 10px 25px;
+      position: relative;
+      display: block;
+      padding: 15px;
+      background-color: darken(map_get($baseSetting,backgroundColor),2%);
       &:focus{
-        background-color: map_get($sidebar-a,focusBackgroundColor);
+        color:map_get($baseSetting,focusColor);
+        background-color: darken(map_get($baseSetting,backgroundColor),2%);
+        text-decoration: none;
       }
       &:hover{
-        background-color: map_get($sidebar-a,hoverBackgroundColor);
+        color:map_get($baseSetting,hoverColor);
+        background-color: darken(map_get($baseSetting,backgroundColor),2%);
+        text-decoration: none;
       }
       >i{
         font-size: nth(map_get($baseSetting,fontSize),1);
@@ -260,7 +289,7 @@ $sidebar-a: (
 
   // jqsb-left-sm样式
   @at-root .jqsb-left-sm{
-    width: 70px;
+    width: map_get($sidebarSetting,sm-width);
 
     @at-root .sm-item-list{
       @extend %sidebar-ul;
@@ -273,8 +302,8 @@ $sidebar-a: (
 
       .personal-icon{
         >a{
-          background-color: darken(map_get($sidebar-a,focusBackgroundColor),3%);
-          line-height: map_get($navbarSetting,navbar-width);
+          background-color: lighten(map_get($baseSetting,backgroundColor),8%);
+          line-height: map_get($navbarSetting,navbar-height);
           padding: 0;
           vertical-align: middle;
           >img{
@@ -295,34 +324,34 @@ $sidebar-a: (
         padding: 0 10px;
         color: #fff;
         text-align: center;
-        background-color: rgba(map_get($sidebar-a,hoverBackgroundColor),50%);
+        background-color: rgba(lighten(map_get($baseSetting,backgroundColor),5%),.95);
         border-radius:0;
         line-height: 46px;
         font-weight: 600;
       }
       .tooltip.top .tooltip-arrow {
-        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-top-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.top-left .tooltip-arrow {
-        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-top-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.top-right .tooltip-arrow {
-        border-top-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-top-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.right .tooltip-arrow {
-        border-right-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-right-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.left .tooltip-arrow {
-        border-left-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-left-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.bottom .tooltip-arrow {
-        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-bottom-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.bottom-left .tooltip-arrow {
-        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-bottom-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
       .tooltip.bottom-right .tooltip-arrow {
-        border-bottom-color: map_get($sidebar-a,hoverBackgroundColor);
+        border-bottom-color: lighten(map_get($baseSetting,backgroundColor),5%);
       }
     }
 
