@@ -133,9 +133,10 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="true">
-                        <li><a href="#">文章1</a></li>
-                        <li><a href="#">文章1</a></li>
-                        <li><a href="#">文章2</a></li>
+                        <li><a href="/article/lists">文章列表</a></li>
+                        <li><a href="#">写文章</a></li>
+                        <li><a href="#">分类</a></li>
+                        <li><a href="#">标签</a></li>
                     </ul>
                 </li>
                 <li>
