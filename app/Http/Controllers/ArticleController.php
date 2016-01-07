@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller {
 
+    public function _construct(){
+
+    }
+
 	public function lists(Request $request){
         return 'lists';
     }

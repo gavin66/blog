@@ -25,16 +25,23 @@ Route::get('backstage',function(){return view('backstage');});
 
 Route::get('gavin',function(){return view('gavin');});
 
-Route::get('test',function(){return view('test');});
+//Route::get('test',function(){return view('test');});
+Route::resource('test','TestController');
 
 
 // 文章
-// 需要中间件 检测是否是管理员登录
-Route::group(['prefix' => 'admin/article','middleware' => ['']], function()
-{
+// 需要中间件 检测是否是管理员登录  'middleware' => ['Auth']
+Route::group(['prefix' => 'admin/article',], function() {
     Route::get('lists', ['as' => 'article.lists','uses'=>'ArticleController@lists']);
     Route::get('edit', ['as'=>'article.edit','uses'=>'ArticleController@edit']);
     Route::get('sort', ['as'=>'article.sort','uses'=>'ArticleController@sort']);
     Route::get('tag', ['as'=>'article.tag','uses'=>'ArticleController@tag']);
 });
 
+// 认证路由...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// 注册路由...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
