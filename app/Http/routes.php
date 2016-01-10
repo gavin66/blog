@@ -28,6 +28,7 @@ Route::get('gavin',function(){return view('gavin');});
 //Route::get('test',function(){return view('test');});
 Route::resource('test','TestController');
 
+Route::get('home', 'HomeController@index');
 
 // 文章
 // 需要中间件 检测是否是管理员登录  'middleware' => ['Auth']
@@ -45,3 +46,11 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // 注册路由...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// 发送密码重置链接路由
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// 密码重置路由
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');

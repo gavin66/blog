@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => 'tianyu_0723@hotmail.com', 'name' => 'Gavin的博客'],
 
 	/*
 	|--------------------------------------------------------------------------
