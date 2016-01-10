@@ -2,7 +2,5 @@
 /public/upload
 /public/grunt/node_modules
 /storage
-.env.*.php
-.env.php
 .env
 .idea
