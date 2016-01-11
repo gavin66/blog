@@ -11,6 +11,33 @@
 |
 */
 
+/**
+ * 认证与注册部分
+ */
+Route::group(['namespace'=>'Auth'],function(){
+    Route::group(['prefix'=>'auth'],function(){
+        // 认证
+        Route::get('login', 'AuthController@getLogin');
+        Route::post('login', 'AuthController@postLogin');
+        Route::get('logout', 'AuthController@getLogout');
+
+        // 注册
+        Route::get('register', 'AuthController@getRegister');
+        Route::post('register', 'AuthController@postRegister');
+    });
+
+    Route::group(['prefix'=>'password'],function(){
+        // 发送密码重置链接路由
+        Route::get('email', 'PasswordController@getEmail');
+        Route::post('email', 'PasswordController@postEmail');
+
+        // 密码重置路由
+        Route::get('reset/{token}', 'PasswordController@getReset');
+        Route::post('reset', 'PasswordController@postReset');
+    });
+});
+
+
 Route::get('phpinfo',function(){phpinfo();});
 
 Route::get('/',function(){return view('home');});
@@ -39,18 +66,5 @@ Route::group(['prefix' => 'admin/article',], function() {
     Route::get('tag', ['as'=>'article.tag','uses'=>'ArticleController@tag']);
 });
 
-// 认证路由...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-// 注册路由...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// 发送密码重置链接路由
-Route::get('password/email', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
 
-// 密码重置路由
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');

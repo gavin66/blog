@@ -16,7 +16,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 
 {{--    <title>@yield('title','Gavin\'s Blog')</title>--}}
-    <title>@yield('title','理发师')</title>
+    <title>@yield('title','Gavin\' Blog')</title>
 
 
     <!-- Bootstrap css-->
