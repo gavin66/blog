@@ -1,4 +1,4 @@
-require(["jquery", "../../dist/jquery.validate"], function($) {
+require(["jquery", "../../dist/jquery.validate.js"], function($) {
 
 	$.validator.setDefaults({
 		submitHandler: function() { alert("submitted!"); }

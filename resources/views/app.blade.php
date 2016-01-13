@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="renderer" content="webkit">
-    <meta name="keywords" content="博客,个人博客,Gavin的博客,田宇的博客">
-    <meta name="description" content="这是田宇(Gavin)的个人网站">
+    <meta name="keywords" content="博客,个人博客,Gavin的博客">
+    <meta name="description" content="这是Gavin的个人博客">
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
