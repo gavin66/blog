@@ -16,26 +16,17 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 
 	<title>@yield('title','Gavin\' Blog')</title>
-	<style>
-		#particles{
-			width: 100%;
-			height: 100%;
-			background-color: #f7f8f9;
-			position: absolute;
-			top: 0;
-			z-index: -1;
-			overflow: hidden;
-		}
 
-	</style>
 	<!-- Bootstrap css-->
 	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="{{ asset('/css/login.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div class="container-fluid" style="">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
@@ -93,7 +84,7 @@
 	</div>
 </div>
 
-<div id="particles">
+<div id="particles-js">
 
 </div>
 
@@ -121,8 +112,8 @@
 {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
 
 <script>
-	particlesJS.load('particles', '{{asset('js/particles.json')}}', function() {
-		console.log('callback - particles.js config loaded');
+	particlesJS.load('particles-js', '{{asset('/js/particles-js.json')}}', function() {
+
 	});
 </script>
 
