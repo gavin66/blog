@@ -20,14 +20,11 @@
 		#particles{
 			width: 100%;
 			height: 100%;
-			background-color: #b61924;
-			background-image: url('');
-			background-size: cover;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
+			background-color: #f7f8f9;
 			position: absolute;
 			top: 0;
 			z-index: -1;
+			overflow: hidden;
 		}
 
 	</style>
@@ -36,7 +33,7 @@
 	<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" style="">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -102,14 +99,14 @@
 
 <footer id="footer">
 	<div class="container">
-		<div class="copyright" itemscope>
+		<div class="copyright" itemscope itemtype="http://www.isgavin.me">
 			©  2014 -
 			{{--©2015 isgavin.me 备案号:津ICP备15004268号--}}
-			<span itemprop="copyrightYear">2015</span>
+			<span itemprop="copyrightYear">2016</span>
 			<a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
 		</div>
 		<div class="record">
-			<a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备15004268号</a>
+			<a href="http://www.miibeian.gov.cn/" target="_blank">津ICP 备 15004268号</a>
 		</div>
 	</div>
 </footer>
