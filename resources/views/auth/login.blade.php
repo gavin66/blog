@@ -21,62 +21,35 @@
 	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="{{ asset('/css/login.css') }}" rel="stylesheet">
-
 </head>
 <body>
-<div class="container-fluid" style="">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-									Login
-								</button>
-
-								<a href="/password/email">Forgot Your Password?</a>
-							</div>
-						</div>
+<div class="index-main">
+	<div class="index-main-body">
+		<div class="header">
+			<p>Blog</p>
+		</div>
+		<div class="body">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab">登录</a></li>
+				<li role="presentation"><a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab">注册</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="sign-in">
+					<form id="sign-in-form" action="">
+						<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
+						<input type="password" class="form-control-blog" name="password" placeholder="密码">
+						<input type="input" class="form-control-blog" name="captcha" placeholder="验证码">
+						<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+					</form>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="sign-up">
+					<form id="sign-up-form" action="">
+						<input type="input" class="form-control-blog" name="fullname" placeholder="姓名">
+						<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
+						<input type="password" class="form-control-blog" name="password" placeholder="密码">
+						<input type="input" class="form-control-blog" name="captcha" placeholder="验证码">
+						<button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
 					</form>
 				</div>
 			</div>
@@ -84,15 +57,11 @@
 	</div>
 </div>
 
-<div id="particles-js">
-
-</div>
-
+<!-- 版权等信息 -->
 <footer id="footer">
 	<div class="container">
 		<div class="copyright" itemscope itemtype="http://www.isgavin.me">
 			©  2014 -
-			{{--©2015 isgavin.me 备案号:津ICP备15004268号--}}
 			<span itemprop="copyrightYear">2016</span>
 			<a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
 		</div>
@@ -101,6 +70,9 @@
 		</div>
 	</div>
 </footer>
+
+<!-- 粒子背景 -->
+<div id="particles-js"></div>
 
 <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
 <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
