@@ -20,6 +20,9 @@
 
 require __DIR__.'/../bootstrap/autoload.php';
 
+// 加载工具类
+require __DIR__.'/../app/Services/Tools.php';
+
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights

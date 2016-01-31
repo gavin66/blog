@@ -18,8 +18,8 @@
 	<title>@yield('title','Gavin\' Blog')</title>
 
 	<!-- Bootstrap css-->
-	{{--<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
-	<link href="/plug-in/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ style_link('http:','//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
+		'/plug-in/bootstrap-3.3.5/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="/style/signInUp.css" rel="stylesheet">
 </head>
 <body>

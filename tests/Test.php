@@ -1,23 +1,5 @@
 <?php
-
-class Test {
-
-	public function __construct(){
-
-	}
-
-	function test($url){
-		$check = @fopen($url,"r");
-		if($check){
-			$status = true;
-		}else{
-			$status = false;
-		}
-		return $status;
-	}
+$url = "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css";
 
 
-}
-
-$test = new Test();
-echo $test->test('www.baidu.com');
+echo preg_replace('///','http://',$url);
