@@ -10,7 +10,7 @@
 	<meta name="keywords" content="博客,个人博客,Gavin的博客">
 	<meta name="description" content="这是Gavin的个人博客">
 	<!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
-	<meta name="csrf-token" content="{{ csrf_token()}}" />
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
         这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
@@ -18,9 +18,9 @@
 	<title>@yield('title','Gavin\' Blog')</title>
 
 	<!-- Bootstrap css-->
-	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="{{ asset('/css/login.css') }}" rel="stylesheet">
+	{{--<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
+	<link href="/plug-in/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/style/signInUp.css" rel="stylesheet">
 </head>
 <body>
 
@@ -37,19 +37,36 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="sign-in">
 					<form id="sign-in-form" action="">
-						<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
-						<input type="password" class="form-control-blog" name="password" placeholder="密码">
-						<input type="input" class="form-control-blog" name="captcha" placeholder="验证码">
-						<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+						<div class="group-inputs">
+							<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
+							<input type="password" class="form-control-blog" name="password" placeholder="密码">
+							<input type="text" class="form-control-blog" name="captcha" placeholder="验证码">
+						</div>
+						<div class="wrapper-button">
+							<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+						</div>
+						<div class="remember-wrapper">
+
+						</div>
+						<div class="other-signin-wrapper">
+
+						</div>
 					</form>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="sign-up">
 					<form id="sign-up-form" action="">
-						<input type="input" class="form-control-blog" name="fullname" placeholder="姓名">
-						<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
-						<input type="password" class="form-control-blog" name="password" placeholder="密码">
-						<input type="input" class="form-control-blog" name="captcha" placeholder="验证码">
-						<button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
+						<div class="group-inputs">
+							<input type="text" class="form-control-blog" name="fullname" placeholder="姓名">
+							<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
+							<input type="password" class="form-control-blog" name="password" placeholder="密码">
+							<input type="text" class="form-control-blog" name="captcha" placeholder="验证码">
+						</div>
+						<div class="wrapper-button">
+							<button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
+						</div>
+						<div class="other-signin-wrapper">
+
+						</div>
 					</form>
 				</div>
 			</div>
@@ -74,20 +91,8 @@
 <!-- 粒子背景 -->
 <div id="particles-js"></div>
 
-<!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
-<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<!-- bootstrap的主要js-->
-<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- velocity 动画切换的jQuery插件-->
-<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
-<script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-{{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
-
-<script>
-	particlesJS.load('particles-js', '{{asset('/js/particles-js.json')}}', function() {
-
-	});
-</script>
+<script src="/script/config/requireJS-config.js"></script>
+<script data-main="/script/signInUp.js" src="/plug-in/RequireJS/require.min.js"></script>
 
 </body>
 </html>

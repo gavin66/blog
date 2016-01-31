@@ -14,7 +14,7 @@
 /**
  * 认证与注册部分
  */
-Route::group(['namespace'=>'Auth'],function(){
+Route::group(['namespace'=>'auth'],function(){
     Route::group(['prefix'=>'auth'],function(){
         // 认证
         Route::get('login', 'AuthController@getLogin');

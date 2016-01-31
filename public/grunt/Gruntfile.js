@@ -79,11 +79,13 @@ module.exports = function(grunt) {
       },
       dev: {
         options:{
+          sourcemap:'none',
           noCache:true,
           style:'expanded'
         },
         files:{
-          '../css/backstage.main.css': 'css/backstage.main.scss'
+          '../style/backstage.main.css': 'css/backstage.main.scss',
+          '../style/signInUp.css':'css/signInUp.scss'
         }
       }
     },
@@ -100,6 +102,13 @@ module.exports = function(grunt) {
       }
     },
 
+    livereload: {
+      options: {
+        base: ''
+      },
+      files: ['../style/**/*.css','../script/**/*.js']
+    },
+
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -109,11 +118,12 @@ module.exports = function(grunt) {
         files: '<%= jshint.src.src %>',
         tasks: ['jshint:src']
       },
-      dev_sass: {
-        files: 'css/backstage.main.scss',
+      sass: {
+        files: ['css/*.scss','css/*.sass'],
         tasks: ['sass:dev']
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -124,7 +134,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-livereload');
+
 
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
+  grunt.registerTask('live',['livereload','watch:sass']);
 };
