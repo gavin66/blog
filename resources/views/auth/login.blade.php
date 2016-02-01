@@ -20,7 +20,9 @@
 	<!-- Bootstrap css-->
 	<link href="{{ style_link('http:','//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
 		'/plug-in/bootstrap-3.3.5/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="/style/signInUp.css" rel="stylesheet">
+	<link href="{{ style_link('http:','//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css',
+		'/font-awesome-4.5.0/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('/style/signInUp.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -30,12 +32,12 @@
 			<p>Blog</p>
 		</div>
 		<div class="body">
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab">登录</a></li>
-				<li role="presentation"><a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab">注册</a></li>
-			</ul>
+			<div class="tab-select">
+				<a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab">登录</a>
+				<a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab">注册</a>
+			</div>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="sign-in">
+				<div role="tabPanel" class="tab-pane active" id="sign-in">
 					<form id="sign-in-form" action="">
 						<div class="group-inputs">
 							<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
@@ -46,14 +48,14 @@
 							<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
 						</div>
 						<div class="remember-wrapper">
-
-						</div>
-						<div class="other-signin-wrapper">
-
+							<label class="remember-me">
+								<input type="checkbox" name="remember" checked value="true">记住我
+							</label>
+							<a class="pull-right" href="{{ url('/password/email') }}">无法登录?</a>
 						</div>
 					</form>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="sign-up">
+				<div role="tabPanel" class="tab-pane" id="sign-up">
 					<form id="sign-up-form" action="">
 						<div class="group-inputs">
 							<input type="text" class="form-control-blog" name="fullname" placeholder="姓名">
@@ -64,10 +66,17 @@
 						<div class="wrapper-button">
 							<button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
 						</div>
-						<div class="other-signin-wrapper">
-
-						</div>
 					</form>
+				</div>
+			</div>
+			<div class="tab-footer">
+				<div class="other-sign-wrapper">
+					<span>社交帐号登录</span>
+					<div class="sns-login">
+						<a href="#"><i class="fa fa-weibo"></i></a>
+						<a href="#"><i class="fa fa-weixin"></i></a>
+						<a href="#"><i class="fa fa-qq"></i></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -91,8 +100,8 @@
 <!-- 粒子背景 -->
 <div id="particles-js"></div>
 
-<script src="/script/config/requireJS-config.js"></script>
-<script data-main="/script/signInUp.js" src="/plug-in/RequireJS/require.min.js"></script>
+<script src="{{ asset('/script/config/requireJS-config.js') }}"></script>
+<script src="{{ asset('/plug-in/RequireJS/require.min.js') }}" data-main="/script/signInUp.js"></script>
 
 </body>
 </html>

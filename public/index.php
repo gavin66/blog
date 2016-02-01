@@ -20,7 +20,7 @@
 
 require __DIR__.'/../bootstrap/autoload.php';
 
-// 加载工具类
+// 包含运行工具文件
 require __DIR__.'/../app/Services/Tools.php';
 
 /*

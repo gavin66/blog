@@ -27,7 +27,7 @@ if(!function_exists('test_file_connect')){
 
 if(!function_exists('style_link')){
     /**
-     * 返回可用连接,$cdnLink cdn连接,$fileLink 本地文件系统连接
+     * 返回可用连接,$prefix 前缀 例如: 'http:','https:' $cdnLink cdn连接,$fileLink 本地文件系统连接
      *
      * @param string $prefix
      * @param string $cdnLink
