@@ -18,34 +18,50 @@
 	<title>@yield('title','Gavin\' Blog')</title>
 
 	<!-- Bootstrap css-->
-	<link href="{{ style_link('http:','//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
-		'/plug-in/bootstrap-3.3.5/css/bootstrap.min.css') }}" rel="stylesheet">
-	<link href="{{ style_link('http:','//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css',
-		'/font-awesome-4.5.0/css/font-awesome.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('/style/signInUp.css') }}" rel="stylesheet">
+	{{--<link href="{{ cdn_file_test('http:','//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',--}}
+		{{--'/plug-in/bootstrap-3.3.5/css/bootstrap.min.css') }}" rel="stylesheet">--}}
+	{{--<link href="{{ cdn_file_test('http:','//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css',--}}
+		{{--'/font-awesome-4.5.0/css/font-awesome.min.css') }}" rel="stylesheet">--}}
+
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ asset('/style/signInUp.css') }}">
 </head>
 <body>
 
 <div class="index-main">
 	<div class="index-main-body">
 		<div class="header">
-			<p>Blog</p>
+			<p class="title">Gavin's Blog</p>
+			<p class="subtitle">宁愿小众,不愿平庸</p>
 		</div>
 		<div class="body">
 			<div class="tab-select">
-				<a href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab">登录</a>
-				<a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab">注册</a>
+				<a class="tab_select_add_color" href="#sign-in" aria-controls="sign-in" role="tab" data-toggle="tab" id="id-but-signIn">登录</a>
+				<a href="#sign-up" aria-controls="sign-up" role="tab" data-toggle="tab" id="id-but-signUp">注册</a>
+				<span class="tab-slider-line"></span>
 			</div>
+			@if (count($errors) > 0)
+				<div>
+					<strong>出错了</strong>
+					<ul>
+						@foreach($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 			<div class="tab-content">
 				<div role="tabPanel" class="tab-pane active" id="sign-in">
-					<form id="sign-in-form" action="">
+					<form id="form-sign-in" role="form" method="post" action="{{ url('/auth/login') }}">
+{{--						<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 						<div class="group-inputs">
-							<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
+							<input type="email" class="form-control-blog" name="email" placeholder="邮箱" value="{{ old('email') }}">
 							<input type="password" class="form-control-blog" name="password" placeholder="密码">
-							<input type="text" class="form-control-blog" name="captcha" placeholder="验证码">
 						</div>
 						<div class="wrapper-button">
-							<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+							{{--<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>--}}
+							<button id="btn-sign-in" type="button" class="btn btn-primary btn-lg btn-block">登录</button>
 						</div>
 						<div class="remember-wrapper">
 							<label class="remember-me">
@@ -56,15 +72,17 @@
 					</form>
 				</div>
 				<div role="tabPanel" class="tab-pane" id="sign-up">
-					<form id="sign-up-form" action="">
+					<form id="form-sign-up" role="form" method="post" action="{{ url('/auth/register') }}">
 						<div class="group-inputs">
-							<input type="text" class="form-control-blog" name="fullname" placeholder="姓名">
+							<input type="text" class="form-control-blog" name="name" placeholder="姓名">
 							<input type="email" class="form-control-blog" name="email" placeholder="邮箱">
-							<input type="password" class="form-control-blog" name="password" placeholder="密码">
+							<input type="password" class="form-control-blog" name="password" placeholder="密码 (不少于 6 位)">
 							<input type="text" class="form-control-blog" name="captcha" placeholder="验证码">
+{{--							<img class="captcha" src="{{ captcha_src('blog_signUp') }}" alt="验证码">--}}
+							<img class="captcha" src="/captcha/blog_signUp" alt="验证码">
 						</div>
 						<div class="wrapper-button">
-							<button type="button" class="btn btn-primary btn-lg btn-block">注册</button>
+							<button id="btn-sign-up" type="button" class="btn btn-primary btn-lg btn-block">注册</button>
 						</div>
 					</form>
 				</div>
@@ -101,7 +119,12 @@
 <div id="particles-js"></div>
 
 <script src="{{ asset('/script/config/requireJS-config.js') }}"></script>
-<script src="{{ asset('/plug-in/RequireJS/require.min.js') }}" data-main="/script/signInUp.js"></script>
+<script src="//cdn.bootcss.com/require.js/2.1.22/require.min.js" data-main="/script/signInUp.js"></script>
 
+{{--<script src="{{ cdn_file_test('http:','//cdn.bootcss.com/require.js/2.1.22/require.min.js',--}}
+		{{--'/plug-in/RequireJS/require.min.js') }}" data-main="/script/signInUp.js"></script>--}}
+<script>
+
+</script>
 </body>
 </html>

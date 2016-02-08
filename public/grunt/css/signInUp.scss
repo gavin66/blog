@@ -1,15 +1,18 @@
-$base_color: #F7F8F9;
-$content_color: #0185DD;
+// 基础颜色:灰色
+$base_color_gray: #F7F8F9;
+
+// 基础颜色:蓝色
+$base_color_blue: #0185DD;
 
 html,body{
   height:100%;
   overflow: hidden;
-  font-weight: 500;
+  font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
 }
 #particles-js{
   width: 100%;
   height: 100%;
-  background-color: $base_color;
+  background-color: $base_color_gray;
   position: absolute;
   top: 0;
   z-index: -1;
@@ -34,35 +37,71 @@ html,body{
   width: 300px;
   vertical-align: middle;
 
-  > .header p {
-    font-weight: 600;
-    font-size: 3rem;
-    color: $content_color;
+  > .header{
+    >.title{
+      margin: 0 0 1.5rem;
+      font-weight: 700;
+      font-size: 3.6rem;
+      color: $base_color_blue;
+    }
+    >.subtitle{
+      margin: 0 0 2rem;
+      font-weight: 400;
+      font-size: 2rem;
+      color: darken($base_color_gray,50%);
+    }
+
   }
 
   .tab-select{
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+    display: inline-block;
+    position: relative;
     > a{
-      color: darken($base_color,40%);
+      color: darken($base_color_gray,40%);
       line-height: 3rem;
-      width: 4rem;
+      width: 6rem;
       display: inline-block;
       text-decoration: none;
+      border: none;
+      font-weight: 500;
 
       &:hover,&:focus{
-        color: $content_color;
+        color: $base_color_blue;
         text-decoration: none;
       }
+
+      // 切换登录,注册按钮时变换颜色
+      @at-root .tab_select_add_color{
+        color: $base_color_blue !important;
+      }
+    }
+    > .tab-slider-line{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      margin: 0 1rem;
+      width: 4rem;
+      height: 2px;
+      background: $base_color_blue;
+      -webkit-transition: left .15s ease-in;
+      transition: left .15s ease-in;
     }
   }
 
   .tab-content{
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     .group-inputs{
-      border: 1px solid darken($base_color,13%);
+      position: relative;
+      border: 1px solid darken($base_color_gray,13%);
       border-radius: 3px;
       padding: 3px 0;
       background-color: #fff;
+      > .captcha{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
     }
     .form-control-blog{
       display: block;
@@ -72,20 +111,34 @@ html,body{
       padding: 1rem 0.8rem;
       font-size: 1.4rem;
       line-height: 1.42857143;
-      color: darken($base_color,60%);
+      color: darken($base_color_gray,60%);
+
+      &:-webkit-autofill{
+        -webkit-box-shadow: 0 0 0 30px white inset;
+        -webkit-text-fill-color: darken($base_color_gray,60%);
+      }
     }
     .form-control-blog + .form-control-blog{
-      border-top:1px solid darken($base_color,5%);
+      border-top:1px solid darken($base_color_gray,5%);
     }
 
     .wrapper-button{
       margin-top: 2rem;
+      > button{
+        background-color: lighten($base_color_blue,10%);
+        border-radius: 4px;
+        border-color: transparent;
+        outline: none;
+        &:hover,&:focus{
+          background-color: $base_color_blue;
+        }
+      }
     }
 
     .remember-wrapper{
       margin-top: 2rem;
       text-align: left;
-      color: darken($base_color,50%);
+      color: darken($base_color_gray,50%);
       > .remember-me{
         margin-bottom: 0;
         input[type='checkbox']{
@@ -95,9 +148,9 @@ html,body{
       }
 
       > a{
-        color: darken($base_color,50%);
+        color: darken($base_color_gray,50%);
         &:hover,&:focus{
-          color: darken($base_color,60%);
+          color: darken($base_color_gray,60%);
           text-decoration: none;
         }
       }
@@ -109,14 +162,14 @@ html,body{
     .other-sign-wrapper{
       margin-top: 1.5rem;
       text-align: left;
-      color: darken($base_color,40%);
+      color: darken($base_color_gray,40%);
       .sns-login{
         display: inline-block;
         > a{
           margin-left: 1.3rem;
-          color: darken($base_color,40%);
+          color: darken($base_color_gray,40%);
           &:hover{
-            color: darken($base_color,60%);
+            color: darken($base_color_gray,60%);
           }
         }
 
@@ -124,9 +177,5 @@ html,body{
     }
   }
 
-}
-input:-webkit-autofill{
-  background-color: inherit;
-  color: darken($base_color,60%);
 }
 

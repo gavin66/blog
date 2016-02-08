@@ -16,17 +16,22 @@
  */
 Route::group(['namespace'=>'auth'],function(){
     Route::group(['prefix'=>'auth'],function(){
+
         // 认证
         Route::get('login', 'AuthController@getLogin');
         Route::post('login', 'AuthController@postLogin');
+
+        // 登出
         Route::get('logout', 'AuthController@getLogout');
 
         // 注册
         Route::get('register', 'AuthController@getRegister');
         Route::post('register', 'AuthController@postRegister');
+
     });
 
     Route::group(['prefix'=>'password'],function(){
+
         // 发送密码重置链接路由
         Route::get('email', 'PasswordController@getEmail');
         Route::post('email', 'PasswordController@postEmail');
@@ -34,8 +39,24 @@ Route::group(['namespace'=>'auth'],function(){
         // 密码重置路由
         Route::get('reset/{token}', 'PasswordController@getReset');
         Route::post('reset', 'PasswordController@postReset');
+
     });
 });
+
+/**
+ * 后台部分
+ */
+Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'backend'],function(){
+
+        // 后台主页
+        Route::get('/','BackendController@index');
+
+        //
+
+    });
+});
+
 
 
 Route::get('phpinfo',function(){phpinfo();});
@@ -48,7 +69,7 @@ Route::controllers([
     'master'=>'MasterController',
     'ajax' => 'AjaxController',
 ]);
-Route::get('backstage',function(){return view('backstage');});
+//Route::get('backend',function(){return view('backstage');});
 
 Route::get('gavin',function(){return view('gavin');});
 

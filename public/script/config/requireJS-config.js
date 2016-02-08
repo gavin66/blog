@@ -13,7 +13,12 @@ var require = {
 
     // 设置模块
     paths:{
-        jquery:['/script/config/jquery-config'],
+
+        // 基于laravel的jquery配置
+        jqueryConfig:['/script/config/jquery-config'],
+
+        // jquery的扩展
+        jquery:['/script/extend/jquery-ext'],
 
         // 正式环境使用
         //jqueryBase:['//cdn.bootcss.com/jquery/2.1.4/jquery.min','jquery-2.2.0/jquery-2.2.0.min'],
@@ -39,7 +44,8 @@ var require = {
 
     // 模块间的相互依赖
     shim: {
-        'jquery':['jqueryBase'],
+        'jqueryConfig':['jqueryBase'],
+        'jquery':['jqueryConfig'],
         'bootstrap':['jquery'],
         'particlesJS':['jquery'],
         'velocity':['jquery']

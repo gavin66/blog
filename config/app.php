@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'zh_CN',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -147,6 +147,12 @@ return [
 
 		\App\Providers\TestServiceProvider::class,
 
+		// 在phpstorm中laravel框架的代码提示功能
+		\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+		// 验证码
+		\Mews\Captcha\CaptchaServiceProvider::class,
+
 	],
 
 	/*
@@ -197,6 +203,9 @@ return [
 
 
 		'TestClass' => App\Facades\TestClass::class,
+
+		// 验证码
+		'Captcha'   => Mews\Captcha\Facades\Captcha::class,
 
 	],
 
