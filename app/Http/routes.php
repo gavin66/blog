@@ -11,27 +11,46 @@
 |
 */
 
+// 文章列表
+Route::get('/','FrontendController@index');
+
+Route::get('phpinfo',function(){phpinfo();});
+
+/**
+ * 前台部分
+ */
+Route::group(['namespace'=>'frontend'],function(){
+
+    // 前台主页
+    Route::get('/','FrontendController@index');
+
+    Route::group(['prefix'=>'frontend'],function(){
+
+    });
+
+});
+
+
 /**
  * 认证与注册部分
  */
 Route::group(['namespace'=>'auth'],function(){
-    Route::group(['prefix'=>'auth'],function(){
 
-        // 认证
-        Route::get('login', 'AuthController@getLogin');
-        Route::post('login', 'AuthController@postLogin');
+    // 显示认证页
+    Route::get('auth', 'AuthController@getAuth');
+
+    Route::group(['prefix'=>'auth'],function(){
+        // 登录
+        Route::post('signIn', 'AuthController@postSignIn');
 
         // 登出
-        Route::get('logout', 'AuthController@getLogout');
+        Route::get('signOut', 'AuthController@getSignOut');
 
         // 注册
-        Route::get('register', 'AuthController@getRegister');
-        Route::post('register', 'AuthController@postRegister');
-
+        Route::post('signUp', 'AuthController@postRegister');
     });
 
     Route::group(['prefix'=>'password'],function(){
-
         // 发送密码重置链接路由
         Route::get('email', 'PasswordController@getEmail');
         Route::post('email', 'PasswordController@postEmail');
@@ -39,9 +58,9 @@ Route::group(['namespace'=>'auth'],function(){
         // 密码重置路由
         Route::get('reset/{token}', 'PasswordController@getReset');
         Route::post('reset', 'PasswordController@postReset');
-
     });
 });
+
 
 /**
  * 后台部分
@@ -52,40 +71,22 @@ Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
         // 后台主页
         Route::get('/','BackendController@index');
 
-        //
+        /**
+         * 需要添加一个中间件, pjax访问还是其他
+         */
+        //文章
+        Route::resource('article','ArticleController');
+
 
     });
 });
 
+Route::get('article',function(){return view('article');});
 
-
-Route::get('phpinfo',function(){phpinfo();});
-
-Route::get('/',function(){return view('home');});
-//Route::get('article',function(){return view('article');});
-
-//master
-Route::controllers([
-    'master'=>'MasterController',
-    'ajax' => 'AjaxController',
-]);
-//Route::get('backend',function(){return view('backstage');});
 
 Route::get('gavin',function(){return view('gavin');});
 
-//Route::get('test',function(){return view('test');});
-Route::resource('test','TestController');
 
-Route::get('home', 'HomeController@index');
-
-// 文章
-// 需要中间件 检测是否是管理员登录  'middleware' => ['Auth']
-Route::group(['prefix' => 'admin/article',], function() {
-    Route::get('lists', ['as' => 'article.lists','uses'=>'ArticleController@lists']);
-    Route::get('edit', ['as'=>'article.edit','uses'=>'ArticleController@edit']);
-    Route::get('sort', ['as'=>'article.sort','uses'=>'ArticleController@sort']);
-    Route::get('tag', ['as'=>'article.tag','uses'=>'ArticleController@tag']);
-});
 
 
 

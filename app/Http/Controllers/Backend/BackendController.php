@@ -17,7 +17,6 @@ class BackendController extends Controller {
     public function index(Request $request){
 
         return view('backend.index',['user'=>$this->user]);
-
     }
 
 

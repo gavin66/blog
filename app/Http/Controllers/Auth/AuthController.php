@@ -34,23 +34,35 @@ class AuthController extends Controller {
 	protected $redirectPath = '/backend';
 
 	// 登录的链接(登录失败后重定向)
-	protected $loginPath = '/auth/login';
+	protected $loginPath = '/auth';
+
+	// 登出帐号后重定向的链接
+	protected $redirectAfterLogout = '/';
+
 
 	public function __construct(Guard $auth, Registrar $registrar){
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
+		$this->middleware('guest', ['except' => 'getSignOut']);
 	}
 
 	/**
-	 * 重写登录请求,增加对ajax的支持
+	 * 显示登录注册页
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function getAuth(){
+		return view('auth.index');
+	}
+
+	/**
+	 * 登录请求,对ajax支持
 	 *
 	 * @param Request $request
 	 * @return $this|\Illuminate\Http\RedirectResponse
 	 */
-	public function postLogin(Request $request)
-	{
+	public function postSignIn(Request $request){
 		$this->validate($request, [
 			'email' => 'required|email', 'password' => 'required',
 		]);
@@ -60,7 +72,7 @@ class AuthController extends Controller {
 			if ($this->auth->attempt($credentials, $request->has('remember'))) {
 				return response()->json(['redirectPath'=>$this->redirectPath()],200);
 			}
-			return response()->json($this->getFailedLoginDetailMessage($credentials),422);
+			return response()->json($this->getSignInFailedMessage($credentials),422);
 		}else {
 			if ($this->auth->attempt($credentials, $request->has('remember')))
 			{
@@ -77,12 +89,22 @@ class AuthController extends Controller {
 	}
 
 	/**
-	 * 重写注册请求,增加对ajax的支持
+	 * 登出请求
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
+	public function getSignOut(){
+		$this->auth->logout();
+
+		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+	}
+
+	/**
+	 * 注册请求,对ajax的支持
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function postRegister(Request $request){
+	public function postSignUp(Request $request){
 		$validator = $this->registrar->validator($request->all());
 
 		if ($validator->fails())
@@ -99,11 +121,11 @@ class AuthController extends Controller {
 	}
 
 	/**
-	 * 获取登录错误详细信息
+	 * 获取登录错误信息
 	 *
 	 * @return array
 	 */
-	protected function getFailedLoginDetailMessage($credentials){
+	protected function getSignInFailedMessage($credentials){
 		$re_array = [];
 
 		$user = User::where('email',$credentials['email'])->first();

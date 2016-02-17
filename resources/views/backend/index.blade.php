@@ -14,32 +14,21 @@
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
 
-{{--    <title>@yield('title','Gavin\'s Blog')</title>--}}
     <title>@yield('title','Gavin\'blog')</title>
 
     <!-- Bootstrap css-->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css" >
-    {{--<link href="{{ asset('/css/site.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/lib/codemirror/codemirror.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/lib/codemirror/addon/fold/foldgutter.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/css/editormd.min.css') }}" />
+    {{--<link rel="stylesheet" href="//cdn.bootcss.com/summernote/0.6.16/summernote.min.css">--}}
     <link rel="stylesheet" href="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/style/backstage.main.css') }}" >
-
-    @section('css')
-
-    @show
+    <link rel="stylesheet" href="{{ asset('/style/backend/index.css') }}">
 
 </head>
 <body>
-    {{--<div id="pjax-c">--}}
-
-    {{--</div>--}}
-    {{--<a href="/master/pjax" target="_blank" id="pjax-a">Pjax</a><br>--}}
-    {{--<a href="/master/pjax" target="_blank">重定向</a>--}}
-    {{--<button id="animation">动画</button>--}}
-    {{--<button id="ajax">异步请求</button>--}}
-
     <div class="jqsb-container">
         <header>
             <nav class="navbar navbar-site">
@@ -89,8 +78,11 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </header>
-        <div class="main">
+        <div class="main" id="pjax-container">
+            {{--<button id="save" type="button">保存</button>--}}
+            {{--<div id="summernote"></div>--}}
 
+            <div id="test-editormd"></div>
         </div>
         <footer></footer>
     </div>
@@ -122,7 +114,7 @@
                             <li><a href="#">个人资料</a></li>
                             <li><a href="#">信箱</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('/auth/logout') }}">退出</a></li>
+                            <li><a href="{{ url('/auth/signOut') }}">退出</a></li>
                         </ul>
                     </div>
                 </li>
@@ -133,8 +125,8 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="true">
-                        <li><a href="/admin/article/lists">文章列表</a></li>
-                        <li><a href="#">写文章</a></li>
+                        <li><a href="/backend/article" data-pjax="true">文章列表</a></li>
+                        <li><a href="/backend/article/create" data-pjax="true">写文章</a></li>
                         <li><a href="#">分类</a></li>
                         <li><a href="#">标签</a></li>
                     </ul>
@@ -214,68 +206,84 @@
             </ul>
         </div>
     </div>
-    {{--<div class="jqsb-sidebar jqsb-right">--}}
-        {{--<button type="button" class="btn btn-danger">测试元素</button>--}}
-    {{--</div>--}}
 
-    {{--侧边栏的工具提示层--}}
+    <!-- 侧边栏的工具提示层 -->
     <div class="sidebar-tooltip"></div>
 
-    <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
-    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <!-- bootstrap的主要js-->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- velocity 动画切换的jQuery插件-->
-    <script src="//cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
-    {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
-    <script src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
-    <!--metisMenu jquery插件 下拉菜单 https://github.com/onokumus/metisMenu -->
-    {{--<script src="{{ asset('/js/base/config  .js') }}"></script>--}}
-    {{--<script src="{{ asset('/js/base/tools.js') }}"></script>--}}
-    {{--<script src="{{ asset('/js/base/app.js') }}"></script>--}}
-    {{--<script src="{{ asset('/js/base/sidebar.js') }}"></script>--}}
-    <script src="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.js') }}"></script>
-    <script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>
-    <!-- angular的主要js-->
-    <!--<script src="//apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"></script> -->
-    @section('js')
+    <script src="{{ asset('/plug-in/editor.md-master/lib/raphael.min.js') }}"></script>
+    <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}" ></script>
+    <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
 
-    @show
     <script>
-        $(function(){
-            var jqSidebar = new $.jqSidebar({
+        var deps = [
+            "editormd",
+            "bootstrap",
+            "pjax",
+            "metisMenu",
+            "jQuerySidebar",
+            "editormd-plugins/link-dialog/link-dialog",
+            "editormd-plugins/reference-link-dialog/reference-link-dialog",
+            "editormd-plugins/image-dialog/image-dialog",
+            "editormd-plugins/code-block-dialog/code-block-dialog",
+            "editormd-plugins/table-dialog/table-dialog",
+            "editormd-plugins/emoji-dialog/emoji-dialog",
+            "editormd-plugins/goto-line-dialog/goto-line-dialog",
+            "editormd-plugins/help-dialog/help-dialog",
+            "editormd-plugins/html-entities-dialog/html-entities-dialog",
+            "editormd-plugins/preformatted-text-dialog/preformatted-text-dialog"
+        ];
+
+        seajs.use(deps, function(editormd) {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+
+            new $.jqSidebar({
                 leftMode: 'sidebar-turn',
-//                leftTurnShow: 'jqsb-left-sm',
                 autoClose: false
             });
 
             $('#metisMenu').metisMenu();
 
-            $('[data-toggle="tooltip"]').tooltip();
-            $('[data-toggle="popover"]').popover();
+            $(document).pjax('a[data-pjax=true]', '#pjax-container',
+                    {
+                        timeout:650,
+                        maxCacheLength:20
+                    }
+            );
 
-//        $(function(){
-//            $("#menu").metisMenu({
-//                toggle: true,
-//                activeClass: 'active1'
-//            });
-//        });
+            var testEditor;
 
+            $.get("/plug-in/editor.md-master/examples/test.md", function(md){
+                testEditor = editormd("test-editormd", {
+                    width: "90%",
+                    height: 640,
+                    path : '/plug-in/editor.md-master/lib/',
+                    markdown : md,
+                    //toolbar  : false,             // 关闭工具栏
+                    codeFold : true,
+                    searchReplace : true,
+                    saveHTMLToTextarea : true,      // 保存 HTML 到 Textarea
+                    htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+                    emoji : true,
+                    taskList : true,
+                    tocm : true,          // Using [TOCM]
+                    tex : true,                      // 开启科学公式 TeX 语言支持，默认关闭
+                    flowChart : true,                // 疑似 Sea.js与 Raphael.js 有冲突，必须先加载 Raphael.js ，Editor.md 才能在 Sea.js 下正常进行；
+                    sequenceDiagram : true,          // 同上
+                    imageUpload : true,
+                    imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    imageUploadURL : "./php/upload.php",
+                });
+            });
 
-//        $(document).pjax('#pjax-a', '#pjax-c');
-//        $('#animation').click(function(){
-//            $('#pjax-a').addClass('animated bounce');
-//        });
-//        $('#ajax').on('click',function(){
-//            $.ajax({
-//                url:'/ajax/test',
-//                method:'post',
-//                dataType:'text',
-//                success:function(data){
-//                    alert(data);
-//                }
-//            });
         });
     </script>
+
+    {{--<script src="{{ asset('/script/config/requireJS-config.js') }}"></script>--}}
+    {{--<script src="//cdn.bootcss.com/require.js/2.1.22/require.min.js" data-main="/script/backend/index.js"></script>--}}
+
+    @section('js')
+
+    @show
 </body>
 </html>
