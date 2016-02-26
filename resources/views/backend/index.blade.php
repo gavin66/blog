@@ -16,75 +16,139 @@
 
     <title>@yield('title','Gavin\'blog')</title>
 
-    <!-- Bootstrap css-->
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css">
-    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/lib/codemirror/codemirror.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/lib/codemirror/addon/fold/foldgutter.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/plug-in/editor.md-master/css/editormd.min.css') }}" />
-    {{--<link rel="stylesheet" href="//cdn.bootcss.com/summernote/0.6.16/summernote.min.css">--}}
-    <link rel="stylesheet" href="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/animate.css-3.5.1/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/backend/index.css') }}">
 
 </head>
 <body>
     <div class="jqsb-container">
-        <header>
-            <nav class="navbar navbar-site">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blog-navbar" aria-expanded="false">
-                            <span class="sr-only">导航条开关</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand jqsb-toggle-left " href="#">
-                            <span class="glyphicon glyphicon-arrow-left"></span>
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="blog-navbar">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="站内搜索">
-                            </div>
-                        </form>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">消息通知</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#" class="sb-toggle-right">设置</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
+        <nav class="navbar navbar-site">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blog-navbar" aria-expanded="false">
+                        <span class="sr-only">导航条开关</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand jqsb-toggle-left " href="#">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="blog-navbar">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="站内搜索">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">消息通知</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#" class="sb-toggle-right">设置</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
         <div class="main" id="pjax-container">
-            {{--<button id="save" type="button">保存</button>--}}
-            {{--<div id="summernote"></div>--}}
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="nav-title">撰写新文章</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control atc-tit-ipt" id="title-article" name="title"  placeholder="输入标题">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="editormd"></div>
+                        </div>
+                    </div>
 
-            <div id="test-editormd"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    发布
+                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#release"
+                                       aria-expanded="false" aria-controls="release">
+                                    </span>
+                                </div>
+                                <ul class="list-group collapse in" id="release">
+                                    <li class="list-group-item">保存草稿 预览</li>
+                                    <li class="list-group-item">状态:草稿 编辑</li>
+                                    <li class="list-group-item">公开度:公开 编辑</li>
+                                    <li class="list-group-item">发布时间: 编辑</li>
+                                    <li class="list-group-item">
+                                        <span class="shift-trash">移至回收站</span>
+                                        <button type="button" class="btn btn-primary btn-sm pull-right" id="save-article">保存</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    分类
+                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#sort"
+                                       aria-expanded="false" aria-controls="sort">
+                                    </span>
+                                </div>
+                                <ul class="list-group collapse in" id="sort">
+                                    <li class="list-group-item">所有分类目录,最常用</li>
+                                    <li class="list-group-item">添加新分类目录</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    标签
+                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#tag"
+                                       aria-expanded="false" aria-controls="tag">
+                                    </span>
+                                </div>
+                                <ul class="list-group collapse in" id="tag">
+                                    <li class="list-group-item">输入框,添加按钮</li>
+                                    <li class="list-group-item">从标签库中选择</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <footer></footer>
+        <footer class="footer">©&nbsp;2014 - 2016&nbsp;&nbsp;Gavin's Blog &nbsp;</footer>
     </div>
 
     <div class="jqsb-sidebar jqsb-left">
@@ -210,77 +274,12 @@
     <!-- 侧边栏的工具提示层 -->
     <div class="sidebar-tooltip"></div>
 
-    <script src="{{ asset('/plug-in/editor.md-master/lib/raphael.min.js') }}"></script>
+    <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>
     <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}" ></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
+    <script src="{{ asset('/script/backend/index.js') }}" ></script>
+    <script src="{{ asset('/script/backend/article.create.js') }}" ></script>
 
-    <script>
-        var deps = [
-            "editormd",
-            "bootstrap",
-            "pjax",
-            "metisMenu",
-            "jQuerySidebar",
-            "editormd-plugins/link-dialog/link-dialog",
-            "editormd-plugins/reference-link-dialog/reference-link-dialog",
-            "editormd-plugins/image-dialog/image-dialog",
-            "editormd-plugins/code-block-dialog/code-block-dialog",
-            "editormd-plugins/table-dialog/table-dialog",
-            "editormd-plugins/emoji-dialog/emoji-dialog",
-            "editormd-plugins/goto-line-dialog/goto-line-dialog",
-            "editormd-plugins/help-dialog/help-dialog",
-            "editormd-plugins/html-entities-dialog/html-entities-dialog",
-            "editormd-plugins/preformatted-text-dialog/preformatted-text-dialog"
-        ];
-
-        seajs.use(deps, function(editormd) {
-            $('[data-toggle="tooltip"]').tooltip();
-            $('[data-toggle="popover"]').popover();
-
-            new $.jqSidebar({
-                leftMode: 'sidebar-turn',
-                autoClose: false
-            });
-
-            $('#metisMenu').metisMenu();
-
-            $(document).pjax('a[data-pjax=true]', '#pjax-container',
-                    {
-                        timeout:650,
-                        maxCacheLength:20
-                    }
-            );
-
-            var testEditor;
-
-            $.get("/plug-in/editor.md-master/examples/test.md", function(md){
-                testEditor = editormd("test-editormd", {
-                    width: "90%",
-                    height: 640,
-                    path : '/plug-in/editor.md-master/lib/',
-                    markdown : md,
-                    //toolbar  : false,             // 关闭工具栏
-                    codeFold : true,
-                    searchReplace : true,
-                    saveHTMLToTextarea : true,      // 保存 HTML 到 Textarea
-                    htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
-                    emoji : true,
-                    taskList : true,
-                    tocm : true,          // Using [TOCM]
-                    tex : true,                      // 开启科学公式 TeX 语言支持，默认关闭
-                    flowChart : true,                // 疑似 Sea.js与 Raphael.js 有冲突，必须先加载 Raphael.js ，Editor.md 才能在 Sea.js 下正常进行；
-                    sequenceDiagram : true,          // 同上
-                    imageUpload : true,
-                    imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                    imageUploadURL : "./php/upload.php",
-                });
-            });
-
-        });
-    </script>
-
-    {{--<script src="{{ asset('/script/config/requireJS-config.js') }}"></script>--}}
-    {{--<script src="//cdn.bootcss.com/require.js/2.1.22/require.min.js" data-main="/script/backend/index.js"></script>--}}
 
     @section('js')
 

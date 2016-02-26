@@ -41,3 +41,18 @@ if(!function_exists('cdn_file_test')){
         return $fileLink;
     }
 }
+
+if(!function_exists('getFileAllContents')){
+    /**
+     * 获取一个文件内容 $filename 文件的路径
+     * @param string $filename
+     * @return string
+     */
+    function getFileAllContents($filename){
+        $handle = fopen($filename,'r');
+        $contents = fread($handle,filesize($filename));
+        fclose($handle);
+
+        return $contents;
+    }
+}

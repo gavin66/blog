@@ -1,7 +1,63 @@
 /*---------------------------*\
+  jQuery-Sidebar插件所需样式
+\*---------------------------*/
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+html, body, .jqsb-container, .jqsb-sidebar {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.jqsb-container {
+  position: relative;
+  z-index: 1;
+}
+
+.jqsb-sidebar {
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+  background-color: #333333;
+  color: #f2f2f2;
+}
+
+.jqsb-left {
+  left: 0;
+}
+
+.jqsb-right {
+  right: 0;
+}
+
+.jqsb-left .jqsb-left-sm {
+  float: left;
+}
+
+.jqsb-right .jqsb-right-sm {
+  float: right;
+}
+
+.jqsb-left .jqsb-left-bg, .jqsb-right .jqsb-right-bg {
+  clear: both;
+}
+
+.sidebar-mode {
+  z-index: 9999;
+}
+
+
+/*---------------------------*\
   metisMenu插件所需样式 ccccc
 \*---------------------------*/
-
 @at-root {
   .metismenu .arrow {
     float: right;
@@ -143,7 +199,9 @@ $baseSetting: (
 $navbarSetting: (
         navbar-height: 50px
 );
-
+.navbar{
+  margin-bottom: 0;
+}
 .navbar-site{
   border-radius: 0;
   border: 0;
@@ -187,12 +245,9 @@ $navbarSetting: (
 }
 
 
-
-
 /*------------------------------------*\
     侧边栏样式 &sidebar
 \*------------------------------------*/
-
 // 侧边栏基础设置
 $sidebarSetting: (
         scrollbarThumbColor: #FF5722, // 滚动条滑块颜色
@@ -375,6 +430,45 @@ $sidebarSetting: (
   }
 
 }
+
+// 中间pjax-container容器样式
+#pjax-container{
+  height: calc(100vh - 81px);
+  overflow: auto;
+  padding: 20px;
+  background-color: darken(#fff,3%);
+}
+//#editormd{
+//  border-top-width: 0;
+//}
+.editormd-fullscreen{
+  z-index:1024;
+}
+.footer{
+  height: 30px;
+  line-height: 30px;
+  text-align: right;
+  background-color: darken(#fff,1%);
+  border-top: 1px solid darken(#fff,10%);
+  font-size: 10px;
+}
+
+// 发布栏
+.shift-trash{
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+}
+.nav-title{
+  margin: 0 0 22px;
+}
+.atc-tit-ipt{
+  margin-bottom: 15px;
+  -webkit-border-radius:0;
+  -moz-border-radius:0;
+  border-radius:0;
+}
+
 
 
 

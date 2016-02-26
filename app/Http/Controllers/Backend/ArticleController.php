@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
+
 
 class ArticleController extends Controller {
 
@@ -13,7 +14,11 @@ class ArticleController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
+			return view('backend.article');
+		}
+
+		return '文章列表';
 	}
 
 	/**
@@ -23,13 +28,11 @@ class ArticleController extends Controller {
 	 */
 	public function create()
 	{
-
-		if(\Request::ajax()){
-			return 'create';
-
+		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
+			return view('backend.article_create');
 		}
-		return 'jiade';
 
+		return '新建文章';
 	}
 
 	/**
@@ -39,7 +42,8 @@ class ArticleController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		// 保存文章
+
 	}
 
 	/**
