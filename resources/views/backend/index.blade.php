@@ -71,82 +71,23 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="main" id="pjax-container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4 class="nav-title">撰写新文章</h4>
+            <div id="toolbar">
+                <div class="form-inline" role="form">
+                    <div class="form-group">
+                        <span>Offset: </span>
+                        <input name="offset" class="form-control w70" type="number" value="0">
+                    </div>
+                    <div class="form-group">
+                        <span>Limit: </span>
+                        <input name="limit" class="form-control w70" type="number" value="5">
+                    </div>
+                    <div class="form-group">
+                        <input name="search" class="form-control" type="text" placeholder="Search">
+                    </div>
+                    <button id="ok" type="submit" class="btn btn-default">OK</button>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control atc-tit-ipt" id="title-article" name="title"  placeholder="输入标题">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="editormd"></div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    发布
-                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#release"
-                                       aria-expanded="false" aria-controls="release">
-                                    </span>
-                                </div>
-                                <ul class="list-group collapse in" id="release">
-                                    <li class="list-group-item">保存草稿 预览</li>
-                                    <li class="list-group-item">状态:草稿 编辑</li>
-                                    <li class="list-group-item">公开度:公开 编辑</li>
-                                    <li class="list-group-item">发布时间: 编辑</li>
-                                    <li class="list-group-item">
-                                        <span class="shift-trash">移至回收站</span>
-                                        <button type="button" class="btn btn-primary btn-sm pull-right" id="save-article">保存</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    分类
-                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#sort"
-                                       aria-expanded="false" aria-controls="sort">
-                                    </span>
-                                </div>
-                                <ul class="list-group collapse in" id="sort">
-                                    <li class="list-group-item">所有分类目录,最常用</li>
-                                    <li class="list-group-item">添加新分类目录</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    标签
-                                    <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#tag"
-                                       aria-expanded="false" aria-controls="tag">
-                                    </span>
-                                </div>
-                                <ul class="list-group collapse in" id="tag">
-                                    <li class="list-group-item">输入框,添加按钮</li>
-                                    <li class="list-group-item">从标签库中选择</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <table id="bs-table"></table>
         </div>
         <footer class="footer">©&nbsp;2014 - 2016&nbsp;&nbsp;Gavin's Blog &nbsp;</footer>
     </div>
@@ -278,7 +219,9 @@
     <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}" ></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
     <script src="{{ asset('/script/backend/index.js') }}" ></script>
-    <script src="{{ asset('/script/backend/article.create.js') }}" ></script>
+    {{--<script src="{{ asset('/script/backend/article.create.js') }}" ></script>--}}
+
+    <script src="{{ asset('/script/backend/article.js') }}"></script>
 
 
     @section('js')

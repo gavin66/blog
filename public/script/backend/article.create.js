@@ -13,6 +13,7 @@ var deps = [
     'editormd-plugins/help-dialog/help-dialog',
     'editormd-plugins/html-entities-dialog/html-entities-dialog',
     'editormd-plugins/preformatted-text-dialog/preformatted-text-dialog',
+    'jqueryExt',
     'seajs_css'
 ];
 

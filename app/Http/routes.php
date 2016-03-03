@@ -84,7 +84,14 @@ Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
 Route::get('article',function(){return view('article');});
 
 
-Route::get('gavin',function(){return view('gavin');});
+Route::get('orm',function(){
+//    $data = \App\Article::all();
+
+
+    $data = \App\Article::skip(0)->take(10)->get();
+
+    dd($data);
+});
 
 
 

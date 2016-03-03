@@ -18,6 +18,8 @@ seajs.config({
         jQuerySidebar: 'jQuery-Sidebar/dist/jQuery-Sidebar-debug',
         metisMenu: 'metisMenu-2.4.0/dist/metisMenu-debug',
         pjax: 'jquery-pjax-1.9.6/jquery.pjax-debug',
-        summernote: 'summernote-0.7.0/summernote.min'
+        summernote: 'summernote-0.7.0/summernote.min',
+        bootstrap_table:'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
+        bootstrap_table_locale:'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug'
     }
 });
