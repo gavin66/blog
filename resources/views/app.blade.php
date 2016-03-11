@@ -7,23 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="renderer" content="webkit">
-    <meta name="keywords" content="博客,个人博客,Gavin的博客,田宇的博客">
-    <meta name="description" content="这是田宇(Gavin)的个人网站">
+    <meta name="keywords" content="博客,个人博客,Gavin的博客">
+    <meta name="description" content="这是Gavin的个人博客">
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
     <!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
         这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式不推荐所有网站使用，需看情况而定-->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
 
-{{--    <title>@yield('title','Gavin\'s Blog')</title>--}}
-    <title>@yield('title','理发师')</title>
+    <title>@yield('title','Gavin\' Blog')</title>
 
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap css-->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ asset('/css/site.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/sidebar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.min.css') }}">
+    <link href="{{ asset('/style/app.css') }}" rel="stylesheet">
 
     @section('css')
 
@@ -60,49 +58,94 @@
             </nav>
         </div>
     </header>
+    <div class="jqsb-container">
+        @section('content')
 
-    @section('content')
-
-    @show
-
-    <footer id="footer">
-        <div class="container">
-            <div class="copyright" itemscope>
-                ©  2014 -
-                {{--©2015 isgavin.me 备案号:津ICP备15004268号--}}
-                <span itemprop="copyrightYear">2015</span>
-                <a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
+        @show
+        <!-- 版权等信息 -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="copyright inline" itemscope itemtype="http://www.isgavin.me">
+                    ©  2014 -
+                    <span itemprop="copyrightYear">2016</span>
+                    <a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
+                </div>
+                <span class="dot"></span>
+                <div class="record inline" >
+                    <a href="http://www.miibeian.gov.cn/" target="_blank">津 ICP 备 15004268 号</a>
+                </div>
             </div>
-            <div class="record">
-                <a href="http://www.miibeian.gov.cn/" target="_blank">津ICP备15004268号</a>
-            </div>
+        </footer>
+    </div>
+
+
+
+    <!-- 侧边栏 -->
+    <aside class="jqsb-sidebar jqsb-right">
+        <div class="sidebar-inner">
+            <section class="site-overview">
+                <div class="author motion-element" itemscope itemprop="author" itemtype="http://schema.org/Person">
+                    <img class="img-responsive img-thumbnail" src="{{asset('/img/portrait.jpg')}}" alt="Gavin" itemprop="portrait">
+                    <p class="author-name" itemprop="name">Gavin</p>
+                </div>
+                <p class="description motion-element" itemprop="description" >
+                    青春是一场大雨。即使感冒了,还盼望回头再淋它一次！
+                </p>
+                <nav class="state motion-element" >
+                    <div class="state-item">
+                        <a href="/archives">
+                            <span class="state-item-count">55</span>
+                            <span class="state-item-name">日志</span>
+                        </a>
+                    </div>
+                    <div class="state-item">
+                        <a href="/categories">
+                            <span class="state-item-count">5</span>
+                            <span class="state-item-name">分类</span>
+                        </a>
+                    </div>
+                </nav>
+                {{--<div class="rss motion-element">--}}
+                {{--<a href="/atom.xml">RSS</a>--}}
+                {{--</div>--}}
+                <div class="contact motion-element">
+                    <span class="">
+                        <a href="https://github.com/gavin66" target="_blank">GitHub</a>
+                      </span>
+                      <span class="">
+                        <a href="https://github.com/gavin66" target="_blank">Twitter</a>
+                      </span>
+                      <span class="">
+                        <a href="https://github.com/gavin66" target="_blank">Facebook</a>
+                      </span>
+                      <span class="">
+                        <a href="https://github.com/gavin66" target="_blank">Google+</a>
+                      </span>
+                      <span class="">
+                        <a href="http://weibo.com/lanbert" target="_blank">Weibo</a>
+                      </span>
+                      <span class="">
+                        <a href="http://www.zhihu.com/people/Gavin23" target="_blank">ZhiHu</a>
+                      </span>
+                </div>
+            </section>
         </div>
-    </footer>
+    </aside>
 
-
-    <div class="sidebar-toggle">
+    <div class="sidebar-toggle jqsb-toggle-right">
         <span class="glyphicon glyphicon-menu-hamburger"></span>
     </div>
     <div class="back-to-top" style="display: none;">
         <span class="glyphicon glyphicon-triangle-top"></span>
     </div>
 
-    <!-- jquery 使用bootstrap等其他框架,插件必须导入的-->
-    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <!-- bootstrap的主要js-->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- velocity 动画切换的jQuery插件-->
-    <script src="//cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
-    {{--<script src="//cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>--}}
+    <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}"></script>
+    <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
+    <script src="{{ asset('/script/app.js') }}" ></script>
 
-    <script src="{{ asset('/js/base/config.js') }}"></script>
-    <script src="{{ asset('/js/base/tools.js') }}"></script>
-    <script src="{{ asset('/js/base/app.js') }}"></script>
-    <script src="{{ asset('/js/base/sidebar.js') }}"></script>
-    <!-- angular的主要js-->
-    <!--<script src="//apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"></script> -->
     @section('js')
 
     @show
+
 </body>
 </html>

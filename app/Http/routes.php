@@ -11,19 +11,93 @@
 |
 */
 
+
 Route::get('phpinfo',function(){phpinfo();});
 
-Route::get('/',function(){return view('home');});
-Route::get('article',function(){return view('article');});
+/**
+ * 前台部分
+ */
+Route::group(['namespace'=>'frontend'],function(){
 
-//master
-Route::controllers([
-    'master'=>'MasterController',
-    'ajax' => 'AjaxController',
-]);
-Route::get('backstage',function(){return view('backstage');});
+    // 前台主页 文章列表
+    Route::get('/','FrontendController@index');
 
-Route::get('gavin',function(){return view('gavin');});
-Route::controllers([
-    'test'=>'TestController',
-]);
+    Route::group(['prefix'=>'frontend'],function(){
+
+    });
+
+});
+
+// 前台显示文章
+Route::get('article/{id}','backend\ArticleController@show');
+
+
+
+/**
+ * 认证与注册部分
+ */
+Route::group(['namespace'=>'auth'],function(){
+
+    // 显示认证页
+    Route::get('auth', 'AuthController@getAuth');
+
+    Route::group(['prefix'=>'auth'],function(){
+        // 登录
+        Route::post('signIn', 'AuthController@postSignIn');
+
+        // 登出
+        Route::get('signOut', 'AuthController@getSignOut');
+
+        // 注册
+        Route::post('signUp', 'AuthController@postRegister');
+    });
+
+    Route::group(['prefix'=>'password'],function(){
+        // 发送密码重置链接路由
+        Route::get('email', 'PasswordController@getEmail');
+        Route::post('email', 'PasswordController@postEmail');
+
+        // 密码重置路由
+        Route::get('reset/{token}', 'PasswordController@getReset');
+        Route::post('reset', 'PasswordController@postReset');
+    });
+});
+
+
+/**
+ * 后台部分
+ */
+Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'backend'],function(){
+
+        // 后台主页
+        Route::get('/','BackendController@index');
+
+        /**
+         * 需要添加一个中间件, pjax访问还是其他
+         */
+        //文章
+        Route::resource('article','ArticleController');
+
+    });
+});
+
+
+Route::get('orm',function(){
+    $data = \App\Article::skip(0)->take(10)->get();
+
+    dd($data);
+});
+
+Route::get('table-edit',function(){
+    Schema::table('articles', function($table)
+    {
+        $table->string('outline');
+    });
+});
+
+
+
+
+
+
