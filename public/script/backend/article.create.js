@@ -37,15 +37,20 @@ seajs.use(deps, function(editormd) {
         sequenceDiagram : true,          // 同上
         imageUpload : true,
         imageFormats : ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-        imageUploadURL : './php/upload.php'
+        imageUploadURL : './php/upload.php',
+        onload: function(){
+            this.setMarkdown($('#edit-md-text').val());
+        }
     });
 
     $('#save-article').on('click',function(){
         var sent = {
             title:$('#title-article').val(),
+            outline:$('#outline-article').val(),
             content_md:editor.getMarkdown(),
             content_html:editor.getHTML()
         };
+
         console.log(sent);
 
         $.ajax({
@@ -57,6 +62,26 @@ seajs.use(deps, function(editormd) {
 
             }
         });
+    });
+
+    $('#update-article').on('click',function(){
+        var sent = {
+            title:$('#title-article').val(),
+            outline:$('#outline-article').val(),
+            content_md:editor.getMarkdown(),
+            content_html:editor.getHTML()
+        };
+
+        $.ajax({
+            url:'/backend/article/'+$('#title-article').attr('data-article-id'),
+            method:'put',
+            data:sent,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+            }
+        });
+
     });
 
 });

@@ -39,7 +39,7 @@ seajs.use(deps, function() {
         singleSelect:true, // 只允许选择一行 和checkboxHeader只允许一个生效
         selectItemName:'btSelectItem', // radio 或者 checkbox 的 name 属性的值
 
-        //search:true, // 开启搜索 显示搜索框
+        search:true, // 开启搜索 显示搜索框
         searchAlign:'left', // 搜索框显示位置
         searchOnEnterKey:true, // 按下回车进行搜索,不是按下任意键都搜索
         strictSearch:false, // 严格搜索,作用不详
@@ -109,9 +109,9 @@ seajs.use(deps, function() {
             //switchable: true,
             //clickToSelect:true, // 点击后 checkbox或radio无响应
             formatter: function(value,row,index){ // 对数据进行格式化
-                console.log(value);
-                console.log(row);
-                console.log(index);
+                //console.log(value);
+                //console.log(row);
+                //console.log(index);
                 return '<a href="/backend/article/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
             },
             //footerFormatter: function(data){ // 表页脚数据格式化

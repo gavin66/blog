@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
+			$table->string('outline');
 			$table->text('content_md');
 			$table->text('content_html');
 			$table->softDeletes();

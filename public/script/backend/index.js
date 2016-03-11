@@ -8,7 +8,6 @@ var deps = [
     'jQuerySidebar'
 ];
 
-
 seajs.use(deps, function() {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
@@ -26,6 +25,5 @@ seajs.use(deps, function() {
             maxCacheLength:20
         }
     );
-
 
 });

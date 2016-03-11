@@ -3,7 +3,7 @@
 use App\Article;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class ArticleController extends Controller {
 
@@ -12,18 +12,19 @@ class ArticleController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index(Request $request)
+	public function index()
 	{
-		if($request->ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return view('backend.article');
-		}else if($request->ajax()){
-			$search = $request->input('search');
-			$sort = $request->input('sort','created_at');
-			$order = $request->input('order','desc');
-			$limit = $request->input('limit',10);
-			$offset = $request->input('offset','0');
+		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
+			return response()->view('backend.article');
+		}else if(Request::ajax()){
+			$search = Request::input('search');
+			$sort = Request::input('sort','created_at');
+			$order = Request::input('order','desc');
+			$limit = Request::input('limit',10);
+			$offset = Request::input('offset','0');
 
-			\DB::enableQueryLog();//id,title,content_md,content_html,DATE_FORMAT(created_at,'%Y-%m-%d'),DATE_FORMAT(updated_at,'%Y-%m-%d')
+//			\DB::enableQueryLog();
+			//id,title,content_md,content_html,DATE_FORMAT(created_at,'%Y-%m-%d'),DATE_FORMAT(updated_at,'%Y-%m-%d')
 			//'id','title','content_md','content_html','DATE_FORMAT(created_at,\'%Y-%m-%d\') as created_at','DATE_FORMAT(updated_at,\'%Y-%m-%d\') as updated_at'
 //			$data = Article::select(\DB::raw('id,title,content_md,content_html,date_format(created_at,\'%Y-%m-%d\') as created_at,date_format(updated_at,\'%Y-%m-%d\') as updated_at'))->whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->skip($offset)->take($limit)->orderBy($sort,$order)->get();
 			$data = Article::whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->skip($offset)->take($limit)->orderBy($sort,$order)->get();
@@ -32,14 +33,14 @@ class ArticleController extends Controller {
 			return [
 				'total'=>$total,
 				'rows'=>$data,
-				'log'=>\DB::connection()->getQueryLog(),
-				'ss'=>route('backend.article.edit',[1])
+//				'log'=>\DB::connection()->getQueryLog(),
+//				'ss'=>route('backend.article.edit',[1])
 			];
 
 
 		}
 
-		return '文章列表';
+		return response('错误的列表',404);
 	}
 
 	/**
@@ -53,7 +54,7 @@ class ArticleController extends Controller {
 			return view('backend.article_create');
 		}
 
-		return '新建文章';
+		return response('错误的页面',404);
 	}
 
 	/**
@@ -63,11 +64,7 @@ class ArticleController extends Controller {
 	 */
 	public function store()
 	{
-		// 保存文章
         $article = Article::create(Request::all());
-
-
-
 	}
 
 	/**
@@ -79,6 +76,10 @@ class ArticleController extends Controller {
 	public function show($id)
 	{
 		//
+
+		return response()->view('frontend.article',Article::find($id));
+
+//		return Article::find($id);
 	}
 
 	/**
@@ -89,8 +90,7 @@ class ArticleController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
-		return '修改'.$id.'文章';
+		return response()->view('backend.article_create',Article::findOrFail($id));
 	}
 
 	/**
@@ -101,7 +101,9 @@ class ArticleController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$up_data = Request::all();
+
+		Article::find($id)->fill($up_data)->save();
 	}
 
 	/**
@@ -112,7 +114,7 @@ class ArticleController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Article::destroy($id);
 	}
 
 }

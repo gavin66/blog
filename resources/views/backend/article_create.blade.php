@@ -7,7 +7,13 @@
     <div class="col-md-9">
         <div class="row">
             <div class="col-sm-12">
-                <input type="text" class="form-control atc-tit-ipt" id="title-article" name="title"  placeholder="输入标题">
+                <!-- 文章标题 -->
+                <input type="text" class="form-control atc-tit-ipt" id="title-article" name="title"
+                       placeholder="标题" value="{{ $title or '' }}" data-article-id="{{ $id or '' }}">
+                <!-- 文章的概要 主要用在前台显示的列表上 -->
+                <textarea class="form-control atc-tit-ipt" placeholder="简述" id="outline-article" rows="3"></textarea>
+                <!-- 修改时,editmd中的内容 -->
+                <input type="hidden"  id="edit-md-text" value="{{ $content_md or '' }}">
             </div>
         </div>
         <div class="row">
@@ -15,7 +21,6 @@
                 <div id="editormd"></div>
             </div>
         </div>
-
     </div>
     <div class="col-md-3">
         <div class="row">
@@ -23,8 +28,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         发布
-                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#release"
-                              aria-expanded="false" aria-controls="release">
+                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
+                              data-toggle="collapse" href="#release" aria-expanded="false" aria-controls="release">
                         </span>
                     </div>
                     <ul class="list-group collapse in" id="release">
@@ -34,7 +39,11 @@
                         <li class="list-group-item">发布时间: 编辑</li>
                         <li class="list-group-item">
                             <span class="shift-trash">移至回收站</span>
-                            <button type="button" class="btn btn-primary btn-sm pull-right" id="save-article">保存</button>
+                            @if( isset($id) )
+                                <button type="button" class="btn btn-primary btn-sm pull-right" id="update-article">更新</button>
+                            @else
+                                <button type="button" class="btn btn-primary btn-sm pull-right" id="save-article">保存</button>
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -45,8 +54,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         分类
-                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#sort"
-                              aria-expanded="false" aria-controls="sort">
+                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
+                              data-toggle="collapse" href="#sort" aria-expanded="false" aria-controls="sort">
                         </span>
                     </div>
                     <ul class="list-group collapse in" id="sort">
@@ -61,8 +70,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         标签
-                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button" data-toggle="collapse" href="#tag"
-                              aria-expanded="false" aria-controls="tag">
+                        <span class="glyphicon glyphicon-triangle-bottom pull-right" role="button"
+                              data-toggle="collapse" href="#tag" aria-expanded="false" aria-controls="tag">
                         </span>
                     </div>
                     <ul class="list-group collapse in" id="tag">
@@ -74,6 +83,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script>

@@ -11,8 +11,6 @@
 |
 */
 
-// 文章列表
-Route::get('/','FrontendController@index');
 
 Route::get('phpinfo',function(){phpinfo();});
 
@@ -21,7 +19,7 @@ Route::get('phpinfo',function(){phpinfo();});
  */
 Route::group(['namespace'=>'frontend'],function(){
 
-    // 前台主页
+    // 前台主页 文章列表
     Route::get('/','FrontendController@index');
 
     Route::group(['prefix'=>'frontend'],function(){
@@ -29,6 +27,10 @@ Route::group(['namespace'=>'frontend'],function(){
     });
 
 });
+
+// 前台显示文章
+Route::get('article/{id}','backend\ArticleController@show');
+
 
 
 /**
@@ -77,20 +79,21 @@ Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
         //文章
         Route::resource('article','ArticleController');
 
-
     });
 });
 
-Route::get('article',function(){return view('article');});
-
 
 Route::get('orm',function(){
-//    $data = \App\Article::all();
-
-
     $data = \App\Article::skip(0)->take(10)->get();
 
     dd($data);
+});
+
+Route::get('table-edit',function(){
+    Schema::table('articles', function($table)
+    {
+        $table->string('outline');
+    });
 });
 
 

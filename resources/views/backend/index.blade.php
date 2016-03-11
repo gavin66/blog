@@ -14,13 +14,12 @@
     <!-- Laravel token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中-->
     <meta name="csrf-token" content="{{ csrf_token()}}" />
 
-    <title>@yield('title','Gavin\'blog')</title>
+    <title>Gavin'blog</title>
 
     <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plug-in/animate.css-3.5.1/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/backend/index.css') }}">
-
 </head>
 <body>
     <div class="jqsb-container">
@@ -67,27 +66,11 @@
                         <li><a href="#">Link</a></li>
                         <li><a href="#" class="sb-toggle-right">设置</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <div class="main" id="pjax-container">
-            <div id="toolbar">
-                <div class="form-inline" role="form">
-                    <div class="form-group">
-                        <span>Offset: </span>
-                        <input name="offset" class="form-control w70" type="number" value="0">
-                    </div>
-                    <div class="form-group">
-                        <span>Limit: </span>
-                        <input name="limit" class="form-control w70" type="number" value="5">
-                    </div>
-                    <div class="form-group">
-                        <input name="search" class="form-control" type="text" placeholder="Search">
-                    </div>
-                    <button id="ok" type="submit" class="btn btn-default">OK</button>
                 </div>
             </div>
-            <table id="bs-table"></table>
+        </nav>
+        <div class="main" id="pjax-container">
+
         </div>
         <footer class="footer">©&nbsp;2014 - 2016&nbsp;&nbsp;Gavin's Blog &nbsp;</footer>
     </div>
@@ -219,13 +202,6 @@
     <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}" ></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
     <script src="{{ asset('/script/backend/index.js') }}" ></script>
-    {{--<script src="{{ asset('/script/backend/article.create.js') }}" ></script>--}}
 
-    <script src="{{ asset('/script/backend/article.js') }}"></script>
-
-
-    @section('js')
-
-    @show
 </body>
 </html>
