@@ -17,10 +17,9 @@
 
     <title>@yield('title','Gavin\' Blog')</title>
 
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/plug-in/jQuery-Sidebar/dist/jQuery-Sidebar.min.css') }}">
     <link href="{{ asset('/style/app.css') }}" rel="stylesheet">
 
     @section('css')
@@ -29,7 +28,7 @@
 
 </head>
 <body>
-    <header class="navbar navbar-inverse navbar-fixed-top" id="top" role="navigation">
+    <header class="navbar navbar-blue navbar-static-top" id="top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
@@ -38,112 +37,71 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Gavin's Blog</a>
             </div>
             <nav class="collapse navbar-collapse" id="bs-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">首页</a></li>
+                    <li><a href="{{ url('/') }}">首页</a></li>
+                    <li><a href="#">分类</a></li>
                     <li><a href="#">归档</a></li>
                     <li><a href="#">关于我</a></li>
-                    <li>
-                        <form class="navbar-form navbar-left" role="search" id="">
-                            <div class="input-group ">
-                                <span class="glyphicon glyphicon-search" id="navbar-searchicon"></span>
-                                <input type="text" class="form-control" placeholder="关键字搜索" id="navbar-search">
-                            </div>
-                        </form>
-                    </li>
-                    {{--<li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></li>--}}
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="jqsb-container">
-        @section('content')
 
-        @show
-        <!-- 版权等信息 -->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="copyright inline" itemscope itemtype="http://www.isgavin.me">
-                    ©  2014 -
-                    <span itemprop="copyrightYear">2016</span>
-                    <a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a>
+    <div class="jumbotron jumbotron-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 text-center">
+                    <h1>Gavin's Blog</h1>
+                    <p>宁愿小众,不愿平庸</p>
+                    <ul class="list-inline">
+                        <li><a href="https://github.com/gavin66"><i class="fa fa-github"></i>Github</a></li>
+                        <li>·</li>
+                        <li><a href="http://weibo.com/lanbert"><i class="fa fa-weibo"></i>微博</a></li>
+                        <li>·</li>
+                        <li><a href="https://www.zhihu.com/people/Gavin23">知乎</a></li>
+                    </ul>
                 </div>
-                <span class="dot"></span>
-                <div class="record inline" >
-                    <a href="http://www.miibeian.gov.cn/" target="_blank">津 ICP 备 15004268 号</a>
-                </div>
+                <div class="col-sm-4"></div>
             </div>
-        </footer>
-    </div>
-
-
-
-    <!-- 侧边栏 -->
-    <aside class="jqsb-sidebar jqsb-right">
-        <div class="sidebar-inner">
-            <section class="site-overview">
-                <div class="author motion-element" itemscope itemprop="author" itemtype="http://schema.org/Person">
-                    <img class="img-responsive img-thumbnail" src="{{asset('/img/portrait.jpg')}}" alt="Gavin" itemprop="portrait">
-                    <p class="author-name" itemprop="name">Gavin</p>
-                </div>
-                <p class="description motion-element" itemprop="description" >
-                    青春是一场大雨。即使感冒了,还盼望回头再淋它一次！
-                </p>
-                <nav class="state motion-element" >
-                    <div class="state-item">
-                        <a href="/archives">
-                            <span class="state-item-count">55</span>
-                            <span class="state-item-name">日志</span>
-                        </a>
-                    </div>
-                    <div class="state-item">
-                        <a href="/categories">
-                            <span class="state-item-count">5</span>
-                            <span class="state-item-name">分类</span>
-                        </a>
-                    </div>
-                </nav>
-                {{--<div class="rss motion-element">--}}
-                {{--<a href="/atom.xml">RSS</a>--}}
-                {{--</div>--}}
-                <div class="contact motion-element">
-                    <span class="">
-                        <a href="https://github.com/gavin66" target="_blank">GitHub</a>
-                      </span>
-                      <span class="">
-                        <a href="https://github.com/gavin66" target="_blank">Twitter</a>
-                      </span>
-                      <span class="">
-                        <a href="https://github.com/gavin66" target="_blank">Facebook</a>
-                      </span>
-                      <span class="">
-                        <a href="https://github.com/gavin66" target="_blank">Google+</a>
-                      </span>
-                      <span class="">
-                        <a href="http://weibo.com/lanbert" target="_blank">Weibo</a>
-                      </span>
-                      <span class="">
-                        <a href="http://www.zhihu.com/people/Gavin23" target="_blank">ZhiHu</a>
-                      </span>
-                </div>
-            </section>
         </div>
-    </aside>
+    </div>
 
-    <div class="sidebar-toggle jqsb-toggle-right">
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
-    </div>
+    @section('content')
+
+    @show
+
+    <!-- 版权等信息 -->
+    <footer class="container text-center">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="app-footer list-inline small">
+                    <li>Copyright© 2014 - 2016 </li>
+                    <li class="padding-null">·</li>
+                    <li>Gavin's Blog</li>
+                    <li class="padding-null">·</li>
+                    <li>Designed by <a itemprop="copyrightHolder" href="http://www.isgavin.me">Gavin</a></li>
+                    <li class="padding-null">·</li>
+                    <li><a href="http://www.miibeian.gov.cn/" target="_blank">津 ICP 备 15004268 号</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
     <div class="back-to-top" style="display: none;">
-        <span class="glyphicon glyphicon-triangle-top"></span>
+        <span class="fa fa-chevron-up"></span>
     </div>
+
+    @section('beforeJS')
+
+    @show
 
     <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}"></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
     <script src="{{ asset('/script/app.js') }}" ></script>
 
-    @section('js')
+    @section('endJS')
 
     @show
 

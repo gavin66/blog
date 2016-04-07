@@ -86,7 +86,9 @@ module.exports = function(grunt) {
         files:{
           '../../public/style/backend/index.css': 'scss/backend/index.scss',
           '../../public/style/auth/index.css': 'scss/auth/index.scss',
-          '../../public/style/app.css': 'scss/app.scss'
+          '../../public/style/app.css': 'scss/app.scss',
+          '../../public/style/frontend/article.css': 'scss/frontend/article.scss'
+
         }
       }
     },

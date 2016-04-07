@@ -5,7 +5,7 @@ var deps = [
     'bootstrap',
     'pjax',
     'metisMenu',
-    'jQuerySidebar'
+    'jquery_sidebar'
 ];
 
 seajs.use(deps, function() {

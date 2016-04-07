@@ -2,7 +2,8 @@
  * jquery的扩展与配置,适应laravel框架的设置.
  * Created by Gavin on 16/2/4.
  */
-;(function (factory) {
+;
++function (factory) {
     "use strict";
 
     // CommonJS/Node.js
@@ -124,4 +125,4 @@
         });
     };
 
-}));
+});

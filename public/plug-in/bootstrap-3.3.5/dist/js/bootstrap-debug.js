@@ -1923,6 +1923,7 @@ if (typeof jQuery === 'undefined') {
     this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
     this.refresh()
     this.process()
+
   }
 
   ScrollSpy.VERSION  = '3.3.5'
@@ -1965,7 +1966,8 @@ if (typeof jQuery === 'undefined') {
       .each(function () {
         that.offsets.push(this[0])
         that.targets.push(this[1])
-      })
+      });
+
   }
 
   ScrollSpy.prototype.process = function () {
