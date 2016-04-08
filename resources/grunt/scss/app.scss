@@ -4,6 +4,8 @@ $base_color_black: #293038;
 $base_color_gray: #F7F8F9;
 // 基础颜色:橙色
 $base_color_orange: #E77E23;
+// 基础红色
+$base_color_red: #f05654; // 银红
 // 基础颜色: 蓝色
 $base_color_blue: #4183c4;
 // 基础颜色: 绿色
@@ -32,6 +34,15 @@ a:hover{
 .padding-margin-null{
   padding: 0;
   margin: 0;
+}
+// Font Awesome 基础样式
+.font-awesome {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -184,6 +195,35 @@ a:hover{
       right:0;
     }
   }
+}
+
+
+/*------------------------------------*\
+    侧边样式 (类别,标签,归档)
+\*------------------------------------*/
+.article-category{
+  background-color: $base_color_gray;
+  border-top: 6px solid lighten($base_color_red,6%);
+  padding: 5px 30px;
+  margin-bottom: 30px;
+
+  li {
+    line-height: 40px;
+    color: $base_color_red;
+    &:before{
+      @extend .font-awesome;
+      content: '\f105';
+    }
+    a{
+      &:hover{
+        text-decoration: underline;
+        color:$base_color_green;
+      }
+      color: $base_color_red;
+      padding: 0 0 10px 15px;
+    }
+  }
+
 }
 
 

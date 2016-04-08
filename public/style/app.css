@@ -28,6 +28,15 @@ a:hover {
   margin: 0;
 }
 
+.font-awesome, .article-category li:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /*------------------------------------*\
     导航栏
 \*------------------------------------*/
@@ -167,6 +176,31 @@ a:hover {
 .article-list-entry .article-list-footer .more {
   position: absolute;
   right: 0;
+}
+
+/*------------------------------------*\
+    侧边样式 (类别,标签,归档)
+\*------------------------------------*/
+.article-category {
+  background-color: #F7F8F9;
+  border-top: 6px solid #f27270;
+  padding: 5px 30px;
+  margin-bottom: 30px;
+}
+.article-category li {
+  line-height: 40px;
+  color: #f05654;
+}
+.article-category li:before {
+  content: '\f105';
+}
+.article-category li a {
+  color: #f05654;
+  padding: 0 0 10px 15px;
+}
+.article-category li a:hover {
+  text-decoration: underline;
+  color: #99CC99;
 }
 
 /*------------------------------------*\

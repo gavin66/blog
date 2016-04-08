@@ -19,7 +19,7 @@
         }
         else
         {
-            define(["jquery"], factory);  // for Sea.js
+            define('jqueryExt',["jquery"], factory);  // for Sea.js
         }
     }
     else

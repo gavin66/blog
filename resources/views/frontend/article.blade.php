@@ -149,8 +149,9 @@
     <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}"></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
 
-    <script src="{{ asset('/script/frontend/article.js') }}" ></script>
     <script src="{{ asset('/script/app.js') }}" ></script>
+    <script src="{{ asset('/script/frontend/article.js') }}" ></script>
+
 
 </body>
 </html>

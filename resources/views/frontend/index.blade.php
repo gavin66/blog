@@ -55,19 +55,29 @@
                 </nav>
             </section>
             <section class="col-sm-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">分类</div>
-                            <ul class="list-group collapse in" id="release">
-                                <li class="list-group-item">PHP</li>
-                                <li class="list-group-item">状态:草稿 编辑</li>
-                                <li class="list-group-item">公开度:公开 编辑</li>
-                                <li class="list-group-item">发布时间: 编辑</li>
-                                <li class="list-group-item">JJJ</li>
-                            </ul>
-                        </div>
-                    </div>
+                {{--<div class="row">--}}
+                    {{--<div class="col-sm-12">--}}
+                        {{--<div class="panel panel-default">--}}
+                            {{--<div class="panel-heading">分类</div>--}}
+                            {{--<ul class="list-group collapse in" id="release">--}}
+                                {{--<li class="list-group-item">PHP</li>--}}
+                                {{--<li class="list-group-item">状态:草稿 编辑</li>--}}
+                                {{--<li class="list-group-item">公开度:公开 编辑</li>--}}
+                                {{--<li class="list-group-item">发布时间: 编辑</li>--}}
+                                {{--<li class="list-group-item">JJJ</li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                <div class="article-category">
+                    <h4>分类</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="">javascript</a></li>
+                        <li><a href="">css</a></li>
+                        <li><a href="">php</a></li>
+                        <li><a href="">java</a></li>
+                        <li><a href="">js</a></li>
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
