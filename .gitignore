@@ -1,6 +1,6 @@
-/bootstrap/compiled.php
-/public/upload
-/public/grunt/node_modules
+/vendor
+/resources/grunt/node_modules
 /storage
+composer.lock
 .env
 .idea
