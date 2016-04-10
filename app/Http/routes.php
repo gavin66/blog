@@ -51,7 +51,7 @@ Route::group(['namespace'=>'Auth'],function(){
         Route::get('signOut', 'AuthController@getSignOut');
 
         // 注册
-        Route::post('signUp', 'AuthController@postRegister');
+//        Route::post('signUp', 'AuthController@postRegister');
     });
 
     Route::group(['prefix'=>'password'],function(){
