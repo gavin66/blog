@@ -14,6 +14,8 @@
 
 Route::get('phpinfo',function(){phpinfo();});
 
+Route::get('hello',function(){echo 'Hello,Laravel';});
+
 /**
  * 前台部分
  */
