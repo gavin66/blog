@@ -31,7 +31,7 @@ Route::group(['namespace'=>'Frontend'],function(){
 });
 
 // 前台显示文章
-Route::get('article/{id}','backend\ArticleController@show');
+Route::get('article/{id}','Backend\ArticleController@show');
 
 
 
