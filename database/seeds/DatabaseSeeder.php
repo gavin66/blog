@@ -34,8 +34,8 @@ class ArticleTableSeeder extends Seeder {
 
 		for($i=0;$i<20;$i++){
 			Article::create([
-				'title'=>'标题'.$i,
-				'content_md'=>'md内容'.$i,
+				'title'=>'这是个标题'.$i,
+				'content_md'=>'文章内容,文章内容'.$i,
 				'content_html'=>'html内容'.$i
 			]);
 		}
