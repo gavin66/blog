@@ -17,7 +17,7 @@ Route::get('phpinfo',function(){phpinfo();});
 /**
  * 前台部分
  */
-Route::group(['namespace'=>'frontend'],function(){
+Route::group(['namespace'=>'Frontend'],function(){
 
     // 前台主页 文章列表
     Route::get('/','FrontendController@index');
@@ -36,7 +36,7 @@ Route::get('article/{id}','backend\ArticleController@show');
 /**
  * 认证与注册部分
  */
-Route::group(['namespace'=>'auth'],function(){
+Route::group(['namespace'=>'Auth'],function(){
 
     // 显示认证页
     Route::get('auth', 'AuthController@getAuth');
@@ -67,7 +67,7 @@ Route::group(['namespace'=>'auth'],function(){
 /**
  * 后台部分
  */
-Route::group(['namespace'=>'backend','middleware'=>'auth'],function(){
+Route::group(['namespace'=>'Backend','middleware'=>'auth'],function(){
     Route::group(['prefix'=>'backend'],function(){
 
         // 后台主页
