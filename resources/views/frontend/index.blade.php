@@ -17,8 +17,7 @@
                         </header>
                         <div class="article-list-content">
                             <p></p>
-                            <p><span class="invisible">空格</span>Markdown 写的表格最终会被解析成 HTML 代码，如果使用的编辑器支持自定义 CSS，就能方便的调整样式。
-                                如果可以引入 JavaScript，样式自适应也能较好地实现。</p>
+                            <p><span class="invisible">空格</span>{{$v['outline']}}</p>
                         </div>
                         <div class="article-list-footer">
                             <h4>

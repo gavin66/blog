@@ -14,7 +14,7 @@
 
 Route::get('phpinfo',function(){phpinfo();});
 
-Route::get('hello',function(){echo 'Hello,Laravel';});
+Route::get('hello',function(){return 'hello';});
 
 /**
  * 前台部分
@@ -51,7 +51,7 @@ Route::group(['namespace'=>'Auth'],function(){
         Route::get('signOut', 'AuthController@getSignOut');
 
         // 注册
-//        Route::post('signUp', 'AuthController@postRegister');
+        Route::post('signUp', 'AuthController@postRegister');
     });
 
     Route::group(['prefix'=>'password'],function(){

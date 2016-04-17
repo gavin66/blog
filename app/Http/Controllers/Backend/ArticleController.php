@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Article;
+use App\Model\Article;
 use App\Http\Controllers\Controller;
 
 use Request;
@@ -15,7 +15,7 @@ class ArticleController extends Controller {
 	public function index()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return response()->view('backend.article');
+			return response()->view('backend.article.index');
 		}else if(Request::ajax()){
 			$search = Request::input('search');
 			$sort = Request::input('sort','created_at');
@@ -51,7 +51,7 @@ class ArticleController extends Controller {
 	public function create()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return view('backend.article_create');
+			return view('backend.article.create');
 		}
 
 		return response('错误的页面',404);
@@ -90,7 +90,7 @@ class ArticleController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return response()->view('backend.article_create',Article::findOrFail($id));
+		return response()->view('backend.article.create',Article::findOrFail($id));
 	}
 
 	/**

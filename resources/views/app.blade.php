@@ -56,11 +56,11 @@
                     <h1>Gavin's Blog</h1>
                     <p>宁愿小众,不愿平庸</p>
                     <ul class="list-inline">
-                        <li><a href="https://github.com/gavin66"><i class="fa fa-github"></i>Github</a></li>
+                        <li><a href="https://github.com/gavin66" target="_blank"><i class="fa fa-github"></i>Github</a></li>
                         <li>·</li>
-                        <li><a href="http://weibo.com/lanbert"><i class="fa fa-weibo"></i>微博</a></li>
+                        <li><a href="http://weibo.com/lanbert" target="_blank"><i class="fa fa-weibo"></i>微博</a></li>
                         <li>·</li>
-                        <li><a href="https://www.zhihu.com/people/Gavin23">知乎</a></li>
+                        <li><a href="https://www.zhihu.com/people/Gavin23" target="_blank">知乎</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4"></div>

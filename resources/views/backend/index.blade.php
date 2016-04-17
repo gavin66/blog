@@ -126,9 +126,8 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">多媒体1</a></li>
-                        <li><a href="#">多媒体2</a></li>
-                        <li><a href="#">多媒体3</a></li>
+                        <li><a href="#">媒体库</a></li>
+                        <li><a href="#">添加</a></li>
                     </ul>
                 </li>
                 <li>
@@ -150,9 +149,13 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">外观1</a></li>
-                        <li><a href="#">外观2</a></li>
-                        <li><a href="#">外观3</a></li>
+                        <li><a href="#">主题</a></li>
+                        <li><a href="#">自定义</a></li>
+                        <li><a href="#">小工具</a></li>
+                        <li><a href="#">菜单</a></li>
+                        <li><a href="#">顶部</a></li>
+                        <li><a href="#">背景</a></li>
+                        <li><a href="#">编辑</a></li>
                     </ul>
                 </li>
                 <li>
@@ -162,9 +165,9 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">用户1</a></li>
-                        <li><a href="#">用户2</a></li>
-                        <li><a href="#">用户3</a></li>
+                        <li><a href="#">所有用户</a></li>
+                        <li><a href="#">添加用户</a></li>
+                        <li><a href="#">我的资料</a></li>
                     </ul>
                 </li>
                 <li>
@@ -174,9 +177,9 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">工具1</a></li>
-                        <li><a href="#">工具2</a></li>
-                        <li><a href="#">工具3</a></li>
+                        <li><a href="#">可用工具</a></li>
+                        <li><a href="#">导入</a></li>
+                        <li><a href="#">导出</a></li>
                     </ul>
                 </li>
                 <li>
@@ -186,9 +189,9 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="false">
-                        <li><a href="#">设置1</a></li>
-                        <li><a href="#">设置2</a></li>
-                        <li><a href="#">设置3</a></li>
+                        <li><a href="#">基本</a></li>
+                        <li><a href="#">文章</a></li>
+                        <li><a href="#">评论</a></li>
                     </ul>
                 </li>
             </ul>

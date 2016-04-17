@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogFieldsTable extends Migration {
+class CreateCommentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateBlogFieldsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('blog_fields', function(Blueprint $table)
+		Schema::create('comments', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name',32);
+			$table->timestamps();
 		});
 	}
 
@@ -26,7 +26,7 @@ class CreateBlogFieldsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('blog_fields');
+		Schema::drop('comments');
 	}
 
 }

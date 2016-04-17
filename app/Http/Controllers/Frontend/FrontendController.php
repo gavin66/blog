@@ -5,10 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Request;
 use Response;
-use App\Article;
+use App\Model\Article;
 
 class FrontendController extends Controller {
-
 
     public function __construct(){
 
