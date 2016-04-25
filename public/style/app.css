@@ -2,6 +2,10 @@
 /*------------------------------------*\
     基础样式
 \*------------------------------------*/
+body {
+  background-color: #F7F8F9;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -13,6 +17,10 @@ a:hover {
 
 .inline {
   display: inline;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .padding-null {
@@ -37,6 +45,13 @@ a:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.box-shadow {
+  background-color: white;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
 /*------------------------------------*\
     导航栏
 \*------------------------------------*/
@@ -50,7 +65,7 @@ a:hover {
 .navbar-blue .nav > li > a:hover,
 .navbar-blue .nav > li > a:focus {
   text-decoration: none;
-  background-color: #E77E23;
+  background-color: #ff8936;
 }
 .navbar-blue .navbar-toggle {
   border-color: #F7F8F9;
@@ -133,6 +148,54 @@ a:hover {
   padding-right: 5px;
 }
 
+.jumbotron-purple {
+  background-color: #815476;
+  border-color: #815476;
+  margin-top: -20px;
+  margin-bottom: 0;
+  color: #fff;
+}
+.jumbotron-purple a {
+  color: #fff;
+}
+.jumbotron-purple h1 {
+  margin-top: 0;
+  text-shadow: 4px 3px 0 #815476, 9px 5px 1px rgba(0, 0, 0, 0.15);
+}
+.jumbotron-purple p {
+  margin: 20px 0;
+}
+.jumbotron-purple ul {
+  margin: 30px 0 0;
+}
+.jumbotron-purple ul i.fa {
+  padding-right: 5px;
+}
+
+.jumbotron-green {
+  background-color: #21a675;
+  border-color: #21a675;
+  margin-top: -20px;
+  margin-bottom: 0;
+  color: #fff;
+}
+.jumbotron-green a {
+  color: #fff;
+}
+.jumbotron-green h1 {
+  margin-top: 0;
+  text-shadow: 4px 3px 0 #21a675, 9px 5px 1px rgba(0, 0, 0, 0.15);
+}
+.jumbotron-green p {
+  margin: 20px 0;
+}
+.jumbotron-green ul {
+  margin: 30px 0 0;
+}
+.jumbotron-green ul i.fa {
+  padding-right: 5px;
+}
+
 /*------------------------------------*\
     文章列表样式
 \*------------------------------------*/
@@ -153,7 +216,7 @@ a:hover {
   padding: 5px 20px;
 }
 .article-list-entry .article-list-header:active, .article-list-entry .article-list-header:hover {
-  border-left: 6px solid #99CC99;
+  border-left: 6px solid #bce672;
 }
 .article-list-entry .article-list-header .title {
   position: relative;
@@ -183,24 +246,24 @@ a:hover {
 \*------------------------------------*/
 .article-category {
   background-color: #F7F8F9;
-  border-top: 6px solid #f27270;
+  border-top: 6px solid #f06e52;
   padding: 5px 30px;
   margin-bottom: 30px;
 }
 .article-category li {
   line-height: 40px;
-  color: #f05654;
+  color: #ed5736;
 }
 .article-category li:before {
   content: '\f105';
 }
 .article-category li a {
-  color: #f05654;
+  color: #ed5736;
   padding: 0 0 10px 15px;
 }
 .article-category li a:hover {
   text-decoration: underline;
-  color: #99CC99;
+  color: #bce672;
 }
 
 /*------------------------------------*\
@@ -326,4 +389,60 @@ a:hover {
 .markdown-toc ul.markdown-toc-list > li.active > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > a {
   font-weight: 500;
   padding-left: 105px;
+}
+
+/*------------------------------------*\
+    关于我
+\*------------------------------------*/
+.profile {
+  margin: 25px 0;
+  padding: 15px;
+}
+.profile table td:nth-child(1) {
+  width: 40%;
+}
+.profile table td:nth-child(2) {
+  width: 60%;
+}
+.profile .social {
+  margin: 20px 0px 5px;
+}
+
+.music-player {
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.music-player #aPlayer {
+  margin: 0 !important;
+}
+
+.like-me {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 40px;
+  color: #e51c23;
+}
+
+.popular {
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.popular .p-label {
+  position: relative;
+  padding: 5px 15px 5px 30px;
+  left: -30px;
+  background-color: #b35c44;
+  color: white;
+}
+.popular .p-label:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-top: 0 solid transparent;
+  border-right: 15px solid #44231a;
+  border-bottom: 15px solid transparent;
+  border-left: 0 solid transparent;
+  width: 0;
+  height: 0;
 }

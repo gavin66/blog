@@ -2,19 +2,40 @@
 $base_color_black: #293038;
 // 基础颜色:灰色
 $base_color_gray: #F7F8F9;
-// 基础颜色:橙色
-$base_color_orange: #E77E23;
-// 基础红色
-$base_color_red: #f05654; // 银红
+
+// 妃色
+$base_color_red: #ed5736;
+
+// 橘黄
+$base_color_orange: #ff8936;
+// 茶色
+$base_color_orange2: #b35c44;
+
+// 鹅黄
+$base_color_yellow: #fff143;
+
+// 松花色
+$base_color_green: #bce672;
+// 松柏绿
+$base_color_green2: #21a675;
+
+// 青碧
+$base_color_cyan: #48c0a3;
+
 // 基础颜色: 蓝色
 $base_color_blue: #4183c4;
-// 基础颜色: 绿色
-$base_color_green: #99CC99;
+
+// 紫酱
+$base_color_purple: #815476;
+
 
 
 /*------------------------------------*\
     基础样式
 \*------------------------------------*/
+body{
+  background-color: $base_color_gray;
+}
 a:hover{
   text-decoration: none;
 }
@@ -24,6 +45,9 @@ a:hover{
 }
 .inline{
   display: inline;
+}
+.inline-block{
+  display: inline-block;
 }
 .padding-null{
   padding: 0;
@@ -43,6 +67,12 @@ a:hover{
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.box-shadow{
+  background-color: white;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 
@@ -147,9 +177,54 @@ a:hover{
   }
 }
 
-// 紫色 主要用在文章显示页显示标题等信息
+// 紫酱  文章
 .jumbotron-purple{
+  background-color: $base_color_purple;
+  border-color: $base_color_purple;
+  margin-top: -20px;
+  margin-bottom: 0;
+  color:#fff;
+  a{
+    color: #fff;
+  }
+  h1{
+    margin-top:0;
+    text-shadow: 4px 3px 0 $base_color_purple, 9px 5px 1px rgba(0, 0, 0, 0.15);
+  }
+  p{
+    margin: 20px 0;
+  }
+  ul{
+    margin: 30px 0 0;
+    i.fa{
+      padding-right: 5px;
+    }
+  }
+}
 
+// 松柏绿  关于
+.jumbotron-green{
+  background-color: $base_color_green2;
+  border-color: $base_color_green2;
+  margin-top: -20px;
+  margin-bottom: 0;
+  color:#fff;
+  a{
+    color: #fff;
+  }
+  h1{
+    margin-top:0;
+    text-shadow: 4px 3px 0 $base_color_green2, 9px 5px 1px rgba(0, 0, 0, 0.15);
+  }
+  p{
+    margin: 20px 0;
+  }
+  ul{
+    margin: 30px 0 0;
+    i.fa{
+      padding-right: 5px;
+    }
+  }
 }
 
 
@@ -376,3 +451,65 @@ a:hover{
   }
 
 }
+
+
+/*------------------------------------*\
+    关于我
+\*------------------------------------*/
+.profile{
+  margin: 25px 0;
+  padding: 15px;
+
+  table td{
+    &:nth-child(1){
+      width: 40%;
+    }
+    &:nth-child(2){
+      width: 60%;
+    }
+  }
+
+  .social{
+    margin: 20px 0px 5px;
+  }
+
+}
+.music-player{
+  margin-bottom: 20px;
+  padding: 15px;
+  #aPlayer{
+    margin: 0 !important;
+  }
+}
+.like-me{
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 40px;
+  color: #e51c23;
+}
+.popular{
+  margin-bottom: 20px;
+  padding: 15px;
+
+  .p-label{
+    position: relative;
+    padding: 5px 15px 5px 30px;
+    left: -30px;
+    background-color: $base_color_orange2;
+    color: white;
+    &:after{
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-top: 0 solid transparent;
+      border-right: 15px solid darken($base_color_orange2,30%);
+      border-bottom: 15px solid transparent;
+      border-left: 0 solid transparent;
+      width: 0;
+      height: 0;
+    }
+  }
+
+}
+

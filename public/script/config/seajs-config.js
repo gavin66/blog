@@ -22,6 +22,8 @@ seajs.config({
         bootstrap_table:'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
         bootstrap_table_locale:'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug',
 
+        APlayer:'APlayer-master/dist/APlayer.min.js',
+
         //scrollspy:'scrollspy-ex-1.0.0/dist/scrollspy-ex.min',
         scrollspy:'scrollspy-ex-1.0.0/dev/scrollspy-ex',
 

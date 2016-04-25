@@ -75,11 +75,9 @@ class ArticleController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
 
 		return response()->view('frontend.article',Article::find($id));
 
-//		return Article::find($id);
 	}
 
 	/**

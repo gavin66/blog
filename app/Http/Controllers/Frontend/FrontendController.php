@@ -9,11 +9,11 @@ use App\Model\Article;
 
 class FrontendController extends Controller {
 
-    public function __construct(){
+    public function __construct() {
 
     }
 
-    public function index(){
+    public function index() {
         $search = Request::input('search');
         $sort = Request::input('sort','created_at');
         $order = Request::input('order','desc');
@@ -26,6 +26,24 @@ class FrontendController extends Controller {
         ];
 
         return Response::view('frontend.index',$data);
+    }
+
+    public function article($id) {
+
+        return response()->view('frontend.article',Article::find($id));
+    }
+
+    public function about() {
+
+        return response()->view('frontend.about',Article::find(1));
+    }
+
+    public function category() {
+
+    }
+
+    public function archive() {
+
     }
 
 }

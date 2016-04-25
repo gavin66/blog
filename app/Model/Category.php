@@ -2,9 +2,11 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model {
+class Category extends Model {
 
-    protected $table = 'category';
+    protected $table = 'categories';
+
+    protected $guarded = ['id'];
 
 
 }

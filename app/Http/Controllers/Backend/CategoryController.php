@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+Use App\Model\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
@@ -15,6 +15,9 @@ class CategoryController extends Controller {
 	public function index()
 	{
 		//
+		$data = Category::all();
+
+		return $data;
 	}
 
 	/**
@@ -35,6 +38,7 @@ class CategoryController extends Controller {
 	public function store()
 	{
 		//
+		Category::create(\Request::all());
 	}
 
 	/**
@@ -46,6 +50,8 @@ class CategoryController extends Controller {
 	public function show($id)
 	{
 		//
+		return response()->view('frontend.article',Article::find($id));
+
 	}
 
 	/**

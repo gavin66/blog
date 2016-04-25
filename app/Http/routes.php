@@ -11,6 +11,9 @@
 |
 */
 
+// 测试使用
+Route::resource('category','Backend\CategoryController');
+
 
 Route::get('phpinfo',function(){phpinfo();});
 
@@ -24,14 +27,19 @@ Route::group(['namespace'=>'Frontend'],function(){
     // 前台主页 文章列表
     Route::get('/','FrontendController@index');
 
-    Route::group(['prefix'=>'frontend'],function(){
+    // 文章详细页
+    Route::get('article/{id}','FrontendController@article');
 
-    });
+    // 分类
+    Route::get('category','FrontendController@category');
+
+    // 归档
+    Route::get('archive','FrontendController@archive');
+
+    // 关于我
+    Route::get('about','FrontendController@about');
 
 });
-
-// 前台显示文章
-Route::get('article/{id}','Backend\ArticleController@show');
 
 
 

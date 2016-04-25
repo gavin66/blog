@@ -43,7 +43,7 @@
                     <li><a href="{{ url('/') }}">首页</a></li>
                     <li><a href="#">分类</a></li>
                     <li><a href="#">归档</a></li>
-                    <li><a href="#">关于我</a></li>
+                    <li><a href="{{ url('/about') }}">关于我</a></li>
                 </ul>
             </nav>
         </div>

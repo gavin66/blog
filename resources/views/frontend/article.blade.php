@@ -102,7 +102,7 @@
                         <a class="fa fa-google-plus share-icon share-icon-google-plus" title="Google+" data-service="google"></a>
                         <a class="fa fa-facebook share-icon share-icon-facebook" title="Facebook" data-service="facebook"></a>
                         <a class="fa fa-twitter share-icon share-icon-twitter" title="Twitter" data-service="twitter"></a>
-                        <a class="fa fa-linkedin share-icon share-icon-linkedin" titile="LinkedIn" data-service="linkedin"></a>
+                        <a class="fa fa-linkedin share-icon share-icon-linkedin" title="LinkedIn" data-service="linkedin"></a>
                     </div>
                 </div>
                 <i class=""></i>
