@@ -9,7 +9,7 @@ seajs.config({
     },
     alias : {
         seajs_css : 'seajs-3.0.0/plugins/seajs-css-master/dist/seajs-css',
-        jquery   : 'jquery-2.2.0/jquery-2.2.0',
+        jquery   : 'jquery-2.2.0/jquery-2.2.0', // 添加了对cmd规范的代码
         jqueryExt: '/script/extend/jquery-ext',
         editormd : 'editor.md-1.5.0/editormd-debug',
         bootstrap: 'bootstrap-3.3.5/dist/js/bootstrap-debug',
@@ -22,7 +22,9 @@ seajs.config({
         bootstrap_table:'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
         bootstrap_table_locale:'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug',
 
-        APlayer:'APlayer-master/dist/APlayer.min.js',
+        APlayer:'APlayer-master/dist/APlayer.min.js', //
+
+        toastr:'toastr-2.1.2/toastr-debug', // 通知提示插件  已改造为cmd规范
 
         //scrollspy:'scrollspy-ex-1.0.0/dist/scrollspy-ex.min',
         scrollspy:'scrollspy-ex-1.0.0/dev/scrollspy-ex',

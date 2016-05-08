@@ -416,3 +416,7 @@ a.cancelDefault:hover {
   -moz-border-radius: 0;
   border-radius: 0;
 }
+
+.toast-close-button {
+  line-height: 20px;
+}

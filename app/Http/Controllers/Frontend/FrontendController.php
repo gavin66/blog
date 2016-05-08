@@ -31,18 +31,24 @@ class FrontendController extends Controller {
     public function article($id) {
 
         return response()->view('frontend.article',Article::find($id));
+
     }
 
     public function about() {
 
         return response()->view('frontend.about',Article::find(1));
+
     }
 
     public function category() {
 
+        return response()->view('frontend.category',[]);
+
     }
 
     public function archive() {
+
+        return response()->view('frontend.archive',[]);
 
     }
 

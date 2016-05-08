@@ -56,3 +56,38 @@ if(!function_exists('getFileAllContents')){
         return $contents;
     }
 }
+
+if(!function_exists('getVersion')){
+    /**
+     * 获取当前博客的版本号
+     * @return mixed
+     */
+    function getVersion(){
+        return config('watermelon.version');
+    }
+}
+
+if(!function_exists('returnData')){
+    /**
+     * 返回数据
+     *
+     * @param string $key
+     * @param $data
+     * @return array|string
+     */
+    function returnData($key = '0',$data = []){
+        if(is_bool($key)){
+            if($key) $key = '0';
+            else $key = '-1';
+        }
+
+        return [
+            'code'=>$key,
+            'desc'=>config('watermelon.'.$key),
+            'data'=>$data,
+            'timestamp'=>time(),
+            'version'=>getVersion()
+        ];
+
+    }
+}

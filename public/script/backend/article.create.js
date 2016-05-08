@@ -2,7 +2,9 @@
  * Created by Gavin on 16/2/19.
  */
 var deps = [
+    'jqueryExt',
     'editormd',
+    'toastr',
     'editormd-plugins/link-dialog/link-dialog',
     'editormd-plugins/reference-link-dialog/reference-link-dialog',
     'editormd-plugins/image-dialog/image-dialog',
@@ -13,12 +15,12 @@ var deps = [
     'editormd-plugins/help-dialog/help-dialog',
     'editormd-plugins/html-entities-dialog/html-entities-dialog',
     'editormd-plugins/preformatted-text-dialog/preformatted-text-dialog',
-    'jqueryExt',
     'seajs_css'
 ];
 
-seajs.use(deps, function(editormd) {
+seajs.use(deps, function($,editormd,toastr) {
     seajs.use('/plug-in/editor.md-1.5.0/css/editormd.min.css');
+    seajs.use('/plug-in/toastr-2.1.2/build/toastr.min.css');
 
     var editor = editormd('editormd', {
         width: '100%',
@@ -51,14 +53,13 @@ seajs.use(deps, function(editormd) {
             content_html:editor.getHTML()
         };
 
-        console.log(sent);
-
         $.ajax({
             url:'/backend/article',
             method:'post',
             data:sent,
             dataType:'json',
             success:function(data){
+                console.log(data);
 
             }
         });
@@ -78,7 +79,22 @@ seajs.use(deps, function(editormd) {
             data:sent,
             dataType:'json',
             success:function(data){
-                console.log(data);
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "onclick": null,
+                    "showDuration": "500",
+                    "hideDuration": "3000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1500",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.success('已更新');
             }
         });
 

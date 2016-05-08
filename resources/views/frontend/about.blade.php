@@ -115,7 +115,6 @@
                     <li><a href="www.baidu.com">留言板</a> - 61,003 次围观</li>
                     <li><a href="www.baidu.com">关于</a> - 22,999 次围观</li>
                     <li><a href="www.baidu.com">读者墙</a> - 12,706 次围观</li>
-
                 </ul>
             </div>
             <div class="like-me box-shadow text-center">

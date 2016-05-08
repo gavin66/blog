@@ -10,11 +10,11 @@ class ArticleTest extends TestCase {
 
     public function testFun1(){
 //        $response = $this->call('GET', 'hello');
-
-        $env = Config::get('app.timezone');
-//echo $env;
+//
+//        $env = Config::get('app.timezone');
+//        echo $env;
 //        print_r($env);
-
+//
 //        $this->assertResponseOk();
 //        $this->assertResponseStatus(200);
 //        return $response->getContent();

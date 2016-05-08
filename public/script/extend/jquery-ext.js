@@ -1,32 +1,12 @@
 /**
- * jquery的扩展与配置,适应laravel框架的设置.
+ * jquery的扩展与配置,适应laravel框架的设置,seajs.
  * Created by Gavin on 16/2/4.
  */
-;
-+function (factory) {
+
+define(function (require, exports, module) {
     "use strict";
 
-    // CommonJS/Node.js
-    if (typeof require === "function" && typeof exports === "object" && typeof module === "object")
-    {
-        module.exports = factory;
-    }
-    else if (typeof define === "function")  // AMD/CMD/Sea.js
-    {
-        if (define.amd) // for Require.js
-        {
-            /* Require.js define replace */
-        }
-        else
-        {
-            define('jqueryExt',["jquery"], factory);  // for Sea.js
-        }
-    }
-    else
-    {
-        factory();
-    }
-}(function () {
+    var $ = require('jquery');
 
     // 设置帮助类命名空间
     $.helpers = {};
@@ -122,7 +102,8 @@
 
         $(defaults.clickEle).click(
             function(){$(defaults.scrollEle).animate({scrollTop:0},defaults.scrollSpeed);
-        });
+            });
     };
 
+    return $;
 });

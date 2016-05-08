@@ -101,7 +101,7 @@ class ArticleController extends Controller {
 	{
 		$up_data = Request::all();
 
-		Article::find($id)->fill($up_data)->save();
+		return returnData(Article::find($id)->fill($up_data)->save());
 	}
 
 	/**

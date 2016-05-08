@@ -11,5 +11,4 @@ class Article extends Model {
 //	protected $hidden = [];
 
 
-
 }

@@ -52,11 +52,11 @@
 </header>
 
 <!-- 巨幕 -->
-<div class="jumbotron jumbotron-green">
+<div class="jumbotron jumbotron-yellow">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <h1>About</h1>
+                <h1>Archive</h1>
             </div>
         </div>
     </div>
@@ -65,63 +65,34 @@
 <!-- 关于我 详细信息 -->
 <section class="container">
     <div class="row">
-        <section class="col-xs-12 col-md-8">
-            <!-- editor.md预览 start-->
-            <article class="box-shadow" id="markdown-view" >
-                <textarea style="display:none;" id="markdown-text">{{ $content_md }}</textarea>
-            </article>
-            <!-- editor.md end-->
+        <div class="col-xs-12 col-md-12">
+            {{--<article class="box-shadow archive" ></article>--}}
+            <section class="timeline">
+                <div class="timeline-body">
+                    @for ($i = 0; $i < 10; $i++)
+                        {{--@if($i%2 == 0)--}}
 
-            <!-- 多说评论框 start -->
-            <div class="ds-thread" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
-            <!-- 多说评论框 end -->
-        </section>
-        <section class="col-md-4 hidden-xs hidden-sm">
-            <div class="profile box-shadow">
-                <table>
-                    <tr>
-                        <td><img class="user-portrait img-rounded img-responsive" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像"></td>
-                        <td><span>宁愿小众,不愿平庸</span></td>
-                    </tr>
-                </table>
-                <div class="social text-center">
-                    <a class="fa fa-weibo share-icon share-icon-weibo" id="ds-reset" title="新浪微博"></a>
-                    <a class="fa fa-tencent-weibo share-icon share-icon-tweibo" id="ds-reset" title="腾讯微博"></a>
-                    <a class="fa fa-weixin share-icon share-icon-weixin" id="ds-reset" title="微信"></a>
-                    <a class="fa fa-qq share-icon share-icon-qq" id="ds-reset" title="QQ"></a>
-                    <a class="fa fa-renren share-icon share-icon-renren" id="ds-reset" title="人人"></a>
-
-                    {{--<a class="iconfont icon-douban share-icon share-icon-douban" id="ds-reset" title="豆瓣"></a>--}}
-                    {{--<a class="iconfont icon-baidu share-icon share-icon-baidu" id="ds-reset" title="百度"></a>--}}
-                    {{--<a class="iconfont icon-youdao share-icon share-icon-youdao" id="ds-reset" title="有道云笔记"></a>--}}
-
-                    <a class="fa fa-google-plus share-icon share-icon-google-plus" id="ds-reset" title="Google+"></a>
-                    <a class="fa fa-facebook share-icon share-icon-facebook" id="ds-reset" title="Facebook"></a>
-                    <a class="fa fa-twitter share-icon share-icon-twitter" id="ds-reset" title="Twitter"></a>
-                    {{--<a class="fa fa-linkedin share-icon share-icon-linkedin" id="ds-reset" title="LinkedIn"></a>--}}
+                        {{--@endif--}}
+                        <div class="timeline-date text-center"><h3 class="inline-block box-shadow">三月 2015</h3></div>
+                        <article class="timeline-box {{ $i%2 == 0 ? 'left' : 'right'}} box-shadow ">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="post-content">
+                                        <h4>标题标题标题</h4>
+                                        <p>在我的github已开源的博客项目在我的github已开源的博客项目在我的github已开源的博客项目</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">时间 分类</div>
+                            </div>
+                            <div class="row"><div class="col-md-12">标签</div></div>
+                            <div class="row"><div class="col-md-12">评论 更多</div></div>
+                        </article>
+                    @endfor
                 </div>
-            </div>
-
-            <div class="music-player box-shadow">
-                <div id="aPlayer" class="aplayer"></div>
-            </div>
-
-            <div class="popular box-shadow">
-                <p class="p-label inline-block">最热门文章</p>
-                <ul class="list-unstyled">
-                    <li><a href="www.baidu.com">EasyGoAgent — 开箱即用的GoAgent</a> - 120,314 次围观</li>
-                    <li><a href="www.baidu.com">huhamhire-hosts — Hosts文件自动配置工具</a> - 94,951 次围观</li>
-                    <li><a href="www.baidu.com">GoGo Tester—复活你的GoAgent</a> - 94,382 次围观</li>
-                    <li><a href="www.baidu.com">留言板</a> - 61,003 次围观</li>
-                    <li><a href="www.baidu.com">关于</a> - 22,999 次围观</li>
-                    <li><a href="www.baidu.com">读者墙</a> - 12,706 次围观</li>
-
-                </ul>
-            </div>
-            <div class="like-me box-shadow text-center">
-                <i class="fa fa-heart" aria-hidden="true"></i> 6666
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 </section>
 
@@ -153,7 +124,6 @@
 <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
 
 <script src="{{ asset('/script/app.js') }}" ></script>
-<script src="{{ asset('/script/frontend/about.js') }}" ></script>
 
 </body>
 </html>
