@@ -71,23 +71,30 @@ if(!function_exists('returnData')){
     /**
      * 返回数据
      *
-     * @param string $key
-     * @param $data
+     * @param string $code
+     * @param array $data
+     * @param bool $to_json
      * @return array|string
      */
-    function returnData($key = '0',$data = []){
-        if(is_bool($key)){
-            if($key) $key = '0';
-            else $key = '-1';
+    function returnData($code = true,$data = [],$to_json = false){
+        if(is_bool($code)){
+            if($code) $code = 0;
+            else $code = -1;
         }
 
-        return [
-            'code'=>$key,
-            'desc'=>config('watermelon.'.$key),
+        $data = [
+            'code'=>$code,
+            'desc'=>config('watermelon.'.$code),
             'data'=>$data,
             'timestamp'=>time(),
             'version'=>getVersion()
         ];
+
+        if($to_json){
+            return json_encode($data);
+        }else{
+            return $data;
+        }
 
     }
 }

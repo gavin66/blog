@@ -22,6 +22,8 @@ seajs.use(deps, function($,editormd,toastr) {
     seajs.use('/plug-in/editor.md-1.5.0/css/editormd.min.css');
     seajs.use('/plug-in/toastr-2.1.2/build/toastr.min.css');
 
+    var clickable = true; // 更新按钮 的可点击性
+
     var editor = editormd('editormd', {
         width: '100%',
         height: 600,
@@ -46,58 +48,43 @@ seajs.use(deps, function($,editormd,toastr) {
     });
 
     $('#save-article').on('click',function(){
-        var sent = {
+        var send = {
             title:$('#title-article').val(),
             outline:$('#outline-article').val(),
             content_md:editor.getMarkdown(),
             content_html:editor.getHTML()
         };
-
-        $.ajax({
-            url:'/backend/article',
-            method:'post',
-            data:sent,
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-
+        $.helpers.store({
+            url: '/backend/article',
+            data: send,
+            success: function(data){
+                $('#backend_article_list').trigger('click');
             }
         });
+
     });
 
     $('#update-article').on('click',function(){
-        var sent = {
-            title:$('#title-article').val(),
-            outline:$('#outline-article').val(),
-            content_md:editor.getMarkdown(),
-            content_html:editor.getHTML()
-        };
-
-        $.ajax({
-            url:'/backend/article/'+$('#title-article').attr('data-article-id'),
-            method:'put',
-            data:sent,
-            dataType:'json',
-            success:function(data){
-                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "onclick": null,
-                    "showDuration": "500",
-                    "hideDuration": "3000",
-                    "timeOut": "3000",
-                    "extendedTimeOut": "1500",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-                toastr.success('已更新');
-            }
-        });
-
+        if(clickable){
+            clickable = false;
+            var send = {
+                title:$('#title-article').val(),
+                outline:$('#outline-article').val(),
+                content_md:editor.getMarkdown(),
+                content_html:editor.getHTML()
+            };
+            $.helpers.update({
+                url:'/backend/article/'+$('#title-article').attr('data-article-id'),
+                data:send,
+                success:function(data){
+                    window.setTimeout(function(){
+                        clickable = true;
+                    },3000);
+                }
+            });
+        }else{
+            toastr.warning('请休息3秒再提交更新');
+        }
     });
 
 });

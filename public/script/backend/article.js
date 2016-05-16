@@ -4,17 +4,22 @@
 
 var deps = [
     'jqueryExt',
+    'toastr',
     'pjax',
     'bootstrap',
     'bootstrap_table',
     'bootstrap_table_locale',
+    'sweetalert',
     'seajs_css'
 ];
 
-seajs.use(deps, function() {
+seajs.use(deps, function($,toastr) {
     seajs.use('bootstrap-table-1.10.1/dist/bootstrap-table.min.css');
+    seajs.use('/plug-in/toastr-2.1.2/build/toastr.min.css');
+    seajs.use('sweetalert-1.1.3/dist/sweetalert.css');
 
-    $('#bs-table').bootstrapTable({
+    $bst_table = $('#bst-table');
+    $bst_table.bootstrapTable({
         locale:'zh_CN', // 本地语言,国际化
         classes: 'table table-no-bordered', // 表格样式,默认'table table-hover'有边框;'table-no-bordered'无边框
         undefinedText: '-', // 无数据时单元格显示的东西
@@ -34,12 +39,12 @@ seajs.use(deps, function() {
 
         showHeader:true, // 显示表头
         //showFooter:true, // 显示表页脚
-        checkboxHeader:true, // 表头显示全选checkbox
+        checkboxHeader:false, // 表头显示全选checkbox
         clickToSelect:true, // 点击一行时,checkbox或者radio被选择
         singleSelect:true, // 只允许选择一行 和checkboxHeader只允许一个生效
         selectItemName:'btSelectItem', // radio 或者 checkbox 的 name 属性的值
 
-        search:true, // 开启搜索 显示搜索框
+        search:false, // 开启搜索 显示搜索框
         searchAlign:'left', // 搜索框显示位置
         searchOnEnterKey:true, // 按下回车进行搜索,不是按下任意键都搜索
         strictSearch:false, // 严格搜索,作用不详
@@ -83,7 +88,7 @@ seajs.use(deps, function() {
         //},
 
         //toolbarAlign:'right', // 工具栏位置
-        toolbar:'#toolbar', // 指定工具栏 jquery选择器
+        toolbar:'#bst-toolbar', // 指定工具栏 jquery选择器
 
         smartDisplay:true, // 作用不详
         escape:false, // 作用不详
@@ -155,11 +160,31 @@ seajs.use(deps, function() {
             sortable: true
         },{
             field: 'created_at',
-            title: '日期',
+            title: '新增时间',
             halign:'center',
             align: 'center',
             sortable: true
             //width: '20%'
+        },{
+            field: 'updated_at',
+            title: '更新时间',
+            halign:'center',
+            align: 'center',
+            sortable: true
+            //width: '20%'
+        },{
+            field: 'operation',
+            title: '操作',
+            halign:'center',
+            align: 'center',
+            sortable: false,
+            //width: '20%'
+            formatter: function(value,row,index){ // 对数据进行格式化
+                //console.log(value);
+                //console.log(row);
+                //console.log(index);
+                return '<a data-article-id="'+row['id']+'" class="article-del">删除</a>';
+            }
         }],
         rowStyle: function(row, index) { // 行样式
             //console.log(row);
@@ -178,29 +203,64 @@ seajs.use(deps, function() {
         },
 
         responseHandler:function(res){ // 返回的数据进行处理,格式化
-            var rows = res['rows'];
+            //var rows = res['rows'];
+            //
+            //for(var i=0;i<rows.length;i++){
+            //    rows[i]['created_at'] = !rows[i]['created_at'] || rows[i]['created_at'].length <= 10 || rows[i]['created_at'].substring(0,10);
+            //    rows[i]['updated_at'] = !rows[i]['updated_at'] || rows[i]['updated_at'].length <= 10 || rows[i]['updated_at'].substring(0,10);
+            //    rows[i]['deleted_at'] = !rows[i]['deleted_at'] || rows[i]['deleted_at'].length <= 10 || rows[i]['deleted_at'].substring(0,10);
+            //}
+            //
 
-            for(var i=0;i<rows.length;i++){
-                rows[i]['created_at'] = !rows[i]['created_at'] || rows[i]['created_at'].length <= 10 || rows[i]['created_at'].substring(0,10);
-                rows[i]['updated_at'] = !rows[i]['updated_at'] || rows[i]['updated_at'].length <= 10 || rows[i]['updated_at'].substring(0,10);
-                rows[i]['deleted_at'] = !rows[i]['deleted_at'] || rows[i]['deleted_at'].length <= 10 || rows[i]['deleted_at'].substring(0,10);
-            }
+            //for(var i=0;i<rows.length;i++){
+            //    rows[i]['operation'] =
+            //}
 
-            res['rows'] = rows;
-
-            //console.log(res);
+            //res['rows'] = rows;
 
             return res;
+        },
+
+        onCheck:function(rowData, $ele){
+
         }
 
     });
 
-    $(document).pjax('a[data-pjax=true]', '#pjax-container',
-        {
-            timeout:650,
-            maxCacheLength:20
-        }
-    );
+    $('#bst-search').on('click',function(){
+        var params = {search: $('#bst-toolbar input[name=search]').val()};
+        $bst_table.bootstrapTable('refresh',{query: params});
+    });
+
+    $('#bst-table').delegate('a.article-del','click',function(){
+        var id = $(this).attr('data-article-id');
+        swal({
+            title: "你确定删除文章吗?",
+            //text: "You will not be able to recover this imaginary file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "是 , 删除它!",
+            cancelButtonText: "否 , 取消掉!",
+            //closeOnConfirm: false,
+            //closeOnCancel: false,
+            showLoaderOnConfirm: true
+        }, function(isConfirm){
+            if (isConfirm) {
+                $.helpers.destroy({
+                    url:'/backend/article/'+id,
+                    data:{},
+                    success:function(data){
+                        $bst_table.bootstrapTable('refresh');
+                    }
+                });
+
+            } else {
+                //toastr.error('取消删除 !');
+            }
+        });
+    });
+
 
 
 });

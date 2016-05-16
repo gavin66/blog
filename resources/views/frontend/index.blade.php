@@ -5,9 +5,9 @@
         <div class="row">
             <section class="col-sm-9">
                 @foreach($rows as $v)
-                    <article class="article-list-entry">
+                    <article class="article-list-entry box-shadow">
                         <header class="article-list-header">
-                            <h3 class="title">
+                            <h3 class="title font-serif">
                                 <a class="post-title-link" itemprop="url" href="/article/{{ $v['id'] }}">{{ $v['title'] }}</a>
                                 <small class="time">
                                     <i class="fa fa-calendar"></i>
@@ -20,16 +20,21 @@
                             <p><span class="invisible">空格</span>{{$v['outline']}}</p>
                         </div>
                         <div class="article-list-footer">
-                            <h4>
-                                {{--<i class="fa fa-book fa-fw"></i>--}}
-                                <span class="label label-warning">分类</span>
-                                {{--<i class="fa fa-tag fa-fw"></i>--}}
-                                <span class="label label-info">tag1</span>
-                                <span class="label label-success">tag2</span>
-                                <a class="more" href="/article/{{ $v['id'] }}">
-                                    <span class="label label-default pull-right">More >></span>
-                                </a>
-                            </h4>
+                            <div class="category inline-block">
+                                <a href="" class="tag-piece tag-piece-LightPink">程序</a>
+                                <a href="" class="tag-piece tag-piece-sauce">生活</a>
+                                <a href="" class="tag-piece tag-piece-swarthy">人生</a>
+                            </div>
+                            <div class="tag inline-block">
+                                <a href="" class="tag-piece tag-piece-conifer">Javascript</a>
+                                <a href="" class="tag-piece tag-piece-RedGold">HTML</a>
+                                <a href="" class="tag-piece tag-piece-ultramarine">Node</a>
+                                <a href="" class="tag-piece tag-piece-ink">Node</a>
+                                <a href="" class="tag-piece tag-piece-amber">Node</a>
+                            </div>
+                            <div class="more pull-right">
+                                <a class="wm-label vm-label-scale wm-label-default" href="/article/{{ $v['id'] }}">More>></a>
+                            </div>
                         </div>
                     </article>
                 @endforeach
@@ -54,9 +59,20 @@
                 </nav>
             </section>
             <section class="col-sm-3">
-                <div class="article-category">
-                    <h4>分类</h4>
+                <div class="sidebar-chunk box-shadow">
+                    <p class="sc-label inline-block">最热门文章</p>
                     <ul class="list-unstyled">
+                        <li><a href="www.baidu.com">开箱即用的GoAgent</a> - 120,314 次围观</li>
+                        <li><a href="www.baidu.com">Hosts文件自动配置工具</a> - 94,951 次围观</li>
+                        <li><a href="www.baidu.com">复活你的GoAgent</a> - 94,382 次围观</li>
+                        <li><a href="www.baidu.com">留言板</a> - 61,003 次围观</li>
+                        <li><a href="www.baidu.com">关于</a> - 22,999 次围观</li>
+                        <li><a href="www.baidu.com">读者墙</a> - 12,706 次围观</li>
+                    </ul>
+                </div>
+                <div class="sidebar-chunk article-category box-shadow">
+                    <p class="sc-label inline-block">归档</p>
+                    <ul class="list-unstyled font-serif">
                         <li><a href="">javascript</a></li>
                         <li><a href="">css</a></li>
                         <li><a href="">php</a></li>
@@ -64,9 +80,9 @@
                         <li><a href="">js</a></li>
                     </ul>
                 </div>
-                <div class="article-category">
-                    <h4>标签</h4>
-                    <ul class="list-unstyled">
+                <div class="sidebar-chunk article-category box-shadow">
+                    <p class="sc-label inline-block">分类</p>
+                    <ul class="list-unstyled font-serif">
                         <li><a href="">javascript</a></li>
                         <li><a href="">css</a></li>
                         <li><a href="">php</a></li>
@@ -74,9 +90,9 @@
                         <li><a href="">js</a></li>
                     </ul>
                 </div>
-                <div class="article-category">
-                    <h4>归档</h4>
-                    <ul class="list-unstyled">
+                <div class="sidebar-chunk article-category box-shadow">
+                    <p class="sc-label inline-block">标签</p>
+                    <ul class="list-unstyled font-serif">
                         <li><a href="">javascript</a></li>
                         <li><a href="">css</a></li>
                         <li><a href="">php</a></li>

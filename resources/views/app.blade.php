@@ -53,7 +53,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 text-center">
-                    <h1>Gavin's Blog</h1>
+                    <h1 class="font-serif">Gavin's Blog</h1>
                     <p>宁愿小众,不愿平庸</p>
                     <ul class="list-inline">
                         <li><a href="https://github.com/gavin66" target="_blank"><i class="fa fa-github"></i>Github</a></li>
@@ -92,6 +92,8 @@
     <div class="back-to-top" style="display: none;">
         <span class="fa fa-chevron-up"></span>
     </div>
+
+    <canvas id="evanyou" width="2880" height="756"></canvas>
 
     @section('beforeJS')
 

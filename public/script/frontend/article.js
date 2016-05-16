@@ -14,8 +14,8 @@ var duoshuoQuery = {short_name:"local20160327"};
 })();
 
 var deps = [
-    'editormd',
     'jqueryExt',
+    'editormd',
     'bootstrap',
     'scrollspy',
     'editor.md-1.5.0/lib/marked.min',
@@ -26,7 +26,7 @@ var deps = [
     'seajs_css'
 ];
 
-seajs.use(deps, function(editormd) {
+seajs.use(deps, function($,editormd) {
     // 异步加载css
     seajs.use('/plug-in/editor.md-1.5.0/css/editormd.min.css');
     //seajs.use('/style/app.css');

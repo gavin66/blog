@@ -1,4 +1,4 @@
-<div id="toolbar">
+<div id="bst-toolbar">
     <div class="form-inline" role="form">
         <div class="form-group">
             <span>Offset: </span>
@@ -11,10 +11,10 @@
         <div class="form-group">
             <input name="search" class="form-control" type="text" placeholder="Search">
         </div>
-        <button id="ok" type="submit" class="btn btn-default">OK</button>
+        <button id="bst-search" type="submit" class="btn btn-default">OK</button>
     </div>
 </div>
-<table id="bs-table"></table>
+<table id="bst-table"></table>
 
 <script>
     <?php echo getFileAllContents(public_path().'/script/backend/article.js'); ?>

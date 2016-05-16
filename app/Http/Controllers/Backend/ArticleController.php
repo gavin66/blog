@@ -17,26 +17,26 @@ class ArticleController extends Controller {
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
 			return response()->view('backend.article.index');
 		}else if(Request::ajax()){
-			$search = Request::input('search');
-			$sort = Request::input('sort','created_at');
-			$order = Request::input('order','desc');
-			$limit = Request::input('limit',10);
-			$offset = Request::input('offset','0');
+			$search = Request::input('search','');
+			$sort = Request::input('sort');
+			$order = Request::input('order');
+			$limit = Request::input('limit');
+			$offset = Request::input('offset');
 
 //			\DB::enableQueryLog();
-			//id,title,content_md,content_html,DATE_FORMAT(created_at,'%Y-%m-%d'),DATE_FORMAT(updated_at,'%Y-%m-%d')
-			//'id','title','content_md','content_html','DATE_FORMAT(created_at,\'%Y-%m-%d\') as created_at','DATE_FORMAT(updated_at,\'%Y-%m-%d\') as updated_at'
-//			$data = Article::select(\DB::raw('id,title,content_md,content_html,date_format(created_at,\'%Y-%m-%d\') as created_at,date_format(updated_at,\'%Y-%m-%d\') as updated_at'))->whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->skip($offset)->take($limit)->orderBy($sort,$order)->get();
-			$data = Article::whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->skip($offset)->take($limit)->orderBy($sort,$order)->get();
-			$total = Article::whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->count();
+
+			$searcher = Article::whereRaw('1=1');
+			trim($search) != '' && $searcher->whereRaw('concat(title,content_md) like \'%'.$search.'%\'');
+			$total = $searcher->count();
+			isset($offset) && isset($limit) && $searcher->skip($offset)->take($limit);
+			isset($sort) && isset($order) && $searcher->orderBy($sort,$order);
+			$data = $searcher->get();
 
 			return [
 				'total'=>$total,
 				'rows'=>$data,
 //				'log'=>\DB::connection()->getQueryLog(),
-//				'ss'=>route('backend.article.edit',[1])
 			];
-
 
 		}
 
@@ -64,7 +64,12 @@ class ArticleController extends Controller {
 	 */
 	public function store()
 	{
-        $article = Article::create(Request::all());
+		$store_data = Request::only(['title','outline','content_md','content_html']);
+
+		$article = new Article();
+		$article->fill($store_data);
+
+		return returnData($article->save(),[],true);
 	}
 
 	/**
@@ -99,9 +104,9 @@ class ArticleController extends Controller {
 	 */
 	public function update($id)
 	{
-		$up_data = Request::all();
+		$up_data = Request::only(['title','outline','content_md','content_html']);
 
-		return returnData(Article::find($id)->fill($up_data)->save());
+		return returnData(Article::find($id)->fill($up_data)->save(),[],true);
 	}
 
 	/**
@@ -112,7 +117,13 @@ class ArticleController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Article::destroy($id);
+		$count = Article::destroy($id);
+
+		if($count > 0){
+			return returnData(true,[],true);
+		}
+
+		return returnData(false,[],true);
 	}
 
 }

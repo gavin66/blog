@@ -19,18 +19,20 @@ seajs.config({
         metisMenu: 'metisMenu-2.4.0/dist/metisMenu-debug',
         pjax: 'jquery-pjax-1.9.6/jquery.pjax-debug',
         summernote: 'summernote-0.7.0/summernote.min',
-        bootstrap_table:'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
-        bootstrap_table_locale:'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug',
+        bootstrap_table: 'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
+        bootstrap_table_locale: 'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug',
 
-        APlayer:'APlayer-master/dist/APlayer.min.js', //
+        APlayer: 'APlayer-master/dist/APlayer.min.js', // 音频播放器
 
-        toastr:'toastr-2.1.2/toastr-debug', // 通知提示插件  已改造为cmd规范
+        sweetalert: 'sweetalert-1.1.3/dist/sweetalert.min.js', // 弹出框插件
+
+        toastr: 'toastr-2.1.2/toastr-debug', // 通知提示插件  已改造为cmd规范
 
         //scrollspy:'scrollspy-ex-1.0.0/dist/scrollspy-ex.min',
-        scrollspy:'scrollspy-ex-1.0.0/dev/scrollspy-ex',
+        scrollspy: 'scrollspy-ex-1.0.0/dev/scrollspy-ex',
 
         //Raphael: 'editor.md-1.5.0/lib/raphael.min',
-        underscore:'underscore-1.8.3/underscore-min',
-        lodash:'lodash-4.6.1/dist/lodash.min'
+        underscore: 'underscore-1.8.3/underscore-min',
+        lodash: 'lodash-4.6.1/dist/lodash.min'
     }
 });

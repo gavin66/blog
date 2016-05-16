@@ -113,8 +113,8 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="true">
-                        <li><a href="/backend/article" data-pjax="true">文章列表</a></li>
-                        <li><a href="/backend/article/create" data-pjax="true">写文章</a></li>
+                        <li><a id="backend_article_list" href="{{ config('watermelon.backend_article_list') }}" data-pjax="true">文章列表</a></li>
+                        <li><a id="backend_article_create" href="{{ config('watermelon.backend_article_create') }}" data-pjax="true">写文章</a></li>
                         <li><a href="#">分类</a></li>
                         <li><a href="#">标签</a></li>
                     </ul>

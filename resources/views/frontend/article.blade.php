@@ -142,6 +142,8 @@
         <span class="fa fa-chevron-up"></span>
     </div>
 
+    <canvas id="evanyou" width="2880" height="756"></canvas>
+
 
     <!-- 加载JS -->
     <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>

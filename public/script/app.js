@@ -6,7 +6,7 @@ var deps = [
     'bootstrap',
     'particlesJS'
 ];
-seajs.use(deps,function(){
+seajs.use(deps,function($){
     // 回到顶端
     $.backToTop();
 

@@ -1,5 +1,5 @@
 /**
- * jquery的扩展与配置,适应laravel框架的设置,seajs.
+ * jquery的扩展与配置,适应laravel框架,为本博客服务.
  * Created by Gavin on 16/2/4.
  */
 
@@ -8,8 +8,26 @@ define(function (require, exports, module) {
 
     var $ = require('jquery');
 
+    var toastr = require('toastr');
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "500",
+        "hideDuration": "3000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1500",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
     // 设置帮助类命名空间
     $.helpers = {};
+
 
     /**
      * 设置ajax默认参数
@@ -20,6 +38,69 @@ define(function (require, exports, module) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+
+    /**
+     * 发送ajax请求,用于本博客的新增保存操作
+     * @param accept
+     */
+    $.helpers.store = function(accept){
+        $.ajax({
+            url:accept.url,
+            method:'post',
+            data: $.isEmptyObject(accept.data) ? {} : accept.data,
+            dataType: accept.dataType ? accept.dataType : 'json',
+            success:function(data){
+                data.code === 0 && toastr.success('已新增') && $.isFunction(accept.success) && accept.success(data);
+                data.code !== 0 && toastr.error(data.desc) && $.isFunction(accept.error) && accept.error(data);
+            },
+            error:function(data){
+                console.debug(data);
+            }
+        });
+    };
+
+
+    /**
+     * 发送ajax请求,用于本博客的更新操作
+     * @param accept
+     */
+    $.helpers.update = function(accept){
+        $.ajax({
+            url:accept.url,
+            method:'put',
+            data:$.isEmptyObject(accept.data) ? {} : accept.data,
+            dataType: accept.dataType ? accept.dataType : 'json',
+            success:function(data){
+                data.code === 0 && toastr.success('已更新') && $.isFunction(accept.success) && accept.success(data);
+                data.code !== 0 && toastr.error(data.desc) && $.isFunction(accept.error) && accept.error(data);
+            },
+            error:function(data){
+                console.debug(data);
+            }
+        });
+    };
+
+    /**
+     * 发送ajax请求,用于本博客的删除操作
+     * @param accept
+     */
+    $.helpers.destroy = function(accept){
+        $.ajax({
+            url:accept.url,
+            method:'delete',
+            data:$.isEmptyObject(accept.data) ? {} : accept.data,
+            dataType: accept.dataType ? accept.dataType : 'json',
+            success:function(data){
+                data.code === 0 && toastr.success('已删除') && $.isFunction(accept.success) && accept.success(data);
+                data.code !== 0 && toastr.error(data.desc) && $.isFunction(accept.error) && accept.error(data);
+            },
+            error:function(data){
+                console.debug(data);
+            }
+        });
+    };
+
 
     /**
      * 类似于php中的in_array,一个字符串或数字是否在数组中出现
@@ -36,6 +117,7 @@ define(function (require, exports, module) {
         }
         return false;
     };
+
 
     /**
      * 获取表单的输入框值
@@ -56,6 +138,7 @@ define(function (require, exports, module) {
         }
         return params;
     };
+
 
     /**
      * 序列化一个表单,返回一个对象,类似json格式
@@ -102,7 +185,8 @@ define(function (require, exports, module) {
 
         $(defaults.clickEle).click(
             function(){$(defaults.scrollEle).animate({scrollTop:0},defaults.scrollSpeed);
-            });
+        });
+
     };
 
     return $;

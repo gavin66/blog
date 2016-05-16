@@ -19,7 +19,6 @@
 
     <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plug-in/APlayer-master/dist/APlayer.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('/style/app.css') }}" >
 
@@ -73,7 +72,7 @@
             <!-- editor.md end-->
 
             <!-- 多说评论框 start -->
-            <div class="ds-thread" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
+            <div class="ds-thread box-shadow" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
             <!-- 多说评论框 end -->
         </section>
         <section class="col-md-4 hidden-xs hidden-sm">
@@ -106,8 +105,8 @@
                 <div id="aPlayer" class="aplayer"></div>
             </div>
 
-            <div class="popular box-shadow">
-                <p class="p-label inline-block">最热门文章</p>
+            <div class="sidebar-chunk box-shadow">
+                <p class="sc-label inline-block">最热门文章</p>
                 <ul class="list-unstyled">
                     <li><a href="www.baidu.com">EasyGoAgent — 开箱即用的GoAgent</a> - 120,314 次围观</li>
                     <li><a href="www.baidu.com">huhamhire-hosts — Hosts文件自动配置工具</a> - 94,951 次围观</li>
@@ -145,6 +144,9 @@
 <div class="back-to-top" style="display: none;">
     <span class="fa fa-chevron-up"></span>
 </div>
+
+<canvas id="evanyou" width="2880" height="756"></canvas>
+
 
 <!-- 加载JS -->
 <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>

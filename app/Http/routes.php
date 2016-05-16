@@ -17,8 +17,13 @@ Route::resource('category','Backend\CategoryController');
 
 Route::get('phpinfo',function(){phpinfo();});
 
-Route::get('hello',function(){return 'hello';});
-Route::get('test',function(){return view('test');});
+Route::get('test','TestController@index');
+
+Route::get('test2',function(){
+    $v = RedisGo::get('hello');
+
+    return $v;
+});
 
 /**
  * 前台部分
