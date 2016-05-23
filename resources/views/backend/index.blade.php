@@ -16,9 +16,9 @@
 
     <title>Gavin'blog</title>
 
-    <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plug-in/animate.css-3.5.1/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/animate.css-3.5.1/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/backend/index.css') }}">
 </head>
 <body>
@@ -78,7 +78,7 @@
     <div class="jqsb-sidebar jqsb-left">
         <div class="jqsb-left-sm">
             <ul class="sm-item-list">
-                <li class="personal-icon"><a href="#"><img src="/img/test/iconfont-pic.png" alt="图标"></a></li>
+                <li class="personal-icon"><a href="#"><img src="/img/Monkey_D_Luffey.ico" alt="图标"></a></li>
                 <li><a href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="文章" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-book"></i></a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="多媒体" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-film"></i></a></li>
                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="评论" data-container=".sidebar-tooltip"><i class="glyphicon glyphicon-comment"></i></a></li>
@@ -201,8 +201,8 @@
     <!-- 侧边栏的工具提示层 -->
     <div class="sidebar-tooltip"></div>
 
-    <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>
-    <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}" ></script>
+    <script src="{{ asset('/vendor/editor.md-1.5.0/lib/raphael.min.js') }}"></script>
+    <script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}" ></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
     <script src="{{ asset('/script/backend/index.js') }}" ></script>
 

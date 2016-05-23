@@ -2,7 +2,7 @@
  * Created by Gavin on 16/2/14.
  */
 seajs.config({
-    base  : '/plug-in/',
+    base  : '/vendor/',
     charset : 'utf-8',
     paths: {
         'editormd-plugins': 'editor.md-1.5.0/plugins'

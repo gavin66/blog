@@ -19,15 +19,15 @@ var deps = [
 ];
 
 seajs.use(deps, function($,editormd,toastr) {
-    seajs.use('/plug-in/editor.md-1.5.0/css/editormd.min.css');
-    seajs.use('/plug-in/toastr-2.1.2/build/toastr.min.css');
+    seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
+    seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
 
     var clickable = true; // 更新按钮 的可点击性
 
     var editor = editormd('editormd', {
         width: '100%',
         height: 600,
-        path : '/plug-in/editor.md-1.5.0/lib/',
+        path : '/vendor/editor.md-1.5.0/lib/',
         //toolbar  : false,             // 关闭工具栏
         codeFold : true,
         searchReplace : true,

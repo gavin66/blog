@@ -110,7 +110,7 @@
 	<!-- 粒子背景 -->
 	<div id="particles-js"></div>
 
-	<script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}"></script>
+	<script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}"></script>
 	<script src="{{ asset('/script/config/seajs-config.js') }}"></script>
 	<script src="{{ asset('/script/auth/index.js') }}" ></script>
 </body>

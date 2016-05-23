@@ -17,8 +17,8 @@
 
     <title>@yield('title','Gavin\' Blog')</title>
 
-    <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
 
     <link href="{{ asset('/style/app.css') }}" rel="stylesheet">
 
@@ -99,7 +99,7 @@
 
     @show
 
-    <script src="{{ asset('/plug-in/seajs-3.0.0/dist/sea.js') }}"></script>
+    <script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}"></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}"></script>
     <script src="{{ asset('/script/app.js') }}" ></script>
 

@@ -15,7 +15,7 @@ var deps = [
 
 seajs.use(deps, function($,toastr) {
     seajs.use('bootstrap-table-1.10.1/dist/bootstrap-table.min.css');
-    seajs.use('/plug-in/toastr-2.1.2/build/toastr.min.css');
+    seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
     seajs.use('sweetalert-1.1.3/dist/sweetalert.css');
 
     $bst_table = $('#bst-table');

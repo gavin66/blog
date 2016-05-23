@@ -56,7 +56,7 @@ html, body, .jqsb-container, .jqsb-sidebar {
 
 
 /*---------------------------*\
-  metisMenu插件所需样式 ccccc
+  metisMenu插件所需样式
 \*---------------------------*/
 @at-root {
   .metismenu .arrow {
@@ -340,10 +340,7 @@ $sidebarSetting: (
     }
 
     @at-root .user-info{
-      background: url("http://www.isgavin.me/img/header-bg-img.png") no-repeat;
-      padding-left: 15px;
-      padding-top: 25px;
-      padding-bottom: 15px;
+      padding: 25px 0 15px 15px;
       @at-root .user-portrait{
         display: block;
         max-width: 40%;

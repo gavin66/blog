@@ -56,7 +56,7 @@ html, body, .jqsb-container, .jqsb-sidebar {
 }
 
 /*---------------------------*\
-  metisMenu插件所需样式 ccccc
+  metisMenu插件所需样式
 \*---------------------------*/
 .metismenu .arrow {
   float: right;
@@ -313,10 +313,7 @@ a.cancelDefault:hover {
   margin-right: 10px;
 }
 .user-info {
-  background: url("http://www.isgavin.me/img/header-bg-img.png") no-repeat;
-  padding-left: 15px;
-  padding-top: 25px;
-  padding-bottom: 15px;
+  padding: 25px 0 15px 15px;
 }
 .user-portrait {
   display: block;

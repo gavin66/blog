@@ -1,7 +1,7 @@
 /vendor
 /resources/grunt/node_modules
 ;/storage
-composer.lock
+;composer.lock
 .env
 .idea
 note.txt
