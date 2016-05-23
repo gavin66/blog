@@ -19,10 +19,8 @@
 
     <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plug-in/APlayer-master/dist/APlayer.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/app.css') }}" >
-
-    {{--<link rel="stylesheet" href="{{ asset('/plug-in/editor.md-1.5.0/css/editormd.min.css') }}" >--}}
-    {{--<link rel="stylesheet" href="{{ asset('/style/frontend/duoshuo.css') }}" >--}}
 
 </head>
 <body style="position: relative;">
@@ -41,32 +39,33 @@
             <nav class="collapse navbar-collapse" id="bs-navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ url('/') }}">首页</a></li>
-                    <li><a href="#">分类</a></li>
-                    <li><a href="#">归档</a></li>
-                    <li><a href="#">关于我</a></li>
+                    <li><a href="{{ url('/category') }}">分类</a></li>
+                    <li><a href="{{ url('/archive') }}">归档</a></li>
+                    <li><a href="{{ url('/about') }}">关于我</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- 巨幕 -->
-    <div class="jumbotron jumbotron-blue">
+    <div class="jumbotron jumbotron-DarkBlue">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-8">
-                    <h1>{{ $title }}</h1>
+                    <h1 class="font-serif">{{ $title }}</h1>
                     <p><span class="invisible">空格</span>{{ $outline }}</p>
-                    <ul class="list-inline">
-                        <li><i class="fa fa-book"></i>分类</li>
-                        <li>
-                        <i class="fa fa-tag"></i>
-                            <ul class="list-inline inline">
-                            <li>标签一</li>
-                            <li>标签二</li>
-                            <li>标签三</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div class="wm-category inline-block">
+                        <a href="" class="tag-piece tag-piece-LightPink">程序</a>
+                        <a href="" class="tag-piece tag-piece-sauce">生活</a>
+                        <a href="" class="tag-piece tag-piece-swarthy">人生</a>
+                    </div>
+                    <div class="wm-tag inline-block">
+                        <a href="" class="tag-piece tag-piece-conifer">Javascript</a>
+                        <a href="" class="tag-piece tag-piece-RedGold">HTML</a>
+                        <a href="" class="tag-piece tag-piece-ultramarine">Node</a>
+                        <a href="" class="tag-piece tag-piece-ink">Node</a>
+                        <a href="" class="tag-piece tag-piece-amber">Node</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,18 +74,18 @@
     <!-- 文章详细 -->
     <section class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-9">
+            <div class="col-xs-12 col-md-8">
                 <!-- editor.md预览 start-->
-                <div id="markdown-view">
+                <div class="box-shadow" id="markdown-view">
                     <textarea style="display:none;" id="markdown-text">{{ $content_md }}</textarea>
                 </div>
                 <!-- editor.md end-->
 
                 <!-- 多说分享 start -->
-                <div class="ds-share-custom">
+                <div class="ds-share-custom box-shadow">
                     <div class="share-to-c">
-                        <span class="line"></span>
-                        <span class="text">分享到</span>
+                        {{--<span class="line"></span>--}}
+                        <span class="text font-serif">分享到</span>
                     </div>
                     <div class="ds-share share-button-c" data-thread-key="此处请替换为当前文章的thread-key" data-title="此处请替换为分享时显示的标题" data-images="此处请替换为分享时显示的图片的链接地址" data-content="此处请替换为分享时显示的内容" data-url="此处请替换为分享时显示的链接地址">
                         <a class="fa fa-weibo share-icon share-icon-weibo" title="新浪微博" data-service="weibo"></a>
@@ -105,17 +104,42 @@
                         <a class="fa fa-linkedin share-icon share-icon-linkedin" title="LinkedIn" data-service="linkedin"></a>
                     </div>
                 </div>
-                <i class=""></i>
 
                 <!-- 多说分享 end -->
 
                 <!-- 多说评论框 start -->
-                <div class="ds-thread" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
+                <div class="ds-thread box-shadow" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
                 <!-- 多说评论框 end -->
 
             </div>
-            <div class="col-md-3 hidden-xs hidden-sm">
-                <div id="markdown-toc">#custom-toc-container</div>
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <div class="music-player box-shadow" style="margin-top: 25px;">
+                    <div id="aPlayer" class="aplayer"></div>
+                </div>
+                <div class="sidebar-chunk article-hot box-shadow">
+                    <p class="sc-label inline-block">最热文章</p>
+                    <ul class="list-unstyled font-serif">
+                        <li><a href="www.baidu.com">开箱即用的GoAgent</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;120,314 评论</span>
+                        </li>
+                        <li><a href="www.baidu.com">Hosts文件自动配置工具</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,111 评论</span>
+                        </li>
+                        <li><a href="www.baidu.com">复活你的GoAgent</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,222 评论</span>
+                        </li>
+                        <li><a href="www.baidu.com">留言板</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;880,314 评论</span>
+                        </li>
+                        <li><a href="www.baidu.com">关于</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;110,114 评论</span>
+                        </li>
+                        <li><a href="www.baidu.com">读者墙</a>
+                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;520 评论</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-shadow" id="markdown-toc">#custom-toc-container</div>
             </div>
         </div>
     </section>

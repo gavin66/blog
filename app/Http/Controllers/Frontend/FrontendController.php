@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Request;
 use Response;
+use RedisGo;
 use App\Model\Article;
 
 class FrontendController extends Controller {
@@ -50,6 +51,13 @@ class FrontendController extends Controller {
 
         return response()->view('frontend.archive',[]);
 
+    }
+
+    public function thumbsUp(){
+
+        $count = RedisGo::incr('watermelon_thumbs_up_count');
+
+        return ['count'=>$count];
     }
 
 }

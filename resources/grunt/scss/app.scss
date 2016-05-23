@@ -4,8 +4,14 @@ $base_color_gray: #F7F8F9;
 $color_gray: #808080;
 // 妃色
 $color_LightPink: #ed5736;
+// 朱膘
+$color_ZhuBiao: #f36838;
+//橙黄
+$color_orange: #ffa400;
 // 橘黄
-$color_orange: #ff8936;
+$color_tangerine: #ff8936;
+// 黄栌
+$color_cotinus: #e29c45;
 // 茶色
 $color_tawny: #b35c44;
 // 鹅黄
@@ -24,8 +30,14 @@ $base_color_cyan: #48c0a3;
 $color_ultramarine: #4c8dae;
 // 蓝色
 $color_blue: #4183c4;
+// 玄青
+$color_DeepGreen: #3d3b4f;
+// 黛蓝
+$color_DarkBlue : #425066;
 // 紫酱
 $color_sauce: #815476;
+// 檀
+$color_wingceltis: #b36d61;
 // 黧
 $color_haze: #5d513c;
 // 黝黑
@@ -93,7 +105,7 @@ a:hover{
     position: relative;
     padding: 5px 15px 5px 30px;
     left: -30px;
-    background-color: $color_orange;
+    background-color: $color_tangerine;
     color: white;
     &:after{
       content: "";
@@ -101,7 +113,7 @@ a:hover{
       top: 100%;
       left: 0;
       border-top: 0 solid transparent;
-      border-right: 15px solid darken($color_orange,30%);
+      border-right: 15px solid darken($color_tangerine,30%);
       border-bottom: 15px solid transparent;
       border-left: 0 solid transparent;
       width: 0;
@@ -131,6 +143,37 @@ a:hover{
     top: 0;
     left: -20px;
     border: 10px solid transparent;
+    border-right-color: #777;
+  }
+  &:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+.tag-piece-sm{
+  opacity: .75;
+  background-color: #777;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 6px;
+  color: #fff !important;
+  height: 14px;
+  line-height: 14px;
+  padding: 0 5px;
+  position: relative;
+  margin: 5px 0 5px 10px;
+  &:before{
+    content: " ";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: -14px;
+    border: 7px solid transparent;
     border-right-color: #777;
   }
   &:hover{
@@ -190,6 +233,44 @@ a:hover{
   }
 }
 
+// 显示标签云
+.tag-cloud{
+  a{
+    border-bottom: 1px solid #ccc;
+    &:active,&:hover{
+      border-bottom-color: #222;
+    }
+  }
+  .tag-1{
+    font-size: 12px;
+    color: #ccc;
+  }
+  .tag-2{
+    font-size: 15px;
+    color: #adadad;
+  }
+  .tag-3{
+    font-size: 18px;
+    color: #8e8e8e;
+  }
+  .tag-4{
+    font-size: 21px;
+    color: #6f6f6f;
+  }
+  .tag-5{
+    font-size: 24px;
+    color: #4f4f4f;
+  }
+  .tag-6{
+    font-size: 27px;
+    color: #303030;
+  }
+  .tag-7{
+    font-size: 30px;
+    color: #111;
+  }
+}
+
 .wm-label{
   display: inline-block;
   padding: .4em .6em;
@@ -213,6 +294,60 @@ a:hover{
   background-color: #777;
 }
 
+// 添加一个分类行块 前置有图标字体
+.wm-category{
+  &:before{
+    content: "\f02d";
+    display: inline-block;
+    float: left;
+    color: #999;
+    font: normal normal normal 20px FontAwesome;
+    margin: 6px 6px 0 0;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+.wm-category-sm{
+  &:before{
+    content: "\f02d";
+    display: inline-block;
+    float: left;
+    color: #999;
+    font: normal normal normal 14px FontAwesome;
+    margin: 5px 5px 0 0;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+// 添加一个标签行块 前置有图标字体
+.wm-tag{
+  &:before{
+    content: "\f02b";
+    display: inline-block;
+    float: left;
+    color: #999;
+    font: normal normal normal 20px FontAwesome;
+    margin: 6px 6px 0 0;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+.wm-tag-sm{
+  &:before{
+    content: "\f02b";
+    display: inline-block;
+    float: left;
+    color: #999;
+    font: normal normal normal 14px FontAwesome;
+    margin: 5px 5px 0 0;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
 
 /*------------------------------------*\
     导航栏
@@ -227,7 +362,7 @@ a:hover{
   .nav > li > a:hover,
   .nav > li > a:focus {
     text-decoration: none;
-    background-color: $color_orange;
+    background-color: $color_tangerine;
   }
   .navbar-toggle{
     border-color: $base_color_gray;
@@ -245,7 +380,7 @@ a:hover{
     -moz-box-shadow: none;
     box-shadow: none;
     .navbar-nav{
-      margin: 1px -15px;
+      margin: 0 -15px;
     }
   }
 
@@ -279,7 +414,7 @@ a:hover{
     -moz-box-shadow: none;
     box-shadow: none;
     .navbar-nav{
-      margin: 1px -15px;
+      margin: 0 -15px;
     }
   }
 
@@ -291,7 +426,7 @@ a:hover{
     幕头
 \*------------------------------------*/
 
-// 蓝色 主要用在首页的个人信息显示
+// 蓝色 首页
 .jumbotron-blue{
   background-color: $color_blue;
   border-color: $color_blue;
@@ -316,8 +451,8 @@ a:hover{
   }
 }
 
-// 紫酱  文章
-.jumbotron-purple{
+// 紫酱 分类
+.jumbotron-sauce{
   background-color: $color_sauce;
   border-color: $color_sauce;
   margin-top: -20px;
@@ -341,10 +476,10 @@ a:hover{
   }
 }
 
-// 赤金 归档
-.jumbotron-yellow{
-  background-color: $color_RedGold;
-  border-color: $color_RedGold;
+// 朱膘  归档
+.jumbotron-ZhuBiao{
+  background-color: $color_ZhuBiao;
+  border-color: $color_ZhuBiao;
   margin-top: -20px;
   margin-bottom: 0;
   color:#fff;
@@ -353,7 +488,7 @@ a:hover{
   }
   h1{
     margin-top:0;
-    text-shadow: 4px 3px 0 $color_RedGold, 9px 5px 1px rgba(0, 0, 0, 0.15);
+    text-shadow: 4px 3px 0 $color_ZhuBiao, 9px 5px 1px rgba(0, 0, 0, 0.15);
   }
   p{
     margin: 20px 0;
@@ -366,8 +501,8 @@ a:hover{
   }
 }
 
-// 松柏绿  关于
-.jumbotron-green{
+// 松柏绿  关于我
+.jumbotron-conifer{
   background-color: $color_conifer;
   border-color: $color_conifer;
   margin-top: -20px;
@@ -391,7 +526,33 @@ a:hover{
   }
 }
 
-
+// 黛蓝  文章
+.jumbotron-DarkBlue{
+  background-color: $color_DarkBlue;
+  border-color: $color_DarkBlue;
+  margin-top: -20px;
+  margin-bottom: 0;
+  color:#fff;
+  a{
+    color: #fff;
+  }
+  h1{
+    margin-top:0;
+    text-shadow: 4px 3px 0 $color_DarkBlue, 9px 5px 1px rgba(0, 0, 0, 0.15);
+  }
+  p{
+    margin: 20px 0;
+  }
+  ul{
+    margin: 30px 0 0;
+    i.fa{
+      padding-right: 5px;
+    }
+  }
+  .wm-tag{
+    margin-left: 20px;
+  }
+}
 
 
 /*------------------------------------*\
@@ -401,8 +562,6 @@ a:hover{
   margin-top: 30px;
 }
 .article-list-entry{
-  background-color: #fff;
-  border: 1px solid darken($base_color_gray,2%);
   margin: 0 0 30px 0;
   .article-list-header{
     border-left:6px solid rgba($color_gray,.1);
@@ -412,9 +571,9 @@ a:hover{
       border-color: rgba($color-YouLv,.6);
     }
     a{
-      color: rgba($color_gray,.9);
+      color: $color_gray;
       &:hover{
-        color: $color_gray;
+        color: $color_DeepGreen;
       }
     }
     .title{
@@ -438,33 +597,8 @@ a:hover{
     border-top: 1px solid darken($base_color_gray,7%);
     padding: 5px 0 10px;
     position: relative;
-    .category{
-      &:before{
-        content: "\f02d";
-        display: inline-block;
-        float: left;
-        color: #999;
-        font: normal normal normal 20px FontAwesome;
-        margin: 6px 6px 0 0;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    
-    }
-    .tag{
+    .wm-tag{
       margin-left: 20px;
-      &:before{
-        content: "\f02b";
-        display: inline-block;
-        float: left;
-        color: #999;
-        font: normal normal normal 20px FontAwesome;
-        margin: 6px 6px 0 0;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
     }
     .more{
       padding: 4px 0;
@@ -477,13 +611,14 @@ a:hover{
 /*------------------------------------*\
     侧边样式 (类别,标签,归档)
 \*------------------------------------*/
+// 分类
 .article-category{
   background-color: #fff;
   margin-bottom: 30px;
 
   li {
     line-height: 40px;
-    color: rgba($color_gray,.8);
+    color: $color_gray;
     &:before{
       @extend .font-awesome;
       //content: '\f105';
@@ -492,13 +627,36 @@ a:hover{
     a{
       &:hover{
         text-decoration: underline;
-        color: $color_gray;
+        color: $color_DeepGreen;
       }
-      color: rgba($color_gray,.8);
+      color: $color_gray;
       padding: 0 0 10px 15px;
     }
   }
-
+}
+// 标签
+.article-tag{
+  .tag-cloud{
+      line-height: 40px;
+  }
+}
+// 最热文章
+.article-hot{
+  ul > li{
+    margin: 10px 0;
+    font-size: 10px;
+    a{
+      font-size: 14px;
+      color: $color_gray;
+      &:hover{
+        text-decoration: underline;
+        color: $color_DeepGreen;
+      }
+    }
+    .comment{
+      color: $color_gray;
+    }
+  }
 }
 
 
@@ -575,7 +733,6 @@ canvas#evanyou{
   padding: 0;
   margin: 25px 0 30px;
 }
-
 .affix {
   top: 0;
 }
@@ -584,6 +741,13 @@ canvas#evanyou{
 }
 .markdown-toc{
   padding: 30px 20px ;
+
+  @media  (min-width: 970px) {
+    width: 293px;
+  }
+  @media (min-width: 1200px){
+    width:360px;
+  }
 
   ul{
     padding: 0;
@@ -674,12 +838,15 @@ canvas#evanyou{
   margin: 25px 0;
   padding: 15px;
 
-  table td{
+  .site-author td{
     &:nth-child(1){
       width: 40%;
     }
     &:nth-child(2){
       width: 60%;
+    }
+    .motto{
+      padding: 10px 15px 0;
     }
   }
 
@@ -689,18 +856,22 @@ canvas#evanyou{
 
 }
 .music-player{
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   padding: 15px;
   #aPlayer{
     margin: 0 !important;
   }
 }
-.like-me{
-  margin-bottom: 20px;
+.thumbs{
+  margin-bottom: 25px;
   padding: 15px;
   font-size: 40px;
   color: #e51c23;
+  @at-root #thumbs-up:hover{
+    cursor: pointer;
+  }
 }
+
 
 /*------------------------------------*\
     归档
@@ -753,6 +924,13 @@ canvas#evanyou{
       z-index: 1;
       padding: 15px;
       margin: 10px;
+      color: $color_gray;
+      a{
+        color: $color_gray;
+        &:hover{
+          color: $color_DeepGreen;
+        }
+      }
       &.left{
         clear:both;
         float: left;
@@ -779,8 +957,8 @@ canvas#evanyou{
       }
 
       &:before{
-        box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #65a5d9;
-        background: none repeat scroll 0 0 #65a5d9;
+        box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px $color_conifer;
+        background: none repeat scroll 0 0 $color_conifer;
         border-radius: 50%;
         content: "";
         display: block;
@@ -804,6 +982,36 @@ canvas#evanyou{
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
       }
+
+      .title{
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .description{
+        margin-bottom: 20px;
+      }
+      .time{
+        margin-bottom: 10px;
+        i{
+          margin-right: 5px;
+        }
+      }
+      .wm-category-sm .tag-piece-sm:last-child{
+        margin-right: 10px;
+      }
+      .footer{
+        margin-top: 15px;
+        .comment{
+          margin: 5px 0;
+          .fa-comments{
+            margin-right: 5px;
+          }
+        }
+        .more{
+          margin: 3px 0;
+        }
+      }
+
     }
 
   }
@@ -817,8 +1025,15 @@ canvas#evanyou{
 .category-tag-content{
   width: 80%;
   margin: 50px auto;
+
   .category-all{
     padding: 0 50px;
+    a{
+      color: $base_color_cyan;
+      &:hover{
+        color: $color_conifer;
+      }
+    }
     ul{
       line-height: 60px;
       font-size: 26px;
@@ -836,43 +1051,7 @@ canvas#evanyou{
   .tag-cloud{
     padding: 0 50px;
     line-height: 60px;
-    a{
-      border-bottom: 1px solid #ccc;
-      &:active,&:hover{
-        border-bottom-color: #222;
-      }
-    }
-    .tag-1{
-      font-size: 12px;
-      color: #ccc;
-    }
-    .tag-2{
-      font-size: 15px;
-      color: #adadad;
-    }
-    .tag-3{
-      font-size: 18px;
-      color: #8e8e8e;
-    }
-    .tag-4{
-      font-size: 21px;
-      color: #6f6f6f;
-    }
-    .tag-5{
-      font-size: 24px;
-      color: #4f4f4f;
-    }
-    .tag-6{
-      font-size: 27px;
-      color: #303030;
-    }
-    .tag-7{
-      font-size: 30px;
-      color: #111;
-    }
   }
-
-
 }
 
 

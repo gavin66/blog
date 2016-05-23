@@ -45,6 +45,9 @@ Route::group(['namespace'=>'Frontend'],function(){
     // 关于我
     Route::get('about','FrontendController@about');
 
+    // 点赞
+    Route::get('thumbsUp','FrontendController@thumbsUp');
+
 });
 
 

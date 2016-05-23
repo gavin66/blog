@@ -28,8 +28,9 @@ var deps = [
 seajs.use(deps, function(editormd) {
     // 异步加载css
     seajs.use('/plug-in/editor.md-1.5.0/css/editormd.min.css');
-    seajs.use('/plug-in/APlayer-master/dist/APlayer.min.css');
+    //seajs.use('/plug-in/APlayer-master/dist/APlayer.min.css'); // bug 不能异步加载
     seajs.use('/style/frontend/duoshuo.css');
+
 
     $(function(){
 
@@ -67,6 +68,13 @@ seajs.use(deps, function(editormd) {
             }
         });
         aPlayer.init();
+
+
+        $('#thumbs-up').on('click',function(){
+            $.get('/thumbsUp',{},function(data){
+                console.debug(data.count);
+            },'json');
+        });
 
     });
 

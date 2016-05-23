@@ -3,11 +3,12 @@
 \*------------------------------------*/
 .theme-default .ds-share-custom{
     margin-bottom: 40px;
+    padding: 20px 0;
 }
 .theme-default .share-to-c{
     text-align: center;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .theme-default .share-to-c .line{
     height: 1px;

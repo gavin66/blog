@@ -19,11 +19,8 @@
 
     <link rel="stylesheet" href="{{ asset('/plug-in/bootstrap-3.3.5/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/plug-in/font-awesome-4.5.0/css/font-awesome.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('/plug-in/APlayer-master/dist/APlayer.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/style/app.css') }}" >
-
-    {{--<link rel="stylesheet" href="{{ asset('/plug-in/editor.md-1.5.0/css/editormd.min.css') }}" >--}}
-    {{--<link rel="stylesheet" href="{{ asset('/style/frontend/duoshuo.css') }}" >--}}
 
 </head>
 <body style="position: relative;">
@@ -42,20 +39,20 @@
         <nav class="collapse navbar-collapse" id="bs-navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url('/') }}">首页</a></li>
-                <li><a href="#">分类</a></li>
-                <li><a href="#">归档</a></li>
-                <li><a href="{{ url('/about') }}">关于</a></li>
+                <li><a href="{{ url('/category') }}">分类</a></li>
+                <li><a href="{{ url('/archive') }}">归档</a></li>
+                <li><a href="{{ url('/about') }}">关于我</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <!-- 巨幕 -->
-<div class="jumbotron jumbotron-green">
+<div class="jumbotron jumbotron-conifer">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <h1>About</h1>
+                <h1 class="font-serif">About</h1>
             </div>
         </div>
     </div>
@@ -76,11 +73,17 @@
             <!-- 多说评论框 end -->
         </section>
         <section class="col-md-4 hidden-xs hidden-sm">
-            <div class="profile box-shadow">
-                <table>
+            <div class="sidebar-chunk profile box-shadow">
+                <table class="site-author">
                     <tr>
-                        <td><img class="user-portrait img-rounded img-responsive" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像"></td>
-                        <td><span>宁愿小众,不愿平庸</span></td>
+                        <td><img class="img-rounded img-responsive" src="http://7xp2cl.com1.z0.glb.clouddn.com/portrait%20200x200.jpg" alt="头像"></td>
+                        <td>
+                            <div class="text-center">
+                                <h4 class="author-name">田宇 (Gavin)</h4>
+                                {{--<p>当你的才华还撑不起你的野心时，你就应该静下心来学习。</p>--}}
+                                <p class="motto">宁愿小众,不愿平庸</p>
+                            </div>
+                        </td>
                     </tr>
                 </table>
                 <div class="social text-center">
@@ -101,23 +104,34 @@
                 </div>
             </div>
 
-            <div class="music-player box-shadow">
+            <div class="sidebar-chunk music-player box-shadow">
                 <div id="aPlayer" class="aplayer"></div>
             </div>
-
-            <div class="sidebar-chunk box-shadow">
-                <p class="sc-label inline-block">最热门文章</p>
-                <ul class="list-unstyled">
-                    <li><a href="www.baidu.com">EasyGoAgent — 开箱即用的GoAgent</a> - 120,314 次围观</li>
-                    <li><a href="www.baidu.com">huhamhire-hosts — Hosts文件自动配置工具</a> - 94,951 次围观</li>
-                    <li><a href="www.baidu.com">GoGo Tester—复活你的GoAgent</a> - 94,382 次围观</li>
-                    <li><a href="www.baidu.com">留言板</a> - 61,003 次围观</li>
-                    <li><a href="www.baidu.com">关于</a> - 22,999 次围观</li>
-                    <li><a href="www.baidu.com">读者墙</a> - 12,706 次围观</li>
+            <div class="sidebar-chunk article-hot box-shadow">
+                <p class="sc-label inline-block">最热文章</p>
+                <ul class="list-unstyled font-serif">
+                    <li><a href="www.baidu.com">开箱即用的GoAgent</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;120,314 评论</span>
+                    </li>
+                    <li><a href="www.baidu.com">Hosts文件自动配置工具</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,111 评论</span>
+                    </li>
+                    <li><a href="www.baidu.com">复活你的GoAgent</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,222 评论</span>
+                    </li>
+                    <li><a href="www.baidu.com">留言板</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;880,314 评论</span>
+                    </li>
+                    <li><a href="www.baidu.com">关于</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;110,114 评论</span>
+                    </li>
+                    <li><a href="www.baidu.com">读者墙</a>
+                        <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;520 评论</span>
+                    </li>
                 </ul>
             </div>
-            <div class="like-me box-shadow text-center">
-                <i class="fa fa-heart" aria-hidden="true"></i> 6666
+            <div class="thumbs box-shadow text-center">
+                <span id="thumbs-up" class="fa fa-thumbs-o-up" aria-hidden="true"></span> 6666
             </div>
         </section>
     </div>
@@ -146,7 +160,6 @@
 </div>
 
 <canvas id="evanyou" width="2880" height="756"></canvas>
-
 
 <!-- 加载JS -->
 <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>

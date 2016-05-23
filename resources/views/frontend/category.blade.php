@@ -43,20 +43,20 @@
         <nav class="collapse navbar-collapse" id="bs-navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url('/') }}">首页</a></li>
-                <li><a href="#">分类</a></li>
-                <li><a href="#">归档</a></li>
-                <li><a href="{{ url('/about') }}">关于</a></li>
+                <li><a href="{{ url('/category') }}">分类</a></li>
+                <li><a href="{{ url('/archive') }}">归档</a></li>
+                <li><a href="{{ url('/about') }}">关于我</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <!-- 巨幕 -->
-<div class="jumbotron jumbotron-yellow">
+<div class="jumbotron jumbotron-sauce">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <h1>Category & Tag</h1>
+                <h1 class="font-serif">Category & Tag</h1>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
                     <br>
                 </div>
                 <div class="tag-cloud text-center">
-                    <ul class="list-inline text-center">
+                    <ul class="list-inline text-center font-serif">
                         <li><a href="#" class="tag-1">php</a></li>
                         <li><a href="#" class="tag-2">redis</a></li>
                         <li><a href="#" class="tag-4">编程</a></li>

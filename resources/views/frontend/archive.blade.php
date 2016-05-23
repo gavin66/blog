@@ -43,20 +43,20 @@
         <nav class="collapse navbar-collapse" id="bs-navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url('/') }}">首页</a></li>
-                <li><a href="#">分类</a></li>
-                <li><a href="#">归档</a></li>
-                <li><a href="{{ url('/about') }}">关于</a></li>
+                <li><a href="{{ url('/category') }}">分类</a></li>
+                <li><a href="{{ url('/archive') }}">归档</a></li>
+                <li><a href="{{ url('/about') }}">关于我</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <!-- 巨幕 -->
-<div class="jumbotron jumbotron-yellow">
+<div class="jumbotron jumbotron-ZhuBiao">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <h1>Archive</h1>
+                <h1 class="font-serif">Archive</h1>
             </div>
         </div>
     </div>
@@ -66,28 +66,32 @@
 <section class="container">
     <div class="row">
         <div class="col-xs-12 col-md-12">
-            {{--<article class="box-shadow archive" ></article>--}}
             <section class="timeline">
                 <div class="timeline-body">
                     @for ($i = 0; $i < 10; $i++)
-                        {{--@if($i%2 == 0)--}}
-
-                        {{--@endif--}}
-                        <div class="timeline-date text-center"><h3 class="inline-block box-shadow">三月 2015</h3></div>
+                        <div class="timeline-date text-center"><h3 class="inline-block box-shadow font-serif">三月 2015</h3></div>
                         <article class="timeline-box {{ $i%2 == 0 ? 'left' : 'right'}} box-shadow ">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="post-content">
-                                        <h4>标题标题标题</h4>
-                                        <p>在我的github已开源的博客项目在我的github已开源的博客项目在我的github已开源的博客项目</p>
-                                    </div>
+                            <h4 class="title font-serif"><a href="cn.bing.com">基于Jquery的侧边栏插件,在我的Github已开源</a></h4>
+                            <p class="description"><span class="invisible">空格</span>在我的github已开源的博客项目</p>
+                            <div class="time"><i class="fa fa-calendar"></i>&nbsp;2016-04-11 11:00:33</div>
+                            <div class="wm-category-sm inline-block">
+                                <a href="" class="tag-piece-sm tag-piece-LightPink">程序</a>
+                                <a href="" class="tag-piece-sm tag-piece-sauce">生活</a>
+                            </div>
+                            <div class="wm-tag-sm inline-block">
+                                <a href="" class="tag-piece-sm tag-piece-conifer">Javascript</a>
+                                <a href="" class="tag-piece-sm tag-piece-RedGold">HTML</a>
+                                <a href="" class="tag-piece-sm tag-piece-ultramarine">Node</a>
+                            </div>
+                            <div class="footer">
+                                <div class="comment inline-block">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                    <a href="">1,231 评论</a>
+                                </div>
+                                <div class="more pull-right">
+                                    <a class="wm-label vm-label-scale wm-label-default" href="/article/">More>></a>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">时间 分类</div>
-                            </div>
-                            <div class="row"><div class="col-md-12">标签</div></div>
-                            <div class="row"><div class="col-md-12">评论 更多</div></div>
                         </article>
                     @endfor
                 </div>
@@ -117,6 +121,8 @@
 <div class="back-to-top" style="display: none;">
     <span class="fa fa-chevron-up"></span>
 </div>
+
+<canvas id="evanyou" width="2880" height="756"></canvas>
 
 <!-- 加载JS -->
 <script src="{{ asset('/plug-in/editor.md-1.5.0/lib/raphael.min.js') }}"></script>
