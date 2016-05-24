@@ -1528,8 +1528,7 @@
                 if (flowchartTimer === null) {
                     return this;
                 }
-                
-                previewContainer.find(".flowchart").flowChart(); 
+                previewContainer.find(".flowchart").flowChart();
             }
 
             if (settings.sequenceDiagram) {

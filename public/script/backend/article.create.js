@@ -37,13 +37,26 @@ seajs.use(deps, function($,editormd,toastr) {
         taskList : true,
         tocm : true,          // Using [TOCM]
         tex : true,                      // 开启科学公式 TeX 语言支持，默认关闭
+        //previewCodeHighlight : false,  // 关闭预览窗口的代码高亮，默认开启
         flowChart : true,                // 疑似 Sea.js与 Raphael.js 有冲突，必须先加载 Raphael.js ，Editor.md 才能在 Sea.js 下正常进行；
         sequenceDiagram : true,          // 同上
+        //dialogLockScreen : false,      // 设置弹出层对话框不锁屏，全局通用，默认为 true
+        //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为 true
+        //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为 true
+        //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为 0.1
+        //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为 #fff
         imageUpload : true,
         imageFormats : ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
         imageUploadURL : './php/upload.php',
         onload: function(){
             this.setMarkdown($('#edit-md-text').val());
+            //this.fullscreen();
+            //this.unwatch();
+            //this.watch().fullscreen();
+            //this.setMarkdown("#PHP");
+            //this.width("100%");
+            //this.height(480);
+            //this.resize("100%", 640);
         }
     });
 
