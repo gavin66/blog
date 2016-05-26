@@ -8,7 +8,8 @@
  * {@link       https://github.com/pandao/jquery.flowchart.js}
  * @updateTime  2015-02-24
  */
-;(function(factory) {
+;
++function(factory) {
     "use strict";
 
     // CommonJS/Node.js
@@ -106,4 +107,4 @@
             diagram.drawSVG(this, settings);
         });
     };
-}));
+});

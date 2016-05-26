@@ -168,7 +168,6 @@
 
     <canvas id="evanyou" width="2880" height="756"></canvas>
 
-
     <!-- 加载JS -->
     <script src="{{ asset('/vendor/editor.md-1.5.0/lib/raphael.min.js') }}"></script>
     <script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}"></script>
@@ -176,7 +175,6 @@
 
     <script src="{{ asset('/script/app.js') }}" ></script>
     <script src="{{ asset('/script/frontend/article.js') }}" ></script>
-
 
 </body>
 </html>

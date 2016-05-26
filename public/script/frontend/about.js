@@ -12,46 +12,27 @@ var duoshuoQuery = {short_name:"local20160327"};
 })();
 
 var deps = [
-    'editormd',
     'jqueryExt',
+    'editormd',
     'bootstrap',
     'scrollspy',
-    'editor.md-1.5.0/lib/marked.min',
-    'editor.md-1.5.0/lib/prettify.min',
-    'editor.md-1.5.0/lib/sequence-diagram.min',
+    'APlayer',
+    'editor.md-1.5.0/lib/underscore.min',
     'editor.md-1.5.0/lib/flowchart.min',
     'editor.md-1.5.0/lib/jquery.flowchart',
-    'APlayer',
+    'editor.md-1.5.0/lib/marked.min',
+    'editor.md-1.5.0/lib/prettify.min',
     'seajs_css'
 ];
 
-seajs.use(deps, function(editormd) {
+seajs.use(deps, function($,editormd) {
     // 异步加载css
     seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
     //seajs.use('/plug-in/APlayer-master/dist/APlayer.min.css'); // bug 不能异步加载
     seajs.use('/style/frontend/duoshuo.css');
 
-
     $(function(){
-
-        // 初始化markdown
-        var editormdView = editormd.markdownToHTML("markdown-view", {
-            markdown        : $('#markdown-text').text(),//+ "\r\n" + $("#append-test").text(),
-            //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
-            htmlDecode      : "style,script,iframe",  // you can filter tags decode
-            //toc             : false,
-            tocm            : true,    // Using [TOCM]
-            //tocContainer    : "#markdown-toc", // 自定义 ToC 容器层
-            //gfm             : false,
-            //tocDropdown     : true,
-            // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
-            emoji           : true,
-            taskList        : true,
-            tex             : true,  // 默认不解析
-            flowChart       : true,  // 默认不解析
-            sequenceDiagram : true  // 默认不解析
-        });
-
+        // h5音频播放器
         var aPlayer = new APlayer({
             element: document.getElementById('aPlayer'),
             narrow: false,
@@ -69,15 +50,33 @@ seajs.use(deps, function(editormd) {
         });
         aPlayer.init();
 
-
+        // 为我点赞
         $('#thumbs-up').on('click',function(){
             $.get('/thumbsUp',{},function(data){
                 console.debug(data.count);
             },'json');
         });
 
-    });
+        $.helpers.loadScript('/vendor/editor.md-1.5.0/lib/sequence-diagram.min.js',function(){
+            editormd.markdownToHTML("markdown-view", {
+                markdown        : $('#markdown-text').text(),//+ "\r\n" + $("#append-test").text(),
+                //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+                htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                //toc             : false,
+                tocm            : true,    // Using [TOCM]
+                //tocContainer    : "#markdown-toc", // 自定义 ToC 容器层
+                //gfm             : false,
+                //tocDropdown     : true,
+                // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+                emoji           : true,
+                taskList        : true,
+                tex             : true,  // 默认不解析
+                flowChart       : true,  // 默认不解析
+                sequenceDiagram : true  // 默认不解析
+            });
+        });
 
+    });
 
 });
 

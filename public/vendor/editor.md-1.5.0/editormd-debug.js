@@ -3913,7 +3913,7 @@
             sequenceDiagram      : false,
             previewCodeHighlight : true
         };
-        
+
         editormd.$marked  = marked;
 
         var div           = $("#" + id);

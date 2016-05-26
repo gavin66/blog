@@ -28,6 +28,9 @@ define(function (require, exports, module) {
     // 设置帮助类命名空间
     $.helpers = {};
 
+    $.helpers.isIE    = (navigator.appName == "Microsoft Internet Explorer");
+    $.helpers.isIE8   = ($.helpers.isIE && navigator.appVersion.match(/8./i) == "8.");
+
 
     /**
      * 设置ajax默认参数
@@ -186,6 +189,49 @@ define(function (require, exports, module) {
         $(defaults.clickEle).click(
             function(){$(defaults.scrollEle).animate({scrollTop:0},defaults.scrollSpeed);
         });
+
+    };
+
+    /**
+     * 异步加载js
+     * @param filePath 文件路径
+     * @param callback 回调函数
+     * @param into 放进head中或者body
+     */
+    $.helpers.loadScript = function(filePath, callback, into) {
+        into          = into     || "head";
+        callback      = callback || function() {};
+
+        var script    = null;
+        script        = document.createElement("script");
+        script.id     = filePath.replace(/[\./]+/g, "-");
+        script.type   = "text/javascript";
+        script.src    = filePath;
+
+        if ($.helpers.isIE8) {
+            script.onreadystatechange = function() {
+                if(script.readyState) {
+                    if (script.readyState === "loaded" || script.readyState === "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                }
+            };
+        } else {
+            script.onload = function() {
+                callback();
+            };
+        }
+
+        if(document.getElementById(script.id)){
+            callback();
+        } else {
+            if (into === "head") {
+                document.getElementsByTagName("head")[0].appendChild(script);
+            } else {
+                document.body.appendChild(script);
+            }
+        }
 
     };
 
