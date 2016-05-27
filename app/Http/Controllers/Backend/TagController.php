@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use App\Model\Tag;
+use Request;
 
 class TagController extends Controller {
 
@@ -14,7 +14,33 @@ class TagController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
+			return response()->view('backend.tag.index');
+		}else if(Request::ajax()){
+			$search = Request::input('search','');
+			$sort = Request::input('sort');
+			$order = Request::input('order');
+			$limit = Request::input('limit');
+			$offset = Request::input('offset');
+
+//			\DB::enableQueryLog();
+
+			$searcher = Tag::whereRaw('1=1');
+			trim($search) != '' && $searcher->whereRaw('concat(name,desc) like \'%'.$search.'%\'');
+			$total = $searcher->count();
+			isset($offset) && isset($limit) && $searcher->skip($offset)->take($limit);
+			isset($sort) && isset($order) && $searcher->orderBy($sort,$order);
+			$data = $searcher->get();
+
+			return [
+				'total'=>$total,
+				'rows'=>$data,
+//				'log'=>\DB::connection()->getQueryLog(),
+			];
+
+		}
+
+		return response('错误的列表',404);
 	}
 
 	/**

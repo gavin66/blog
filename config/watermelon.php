@@ -14,8 +14,10 @@ return [
     | 后台项的链接URL
     |--------------------------------------------------------------------------
     */
-    'backend_article_list' => '/backend/article', // 文章列表
+    'backend_article' => '/backend/article', // 文章列表
     'backend_article_create' => '/backend/article/create', // 新增文章
+    'backend_category' => '/backend/category', // 分类
+    'backend_tag' => '/backend/tag', // 标签
 
     /*
     |--------------------------------------------------------------------------

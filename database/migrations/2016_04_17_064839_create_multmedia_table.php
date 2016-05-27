@@ -14,6 +14,8 @@ class CreateMultmediaTable extends Migration {
 	{
 		Schema::create('multmedia', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
 			$table->timestamps();
 		});

@@ -72,6 +72,43 @@
         </nav>
         <div class="main" id="pjax-container">
 
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="nav-title">分类</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- 标签名 -->
+                    <input type="text" class="form-control atc-tit-ipt" id="tag-name" name="name"
+                           placeholder="标签名" value="{{ $name or '' }}" data-tag-id="{{ $id or '' }}">
+                    <!-- 标签的描述 -->
+                    <textarea class="form-control atc-tit-ipt" placeholder="标签说明" id="tag-desc" rows="3">{{ $desc or '' }}</textarea>
+                    <button type="button" class="btn btn-primary">添加新标签</button>
+                </div>
+                <div class="col-md-8">
+                    <div id="bst-toolbar">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label>Offset: </label>
+                                <input name="offset" class="form-control w70" type="number" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Limit: </label>
+                                <input name="limit" class="form-control w70" type="number" value="5">
+                            </div>
+                            <div class="form-group">
+                                <input name="search" class="form-control" type="text" placeholder="Search">
+                            </div>
+                            <button id="bst-search" type="submit" class="btn btn-default">OK</button>
+                        </form>
+                    </div>
+                    <table id="bst-table"></table>
+                </div>
+            </div>
+
+
         </div>
         <footer class="footer">©&nbsp;2014 - 2016&nbsp;&nbsp;Gavin's Blog &nbsp;</footer>
     </div>
@@ -114,10 +151,10 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="item-list" aria-expanded="true">
-                        <li><a id="backend_article_list" href="{{ config('watermelon.backend_article_list') }}" data-pjax="true">文章列表</a></li>
+                        <li><a id="backend_article" href="{{ config('watermelon.backend_article') }}" data-pjax="true">文章列表</a></li>
                         <li><a id="backend_article_create" href="{{ config('watermelon.backend_article_create') }}" data-pjax="true">写文章</a></li>
-                        <li><a href="#">分类</a></li>
-                        <li><a href="#">标签</a></li>
+                        <li><a id="backend_category" href="{{ config('watermelon.backend_category') }}" data-pjax="true">分类</a></li>
+                        <li><a id="backend_tag" href="{{ config('watermelon.backend_tag') }}" data-pjax="true">标签</a></li>
                     </ul>
                 </li>
                 <li>
@@ -206,6 +243,9 @@
     <script src="{{ asset('/vendor/seajs-3.0.0/dist/sea.js') }}" ></script>
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
     <script src="{{ asset('/script/backend/index.js') }}" ></script>
+
+    <script src="{{ asset('/script/backend/tag.js') }}" ></script>
+
 
 </body>
 </html>

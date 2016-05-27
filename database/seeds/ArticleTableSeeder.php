@@ -6,7 +6,7 @@
  * Date: 16/4/17
  * Time: 12:03
  */
-use App\Article;
+use App\Model\Article;
 use Illuminate\Database\Seeder;
 
 class ArticleTableSeeder extends Seeder{

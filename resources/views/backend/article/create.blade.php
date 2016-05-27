@@ -77,8 +77,17 @@
                         </span>
                     </div>
                     <ul class="list-group collapse in" id="tag">
-                        <li class="list-group-item">输入框,添加按钮</li>
-                        <li class="list-group-item">从标签库中选择</li>
+                        <li class="list-group-item">
+                            <div class="form-inline">
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+                                <button type="button" class="btn btn-default">添加</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            多个标签请用英文逗号（,）分开
+                            <p></p>
+                        </li>
+                        <li class="list-group-item">Java,JS,PHP,Redis,Mangodb,Mysql</li>
                     </ul>
                 </div>
             </div>

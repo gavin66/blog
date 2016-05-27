@@ -14,9 +14,11 @@ class CreateCategoriesTable extends Migration {
 	{
 		Schema::create('categories', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
-			$table->string('name')->unique();
-			$table->string('desc');
+			$table->string('name')->unique(); // 分类名
+			$table->string('desc'); // 分类描述
 			$table->timestamps();
 		});
 	}

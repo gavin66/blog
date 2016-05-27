@@ -71,7 +71,7 @@ seajs.use(deps, function($,editormd,toastr) {
             url: '/backend/article',
             data: send,
             success: function(data){
-                $('#backend_article_list').trigger('click');
+                $('#backend_article').trigger('click');
             }
         });
 

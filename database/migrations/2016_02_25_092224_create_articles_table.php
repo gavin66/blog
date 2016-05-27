@@ -12,14 +12,22 @@ class CreateArticlesTable extends Migration {
 	 */
 	public function up()
 	{
+//		Schema::table('articles',function(Blueprint $table){
+//			$table->json('category_ids')->nullable();
+//			$table->json('tag_ids')->nullable();
+//		});
 
 		Schema::create('articles', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
-			$table->string('title');
-			$table->string('outline');
-			$table->text('content_md');
-			$table->text('content_html');
+			$table->string('title'); // 文章标题
+			$table->string('outline'); // 文章简介
+			$table->text('content_md'); // 文章内容(纯文字)
+			$table->text('content_html'); // 文章内容(包含html代码)
+			$table->json('category_ids')->nullable(); // 关联的分类ID
+			$table->json('tag_ids')->nullable(); // 关联的标签ID
 			$table->softDeletes();
 			$table->timestamps();
 		});
