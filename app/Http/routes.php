@@ -24,6 +24,19 @@ Route::get('test2',function(){
 
     return $v;
 });
+Route::get('orm',function(){
+    $data = \App\Model\Article::skip(0)->take(10)->get();
+
+    dd($data);
+});
+
+Route::get('table-edit',function(){
+    Schema::table('articles', function($table)
+    {
+        $table->string('outline');
+    });
+});
+
 
 /**
  * 前台部分
@@ -59,6 +72,7 @@ Route::group(['namespace'=>'Auth'],function(){
 
     // 显示认证页
     Route::get('auth', 'AuthController@getAuth');
+    Route::get('admin', 'AuthController@getAuth');
 
     Route::group(['prefix'=>'auth'],function(){
         // 登录
@@ -102,18 +116,7 @@ Route::group(['namespace'=>'Backend','middleware'=>'auth'],function(){
 });
 
 
-Route::get('orm',function(){
-    $data = \App\Article::skip(0)->take(10)->get();
 
-    dd($data);
-});
-
-Route::get('table-edit',function(){
-    Schema::table('articles', function($table)
-    {
-        $table->string('outline');
-    });
-});
 
 
 

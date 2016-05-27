@@ -17,7 +17,6 @@ class UserTableSeeder extends Seeder{
             'email' => 'admin@admin.com',
             'password' =>'123456',
             'desc'=>'管理员'
-
         ];
 
         $register = new Registrar();
