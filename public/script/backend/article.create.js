@@ -23,6 +23,7 @@ seajs.use(deps, function($,editormd,toastr) {
     seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
 
     var clickable = true; // 更新按钮 的可点击性
+    var tag_ids = [];
 
     var editor = editormd('editormd', {
         width: '100%',
@@ -65,7 +66,8 @@ seajs.use(deps, function($,editormd,toastr) {
             title:$('#title-article').val(),
             outline:$('#outline-article').val(),
             content_md:editor.getMarkdown(),
-            content_html:editor.getHTML()
+            content_html:editor.getHTML(),
+            tag_ids:JSON.stringify(tag_ids)
         };
         $.helpers.store({
             url: '/backend/article',
@@ -98,6 +100,19 @@ seajs.use(deps, function($,editormd,toastr) {
         }else{
             toastr.warning('请休息3秒再提交更新');
         }
+    });
+
+    $('#tags button').on('click',function(){
+        var tag_id = $(this).attr('data-tag-id');
+        var index = tag_ids.indexOf(tag_id);
+        if(index === -1){
+            tag_ids.push(tag_id);
+        }else{
+            tag_ids.splice(index,1);
+        }
+
+        //console.debug(JSON.stringify(tags));
+
     });
 
 

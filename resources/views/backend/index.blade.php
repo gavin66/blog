@@ -81,11 +81,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <!-- 标签名 -->
-                    <input type="text" class="form-control atc-tit-ipt" id="tag-name" name="name"
+                    <input type="text" id="tag-name" class="form-control atc-tit-ipt"  name="name"
                            placeholder="标签名" value="{{ $name or '' }}" data-tag-id="{{ $id or '' }}">
                     <!-- 标签的描述 -->
-                    <textarea class="form-control atc-tit-ipt" placeholder="标签说明" id="tag-desc" rows="3">{{ $desc or '' }}</textarea>
-                    <button type="button" class="btn btn-primary">添加新标签</button>
+                    <textarea id="tag-desc" class="form-control atc-tit-ipt" placeholder="标签说明"  rows="3">{{ $desc or '' }}</textarea>
+                    <button type="button" id="tag-save" class="btn btn-primary">添加新标签</button>
                 </div>
                 <div class="col-md-8">
                     <div id="bst-toolbar">
@@ -244,7 +244,7 @@
     <script src="{{ asset('/script/config/seajs-config.js') }}" ></script>
     <script src="{{ asset('/script/backend/index.js') }}" ></script>
 
-    <script src="{{ asset('/script/backend/tag.js') }}" ></script>
+    {{--<script src="{{ asset('/script/backend/tag.js') }}" ></script>--}}
 
 
 </body>

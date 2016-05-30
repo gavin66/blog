@@ -3,6 +3,7 @@
 use App\Model\Article;
 use App\Http\Controllers\Controller;
 
+use App\Model\Tag;
 use Request;
 
 class ArticleController extends Controller {
@@ -51,7 +52,11 @@ class ArticleController extends Controller {
 	public function create()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return view('backend.article.create');
+			$data = [
+				'tags' => Tag::all()
+			];
+
+			return view('backend.article.create',$data);
 		}
 
 		return response('错误的页面',404);
@@ -64,7 +69,7 @@ class ArticleController extends Controller {
 	 */
 	public function store()
 	{
-		$store_data = Request::only(['title','outline','content_md','content_html']);
+		$store_data = Request::only(['title','outline','content_md','content_html','tag_ids']);
 
 		$article = new Article();
 		$article->fill($store_data);

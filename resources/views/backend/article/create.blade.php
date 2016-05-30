@@ -87,7 +87,11 @@
                             多个标签请用英文逗号（,）分开
                             <p></p>
                         </li>
-                        <li class="list-group-item">Java,JS,PHP,Redis,Mangodb,Mysql</li>
+                        <li id="tags" class="list-group-item">
+                            @foreach($tags as $tag)
+                                <button type="button" class="btn btn-default" data-tag-id="{{ $tag['id'] }}">{{ $tag['name'] }}</button>
+                            @endforeach
+                        </li>
                     </ul>
                 </div>
             </div>

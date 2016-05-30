@@ -134,6 +134,12 @@ seajs.use(deps, function($,toastr) {
             //    };
             //}
         },{
+            field: 'desc',
+            title: '描述',
+            halign:'center',
+            align: 'center',
+            sortable: true
+        },{
             field: 'created_at',
             title: '新增时间',
             halign:'center',
@@ -200,7 +206,7 @@ seajs.use(deps, function($,toastr) {
         $bst_table.bootstrapTable('refresh',{query: params});
     });
 
-    $('#bst-table').delegate('a.article-del','click',function(){
+    $bst_table.delegate('a.article-del','click',function(){
         var id = $(this).attr('data-article-id');
         swal({
             title: "你确定删除文章吗?",
@@ -225,6 +231,20 @@ seajs.use(deps, function($,toastr) {
 
             } else {
                 //toastr.error('取消删除 !');
+            }
+        });
+    });
+
+    $('#tag-save').on('click',function(){
+        var send = {
+            name:$('#tag-name').val(),
+            desc:$('#tag-desc').val(),
+        };
+        $.helpers.store({
+            url: '/backend/tag',
+            data: send,
+            success: function(data){
+                $bst_table.bootstrapTable('refresh');
             }
         });
     });

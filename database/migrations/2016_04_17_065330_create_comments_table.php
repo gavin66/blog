@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration {
 			$table->engine = 'InnoDB';
 
 			$table->increments('id');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

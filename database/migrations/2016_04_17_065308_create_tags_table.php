@@ -19,6 +19,7 @@ class CreateTagsTable extends Migration {
 			$table->increments('id');
 			$table->string('name')->unique(); // 标签名
 			$table->string('desc'); // 标签描述
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

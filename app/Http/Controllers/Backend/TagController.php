@@ -60,7 +60,12 @@ class TagController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$store_data = Request::only(['name','desc']);
+
+		$tag = new Tag();
+		$tag->fill($store_data);
+
+		return returnData($tag->save(),[],true);
 	}
 
 	/**
