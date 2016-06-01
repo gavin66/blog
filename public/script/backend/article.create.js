@@ -5,6 +5,7 @@ var deps = [
     'jqueryExt',
     'editormd',
     'toastr',
+    'tagger',
     'editormd-plugins/link-dialog/link-dialog-debug',
     'editormd-plugins/reference-link-dialog/reference-link-dialog-debug',
     'editormd-plugins/image-dialog/image-dialog-debug',
@@ -21,6 +22,7 @@ var deps = [
 seajs.use(deps, function($,editormd,toastr) {
     seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
     seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
+    seajs.use('/vendor/tagger-master/dist/tagger.min.css');
 
     var clickable = true; // 更新按钮 的可点击性
     var tag_ids = [];
@@ -102,17 +104,10 @@ seajs.use(deps, function($,editormd,toastr) {
         }
     });
 
-    $('#tags button').on('click',function(){
-        var tag_id = $(this).attr('data-tag-id');
-        var index = tag_ids.indexOf(tag_id);
-        if(index === -1){
-            tag_ids.push(tag_id);
-        }else{
-            tag_ids.splice(index,1);
-        }
-
-        //console.debug(JSON.stringify(tags));
-
+    $('#tagger').tagger({
+        color: 'random',
+        divide: true,
+        tags: []
     });
 
 

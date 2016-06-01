@@ -117,7 +117,7 @@ seajs.use(deps, function($,toastr) {
                 //console.log(value);
                 //console.log(row);
                 //console.log(index);
-                return '<a href="/backend/article/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
+                return '<a href="/backend/tag/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
             },
             //footerFormatter: function(data){ // 表页脚数据格式化
             //
@@ -157,7 +157,7 @@ seajs.use(deps, function($,toastr) {
                 //console.log(value);
                 //console.log(row);
                 //console.log(index);
-                return '<a data-article-id="'+row['id']+'" class="article-del">删除</a>';
+                return '<a data-tag-id="' + row['id'] + '" class="tag-del">删除</a>';
             }
         }],
         rowStyle: function(row, index) { // 行样式
@@ -206,10 +206,11 @@ seajs.use(deps, function($,toastr) {
         $bst_table.bootstrapTable('refresh',{query: params});
     });
 
-    $bst_table.delegate('a.article-del','click',function(){
-        var id = $(this).attr('data-article-id');
+
+    $bst_table.on('click', 'a.tag-del', function () {
+        var id = $(this).attr('data-tag-id');
         swal({
-            title: "你确定删除文章吗?",
+            title: "你确定删除标签吗?",
             //text: "You will not be able to recover this imaginary file!",
             type: "warning",
             showCancelButton: true,
@@ -222,7 +223,7 @@ seajs.use(deps, function($,toastr) {
         }, function(isConfirm){
             if (isConfirm) {
                 $.helpers.destroy({
-                    url:'/backend/article/'+id,
+                    url: '/backend/tag/' + id,
                     data:{},
                     success:function(data){
                         $bst_table.bootstrapTable('refresh');
@@ -234,11 +235,39 @@ seajs.use(deps, function($,toastr) {
             }
         });
     });
+    //$bst_table.delegate('a.tag-del','click',function(){
+    //    var id = $(this).attr('data-tag-id');
+    //    swal({
+    //        title: "你确定删除标签吗?",
+    //        //text: "You will not be able to recover this imaginary file!",
+    //        type: "warning",
+    //        showCancelButton: true,
+    //        confirmButtonColor: "#DD6B55",
+    //        confirmButtonText: "是 , 删除它!",
+    //        cancelButtonText: "否 , 取消掉!",
+    //        //closeOnConfirm: false,
+    //        //closeOnCancel: false,
+    //        showLoaderOnConfirm: true
+    //    }, function(isConfirm){
+    //        if (isConfirm) {
+    //            $.helpers.destroy({
+    //                url:'/backend/tag/'+id,
+    //                data:{},
+    //                success:function(data){
+    //                    $bst_table.bootstrapTable('refresh');
+    //                }
+    //            });
+    //
+    //        } else {
+    //            //toastr.error('取消删除 !');
+    //        }
+    //    });
+    //});
 
     $('#tag-save').on('click',function(){
         var send = {
             name:$('#tag-name').val(),
-            desc:$('#tag-desc').val(),
+            desc:$('#tag-desc').val()
         };
         $.helpers.store({
             url: '/backend/tag',

@@ -22,6 +22,8 @@ seajs.config({
         bootstrap_table: 'bootstrap-table-1.10.1/dist/bootstrap-table-debug',
         bootstrap_table_locale: 'bootstrap-table-1.10.1/dist/locale/bootstrap-table-zh-CN-debug',
 
+        tagger: 'tagger-master/dist/tagger-debug',
+
         APlayer: 'APlayer-master/dist/APlayer.min.js', // 音频播放器
         sweetalert: 'sweetalert-1.1.3/dist/sweetalert.min.js', // 弹出框插件
         toastr: 'toastr-2.1.2/toastr-debug', // 通知提示插件  已改造为cmd规范

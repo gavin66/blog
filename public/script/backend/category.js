@@ -1,6 +1,10 @@
 /**
  * Created by Gavin on 16/5/29.
  */
+/**
+ * Created by Gavin on 16/5/29.
+ */
+
 var deps = [
     'jqueryExt',
     'toastr',
@@ -57,7 +61,7 @@ seajs.use(deps, function($,toastr) {
         paginationDetailHAlign: 'left' , // 分页详细信息显示的位置
         paginationPreText: '前一个',
         paginationNextText: '后一个',
-        url:'/backend/article',
+        url: '/backend/category',
         method: 'get',
         cache: true,
         contentType: 'application/json',
@@ -98,8 +102,8 @@ seajs.use(deps, function($,toastr) {
         columns: [{
             checkbox:true
         },{
-            field: 'title',
-            title: '标题',
+            field: 'name',
+            title: '标签名',
             //titleTooltip: '标题', // 列表title
             //class:'', // 列的类名称
             halign:'center', // 表头列对齐方式
@@ -116,7 +120,7 @@ seajs.use(deps, function($,toastr) {
                 //console.log(value);
                 //console.log(row);
                 //console.log(index);
-                return '<a href="/backend/article/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
+                return '<a href="/backend/category/' + row['id'] + '/edit" data-pjax="true" class="test">' + value + '</a>';
             },
             //footerFormatter: function(data){ // 表页脚数据格式化
             //
@@ -133,40 +137,14 @@ seajs.use(deps, function($,toastr) {
             //    };
             //}
         },{
-            field: 'author',
-            title: '作者',
-            halign:'center',
-            align: 'center',
-            sortable: true
-
-        },{
-            field: 'category',
-            title: '分类目录',
-            halign:'center',
-            align: 'center',
-            sortable: true
-        },{
-            field: 'tag',
-            title: '标签',
-            halign:'center',
-            align: 'center',
-            sortable: true
-        },{
-            field: 'comment',
-            title: '评论',
+            field: 'desc',
+            title: '描述',
             halign:'center',
             align: 'center',
             sortable: true
         },{
             field: 'created_at',
             title: '新增时间',
-            halign:'center',
-            align: 'center',
-            sortable: true
-            //width: '20%'
-        },{
-            field: 'updated_at',
-            title: '更新时间',
             halign:'center',
             align: 'center',
             sortable: true
@@ -182,7 +160,7 @@ seajs.use(deps, function($,toastr) {
                 //console.log(value);
                 //console.log(row);
                 //console.log(index);
-                return '<a data-article-id="'+row['id']+'" class="article-del">删除</a>';
+                return '<a data-category-id="' + row['id'] + '" class="category-del">删除</a>';
             }
         }],
         rowStyle: function(row, index) { // 行样式
@@ -231,10 +209,11 @@ seajs.use(deps, function($,toastr) {
         $bst_table.bootstrapTable('refresh',{query: params});
     });
 
-    $('#bst-table').delegate('a.article-del','click',function(){
-        var id = $(this).attr('data-article-id');
+
+    $bst_table.on('click', 'a.category-del', function () {
+        var id = $(this).attr('data-category-id');
         swal({
-            title: "你确定删除文章吗?",
+            title: "你确定删除标签吗?",
             //text: "You will not be able to recover this imaginary file!",
             type: "warning",
             showCancelButton: true,
@@ -247,7 +226,7 @@ seajs.use(deps, function($,toastr) {
         }, function(isConfirm){
             if (isConfirm) {
                 $.helpers.destroy({
-                    url:'/backend/article/'+id,
+                    url: '/backend/category/' + id,
                     data:{},
                     success:function(data){
                         $bst_table.bootstrapTable('refresh');
@@ -260,7 +239,22 @@ seajs.use(deps, function($,toastr) {
         });
     });
 
+    $('#category-save').on('click', function () {
+        var send = {
+            name: $('#category-name').val(),
+            desc: $('#category-desc').val()
+        };
+        $.helpers.store({
+            url: '/backend/category',
+            data: send,
+            success: function (data) {
+                $bst_table.bootstrapTable('refresh');
+            }
+        });
+    });
+
 
 
 });
+
 

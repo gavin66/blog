@@ -1,9 +1,8 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 Use App\Model\Category;
-use Illuminate\Http\Request;
+use Request;
 
 class CategoryController extends Controller {
 
@@ -14,10 +13,33 @@ class CategoryController extends Controller {
 	 */
 	public function index()
 	{
-		//
-		$data = Category::all();
+		if (Request::ajax() && array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			return response()->view('backend.category');
+		} else if (Request::ajax()) {
+			$search = Request::input('search', '');
+			$sort = Request::input('sort');
+			$order = Request::input('order');
+			$limit = Request::input('limit');
+			$offset = Request::input('offset');
 
-		return $data;
+//			\DB::enableQueryLog();
+
+			$searcher = Category::whereRaw('1=1');
+			trim($search) != '' && $searcher->whereRaw('concat(name,desc) like \'%' . $search . '%\'');
+			$total = $searcher->count();
+			isset($offset) && isset($limit) && $searcher->skip($offset)->take($limit);
+			isset($sort) && isset($order) && $searcher->orderBy($sort, $order);
+			$data = $searcher->get();
+
+			return [
+				'total' => $total,
+				'rows' => $data,
+//				'log'=>\DB::connection()->getQueryLog(),
+			];
+
+		}
+
+		return response('错误的列表', 404);
 	}
 
 	/**
@@ -37,8 +59,12 @@ class CategoryController extends Controller {
 	 */
 	public function store()
 	{
-		//
-		Category::create(\Request::all());
+		$store_data = Request::only(['name', 'desc']);
+
+		$tag = new Category();
+		$tag->fill($store_data);
+
+		return returnData($tag->save(), [], true);
 	}
 
 	/**
@@ -50,7 +76,7 @@ class CategoryController extends Controller {
 	public function show($id)
 	{
 		//
-		return response()->view('frontend.article',Article::find($id));
+		return response()->view('frontend.article', Category::find($id));
 
 	}
 
@@ -84,7 +110,13 @@ class CategoryController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$count = Category::destroy($id);
+
+		if ($count > 0) {
+			return returnData(true, [], true);
+		}
+
+		return returnData(false, [], true);
 	}
 
 }

@@ -137,10 +137,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-livereload');
+  //grunt.loadNpmTasks('grunt-livereload');
 
 
   grunt.registerTask('default', ['jshint', 'clean', 'concat', 'uglify']);
 
-  grunt.registerTask('live',['livereload','watch:sass']);
+  //grunt.registerTask('live',['livereload','watch:sass']);
 };

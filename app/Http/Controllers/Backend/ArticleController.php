@@ -16,7 +16,7 @@ class ArticleController extends Controller {
 	public function index()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return response()->view('backend.article.index');
+			return response()->view('backend.article');
 		}else if(Request::ajax()){
 			$search = Request::input('search','');
 			$sort = Request::input('sort');
@@ -56,7 +56,7 @@ class ArticleController extends Controller {
 				'tags' => Tag::all()
 			];
 
-			return view('backend.article.create',$data);
+			return view('backend.article_create',$data);
 		}
 
 		return response('错误的页面',404);
@@ -98,7 +98,10 @@ class ArticleController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return response()->view('backend.article.create',Article::findOrFail($id));
+		$data['article'] = Article::find($id);
+		$data['tags'] = Tag::whereIn('id',json_decode($data['article']['tag_ids'],1))->get();
+
+		return response()->view('backend.article_create',$data);
 	}
 
 	/**
