@@ -9,11 +9,11 @@
             <div class="col-sm-12">
                 <!-- 文章标题 -->
                 <input type="text" class="form-control atc-tit-ipt" id="title-article" name="title"
-                       placeholder="标题" value="{{ $title or '' }}" data-article-id="{{ $id or '' }}">
+                       placeholder="标题" value="{{ $article['title'] or '' }}" data-article-id="{{ $article['id'] or '' }}">
                 <!-- 文章的概要 主要用在前台显示的列表上 -->
-                <textarea class="form-control atc-tit-ipt" placeholder="简述" id="outline-article" rows="3">{{ $outline or '' }}</textarea>
+                <textarea class="form-control atc-tit-ipt" placeholder="简述" id="outline-article" rows="3">{{ $article['outline'] or '' }}</textarea>
                 <!-- 修改时,editmd中的内容 -->
-                <input type="hidden"  id="edit-md-text" value="{{ $content_md or '' }}">
+                <input type="hidden"  id="edit-md-text" value="{{ $article['content_md'] or '' }}">
             </div>
         </div>
         <div class="row">
@@ -39,7 +39,7 @@
                         <li class="list-group-item">发布时间: 编辑</li>
                         <li class="list-group-item">
                             <span class="shift-trash">移至回收站</span>
-                            @if( isset($id) )
+                            @if( isset($article['id']) )
                                 <button type="button" class="btn btn-primary btn-sm pull-right" id="update-article">
                                     更新</button>
                             @else

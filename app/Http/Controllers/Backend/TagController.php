@@ -15,7 +15,7 @@ class TagController extends Controller {
 	public function index()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			return response()->view('backend.tag.index');
+			return response()->view('backend.tag');
 		}else if(Request::ajax()){
 			$search = Request::input('search','');
 			$sort = Request::input('sort');

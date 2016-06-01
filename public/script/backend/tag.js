@@ -117,7 +117,7 @@ seajs.use(deps, function($,toastr) {
                 //console.log(value);
                 //console.log(row);
                 //console.log(index);
-                return '<a href="/backend/article/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
+                return '<a href="/backend/tag/'+row['id']+'/edit" data-pjax="true" class="test">' + value + '</a>';
             },
             //footerFormatter: function(data){ // 表页脚数据格式化
             //
@@ -238,7 +238,7 @@ seajs.use(deps, function($,toastr) {
     $('#tag-save').on('click',function(){
         var send = {
             name:$('#tag-name').val(),
-            desc:$('#tag-desc').val(),
+            desc:$('#tag-desc').val()
         };
         $.helpers.store({
             url: '/backend/tag',
