@@ -235,34 +235,6 @@ seajs.use(deps, function($,toastr) {
             }
         });
     });
-    //$bst_table.delegate('a.tag-del','click',function(){
-    //    var id = $(this).attr('data-tag-id');
-    //    swal({
-    //        title: "你确定删除标签吗?",
-    //        //text: "You will not be able to recover this imaginary file!",
-    //        type: "warning",
-    //        showCancelButton: true,
-    //        confirmButtonColor: "#DD6B55",
-    //        confirmButtonText: "是 , 删除它!",
-    //        cancelButtonText: "否 , 取消掉!",
-    //        //closeOnConfirm: false,
-    //        //closeOnCancel: false,
-    //        showLoaderOnConfirm: true
-    //    }, function(isConfirm){
-    //        if (isConfirm) {
-    //            $.helpers.destroy({
-    //                url:'/backend/tag/'+id,
-    //                data:{},
-    //                success:function(data){
-    //                    $bst_table.bootstrapTable('refresh');
-    //                }
-    //            });
-    //
-    //        } else {
-    //            //toastr.error('取消删除 !');
-    //        }
-    //    });
-    //});
 
     $('#tag-save').on('click',function(){
         var send = {
