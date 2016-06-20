@@ -38,7 +38,10 @@
                         </div>
                     </article>
                 @endforeach
+
+                {{-- 分页 --}}
                 @include('tool/pagination', ['paginator' => $articles])
+
             </section>
             <section class="col-sm-3">
                 <div class="sidebar-chunk article-tag box-shadow">

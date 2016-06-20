@@ -27,7 +27,10 @@ class FrontendController extends Controller {
         isset($sort) && isset($order) && $searcher->orderBy($sort,$order);
         $articles = $searcher->paginate(10);
 
-        return Response::view('frontend.index',['articles'=>$articles]);
+        $hot = [];
+
+
+        return Response::view('frontend.index',['articles'=>$articles,'hot'=>$hot]);
     }
 
     public function article($id) {
@@ -38,7 +41,7 @@ class FrontendController extends Controller {
 
     public function about() {
 
-        return response()->view('frontend.about',Article::find(1));
+        return response()->view('frontend.about',Article::find(2));
 
     }
 
