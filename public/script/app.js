@@ -10,6 +10,15 @@ seajs.use(deps,function($){
     // 回到顶端
     $.backToTop();
 
+    $('.article-tag').on('click','a',function(e){
+        e.preventDefault();
+        window.location.href = window.location.origin + '?tags=' + $(this).text();
+    });
+    $('.article-category').on('click','a',function(e){
+        e.preventDefault();
+        window.location.href = window.location.origin + '?categories=' + $(this).text();
+    });
+
     function evanyou() {
         for (x.clearRect(0, 0, w, h), q = [{
             x: 0,
@@ -60,7 +69,7 @@ seajs.use(deps,function($){
         x.globalAlpha = .6,
         document.onclick = evanyou,
         document.ontouchstart = evanyou,
-        evanyou()
+        evanyou();
 
 
 });

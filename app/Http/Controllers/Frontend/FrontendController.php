@@ -15,18 +15,19 @@ class FrontendController extends Controller {
     }
 
     public function index() {
-        $search = Request::input('search');
+        $tags = Request::input('tags');
+        $categories = Request::input('categories');
+
         $sort = Request::input('sort','created_at');
         $order = Request::input('order','desc');
-        $limit = Request::input('limit',10);
-        $offset = Request::input('offset','0');
 
-        $data =  [
-            'total'=> Article::whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->count(),
-            'rows'=> Article::whereRaw('concat(title,content_md) like \'%'.$search.'%\'')->skip($offset)->take($limit)->orderBy($sort,$order)->get(),
-        ];
+        $searcher = Article::whereRaw('1=1');
+        trim($tags) != '' && $searcher->whereRaw('tags like \'%"'.$tags.'"%\'');
+        trim($categories) != '' && $searcher->whereRaw('categories like \'%"'.$categories.'"%\'');
+        isset($sort) && isset($order) && $searcher->orderBy($sort,$order);
+        $articles = $searcher->paginate(10);
 
-        return Response::view('frontend.index',$data);
+        return Response::view('frontend.index',['articles'=>$articles]);
     }
 
     public function article($id) {

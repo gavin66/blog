@@ -3,6 +3,7 @@
  */
 var deps = [
     'jqueryExt',
+    'lodash',
     'editormd',
     'toastr',
     'tagger',
@@ -19,13 +20,19 @@ var deps = [
     'seajs_css'
 ];
 
-seajs.use(deps, function($,editormd,toastr) {
+seajs.use(deps, function($,_,editormd,toastr) {
     seajs.use('/vendor/editor.md-1.5.0/css/editormd.min.css');
     seajs.use('/vendor/toastr-2.1.2/build/toastr.min.css');
     seajs.use('/vendor/tagger-master/dist/tagger.min.css');
 
     var clickable = true; // 更新按钮 的可点击性
-    var tag_ids = [];
+
+    $tag = $('#tag');
+    $tag_container = $('#tag-container');
+    $category = $('#category');
+    $category_container = $('#category-container');
+
+    $form = $('#article-form');
 
     var editor = editormd('editormd', {
         width: '100%',
@@ -63,17 +70,24 @@ seajs.use(deps, function($,editormd,toastr) {
         }
     });
 
+    $tag.tagger({
+        container: '#tag-container',
+        color: 'random',
+        divide: true,
+        tags: $tag_container.attr('data-tags') ? JSON.parse($tag_container.attr('data-tags')) : []
+    });
+
+    $category.tagger({
+        container: '#category-container',
+        color: 'random',
+        divide: true,
+        tags: $category_container.attr('data-categories') ? JSON.parse($category_container.attr('data-categories')) : []
+    });
+
     $('#save-article').on('click',function(){
-        var send = {
-            title:$('#title-article').val(),
-            outline:$('#outline-article').val(),
-            content_md:editor.getMarkdown(),
-            content_html:editor.getHTML(),
-            tag_ids:JSON.stringify(tag_ids)
-        };
         $.helpers.store({
             url: '/backend/article',
-            data: send,
+            data: getParams(),
             success: function(data){
                 $('#backend_article').trigger('click');
             }
@@ -84,15 +98,9 @@ seajs.use(deps, function($,editormd,toastr) {
     $('#update-article').on('click',function(){
         if(clickable){
             clickable = false;
-            var send = {
-                title:$('#title-article').val(),
-                outline:$('#outline-article').val(),
-                content_md:editor.getMarkdown(),
-                content_html:editor.getHTML()
-            };
             $.helpers.update({
-                url:'/backend/article/'+$('#title-article').attr('data-article-id'),
-                data:send,
+                url:'/backend/article/'+$form.attr('data-id'),
+                data:getParams(),
                 success:function(data){
                     window.setTimeout(function(){
                         clickable = true;
@@ -104,12 +112,25 @@ seajs.use(deps, function($,editormd,toastr) {
         }
     });
 
-    $('#tagger').tagger({
-        color: 'random',
-        divide: true,
-        tags: []
-    });
 
+    var getParams = function(){
+        var params = $form.serializeJson();
+
+        if(params['editormd-markdown-doc']){
+            params['content_md'] = params['editormd-markdown-doc'];
+            delete params['editormd-markdown-doc'];
+        }
+
+        if(params['editormd-html-code']){
+            params['content_html'] = params['editormd-html-code'];
+            delete params['editormd-html-code'];
+        }
+
+        params['tags'] = JSON.stringify($tag.tagger('getTags'));
+        params['categories'] = JSON.stringify($category.tagger('getTags'));
+
+        return params;
+    }
 
 });
 

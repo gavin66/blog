@@ -52,9 +52,10 @@ class ArticleController extends Controller {
 	public function create()
 	{
 		if(Request::ajax() && array_key_exists('HTTP_X_PJAX',$_SERVER) && $_SERVER['HTTP_X_PJAX']){
-			$data = [
-				'tags' => Tag::all()
-			];
+//			$data = [
+//				'tags' => Tag::all()
+//			];
+			$data = [];
 
 			return view('backend.article_create',$data);
 		}
@@ -69,7 +70,7 @@ class ArticleController extends Controller {
 	 */
 	public function store()
 	{
-		$store_data = Request::only(['title','outline','content_md','content_html','tag_ids']);
+		$store_data = Request::only(['title','outline','content_md','content_html','tags','categories','status']);
 
 		$article = new Article();
 		$article->fill($store_data);
@@ -99,7 +100,7 @@ class ArticleController extends Controller {
 	public function edit($id)
 	{
 		$data['article'] = Article::find($id);
-		$data['tags'] = Tag::whereIn('id',json_decode($data['article']['tag_ids'],1))->get();
+//		$data['tags'] = Tag::whereIn('id',json_decode($data['article']['tags'],1))->get();
 
 		return response()->view('backend.article_create',$data);
 	}
@@ -112,7 +113,7 @@ class ArticleController extends Controller {
 	 */
 	public function update($id)
 	{
-		$up_data = Request::only(['title','outline','content_md','content_html']);
+		$up_data = Request::only(['title','outline','content_md','content_html','tags','categories','status']);
 
 		return returnData(Article::find($id)->fill($up_data)->save(),[],true);
 	}

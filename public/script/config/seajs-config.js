@@ -32,6 +32,7 @@ seajs.config({
 
         //Raphael: 'editor.md-1.5.0/lib/raphael.min',
         underscore: 'underscore-1.8.3/underscore-min',
-        lodash: 'lodash-4.6.1/dist/lodash.min'
+        //lodash: 'lodash-4.6.1/dist/lodash.min'
+        lodash: 'lodash-4.6.1/dist/lodash'
     }
 });
