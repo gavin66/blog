@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration {
 			$table->increments('id');
 			$table->string('name')->unique(); // 分类名
 			$table->string('desc'); // 分类描述
+			$table->integer('num'); // 文章的个数
 			$table->softDeletes();
 			$table->timestamps();
 		});

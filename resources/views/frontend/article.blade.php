@@ -52,8 +52,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-8">
-                    <h1 class="font-serif">{{ $title }}</h1>
-                    <p><span class="invisible">空格</span>{{ $outline }}</p>
+                    <h1 class="font-serif">{{ $article['title'] }}</h1>
+                    <p><span class="invisible">空格</span>{{ $article['outline'] }}</p>
                     <div class="wm-category inline-block">
                         <a href="" class="tag-piece tag-piece-LightPink">程序</a>
                         <a href="" class="tag-piece tag-piece-sauce">生活</a>
@@ -77,7 +77,7 @@
             <div class="col-xs-12 col-md-8">
                 <!-- editor.md预览 start-->
                 <div class="box-shadow" id="markdown-view">
-                    <textarea style="display:none;" id="markdown-text">{{ $content_md }}</textarea>
+                    <textarea title="临时" style="display:none;" id="markdown-text">{{ $article['content_md'] }}</textarea>
                 </div>
                 <!-- editor.md end-->
 
@@ -108,7 +108,7 @@
                 <!-- 多说分享 end -->
 
                 <!-- 多说评论框 start -->
-                <div class="ds-thread box-shadow" data-thread-key="{{ $id }}" data-title="{{ $title }}" data-url="/article/{{ $id }}"></div>
+                <div class="ds-thread box-shadow" data-thread-key="{{ $article['id'] }}" data-title="{{ $article['title'] }}" data-url="/article/{{ $article['id'] }}"></div>
                 <!-- 多说评论框 end -->
 
             </div>
@@ -119,24 +119,11 @@
                 <div class="sidebar-chunk article-hot box-shadow">
                     <p class="sc-label inline-block">最热文章</p>
                     <ul class="list-unstyled font-serif">
-                        <li><a href="www.baidu.com">开箱即用的GoAgent</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;120,314 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">Hosts文件自动配置工具</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,111 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">复活你的GoAgent</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,222 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">留言板</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;880,314 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">关于</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;110,114 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">读者墙</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;520 评论</span>
-                        </li>
+                        @foreach($hotArticles as $row)
+                            <li><a href="/article/{{ $row['thread_key'] }}">{{ $row['title'] }}</a>
+                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $row['comments'] }} 评论</span>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="box-shadow" id="markdown-toc">#custom-toc-container</div>

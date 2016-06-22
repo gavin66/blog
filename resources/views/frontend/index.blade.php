@@ -107,24 +107,11 @@
                 <div class="sidebar-chunk article-hot box-shadow">
                     <p class="sc-label inline-block">最热文章</p>
                     <ul class="list-unstyled font-serif">
-                        <li><a href="www.baidu.com">开箱即用的GoAgent</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;120,314 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">Hosts文件自动配置工具</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,111 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">复活你的GoAgent</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;3,222 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">留言板</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;880,314 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">关于</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;110,114 评论</span>
-                        </li>
-                        <li><a href="www.baidu.com">读者墙</a>
-                            <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;520 评论</span>
-                        </li>
+                        @foreach($hotArticles as $row)
+                            <li><a href="/article/{{ $row['thread_key'] }}">{{ $row['title'] }}</a>
+                                <span class="comment">&nbsp;&nbsp;-&nbsp;&nbsp;{{ $row['comments'] }} 评论</span>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </section>

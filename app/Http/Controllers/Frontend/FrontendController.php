@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers\Frontend;
 
+use App\Contracts\TimedExecute;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Services\DuoShuo;
 use Request;
 use Response;
 use RedisGo;
@@ -27,15 +29,20 @@ class FrontendController extends Controller {
         isset($sort) && isset($order) && $searcher->orderBy($sort,$order);
         $articles = $searcher->paginate(10);
 
-        $hot = [];
+        $hot_articles = (new DuoShuo())->getHotArticles([],false);
+        $categories = [];
+        $tags = [];
 
-
-        return Response::view('frontend.index',['articles'=>$articles,'hot'=>$hot]);
+        return Response::view('frontend.index',['articles'=>$articles,'hotArticles'=>$hot_articles]);
     }
 
     public function article($id) {
+        $article = Article::find($id);
 
-        return response()->view('frontend.article',Article::find($id));
+        $hot_articles = (new DuoShuo())->getHotArticles([],false);
+
+
+        return response()->view('frontend.article',['article'=>$article,'hotArticles'=>$hot_articles]);
 
     }
 
@@ -62,6 +69,10 @@ class FrontendController extends Controller {
         $count = RedisGo::incr('watermelon_thumbs_up_count');
 
         return ['count'=>$count];
+    }
+
+    public function test(TimedExecute $timed){
+        echo $timed->synchronizeTag();
     }
 
 }

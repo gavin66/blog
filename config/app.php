@@ -145,6 +145,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+
+
 		\App\Providers\TestServiceProvider::class,
 
 		// 在phpstorm中laravel框架的代码提示功能
